@@ -3,10 +3,10 @@
 #   Documentation: https://wowchemy.com/docs/guide/language/
 
 # Default language
-fr:
-  languageCode: fr-fr
+en:
+  languageCode: en-us
   # Uncomment for multi-lingual sites, and move English content into `en` sub-folder.
-  contentDir: content/fr
+  #contentDir: content/en
 
 # Uncomment the lines below to configure your website in a second language.
 #zh:
