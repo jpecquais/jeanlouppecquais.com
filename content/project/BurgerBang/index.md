@@ -9,7 +9,7 @@ tags:
 external_link: ''
 
 image:
-  caption: Photo by Morgan Taltavull
+  caption: Photographie par Morgan Taltavull
   focal_point: Smart
 
 links:

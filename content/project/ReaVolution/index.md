@@ -1,6 +1,6 @@
 ---
-title: Burger Bang
-summary: Groupe de pop-rock Vantais.
+title: ReaVolution
+summary: Extension REAPER pour SPAT Revolution.
 tags:
   - Musique
 # date: '2016-04-27T00:00:00Z'
@@ -9,7 +9,7 @@ tags:
 external_link: ''
 
 image:
-  caption: Photo by Morgan Taltavull
+  caption: Infographie par FLUX:: Immersive
   focal_point: Smart
 
 links:

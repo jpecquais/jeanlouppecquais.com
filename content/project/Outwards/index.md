@@ -9,6 +9,6 @@ date: "2016-04-27T00:00:00Z"
 external_link: http://outwardsmusic.com/
 
 image:
-  caption: Photo by Morgan Taltavull
+  caption: Photographie par Morgan Taltavull
   focal_point: Smart
 ---
