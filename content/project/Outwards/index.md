@@ -1,14 +1,14 @@
 ---
-title: External Project
-summary: An example of linking directly to an external project website using `external_link`.
+title: Outwards
+summary: Groupe de rock progressif français.
 tags:
-- Demo
+- Musique
 date: "2016-04-27T00:00:00Z"
 
 # Optional external URL for project (replaces project detail page).
-external_link: https://example.org
+external_link: http://outwardsmusic.com/
 
 image:
-  caption: Photo by Toa Heftiba on Unsplash
+  caption: Photo by Morgan Taltavull
   focal_point: Smart
 ---
