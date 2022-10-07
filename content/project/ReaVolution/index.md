@@ -9,7 +9,7 @@ tags:
 external_link: ''
 
 image:
-  caption: Infographie par FLUX:: Immersive
+  caption: Infographie par FLUX Immersive
   focal_point: Smart
 
 links:
