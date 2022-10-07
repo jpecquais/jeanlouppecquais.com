@@ -9,7 +9,7 @@ tags:
 external_link: ''
 
 image:
-  caption: Photo by rawpixel on Unsplash
+  caption: Photo by Morgan Taltavull
   focal_point: Smart
 
 links:
