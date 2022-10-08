@@ -62,8 +62,8 @@ email: 'jeanlouppecquais@ik.me'
 highlight_name: true
 ---
 
-Jean-Loup Pecquais est ingénieur du son, diplômé de l'école nationale supérieure Louis-Lumière. Ses spécialités incluent le son immersif et la pédagogie des métiers du son, aussi bien dans la prise de son que dans les techniques de spatialisation sonore. Il travail pour les sociétés FLUX::, Transversal Studio, Whiti Audio Formation et d'autre.
+Jean-Loup Pecquais est ingénieur du son, diplômé de l'école nationale supérieure Louis-Lumière. Ses spécialités incluent le son immersif et la pédagogie des métiers du son, aussi bien dans la prise de son que dans les techniques de spatialisation sonore. Il travaille pour les sociétés FLUX::, Transversal Studio, Whiti Audio Formation et d'autre.
 
-Il est également guitariste et passionné de musique, jouant dans les groupes Outwards et Burger Bang. Son temps libre est occupé par divers bricolages électroniques ou lutheristiques.
+Il est également guitariste et passionné de musique, jouant dans les groupes Outwards et Burger Bang. Son temps libre est occupé par divers bricolages d'électroniques ou de lutherie.
 
 {{< icon name="download" pack="fas" >}} Télécharger son {{< staticref "uploads/demo_resume.pdf" "newtab" >}}CV{{< /staticref >}}.

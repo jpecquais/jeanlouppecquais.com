@@ -2,7 +2,7 @@
 title: SPAT Revolution
 summary: Logiciel de spatialisation sonore immersive.
 tags:
-  - Musique
+  - Formation
 # date: '2016-04-27T00:00:00Z'
 
 # Optional external URL for project (replaces project detail page).
