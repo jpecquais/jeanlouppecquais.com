@@ -22,7 +22,7 @@ content:
         position: right
         color: '#666'
         brightness: 0.7
-        media: matthew-osborn-wMRIcT86SWU-unsplash-l.jpg
+        media: albums/demo/matthew-osborn-wMRIcT86SWU-unsplash-l.jpg
         fit: cover
     - title: Lunch & Learn ☕️
       content: 'Share your knowledge with the group and explore exciting new topics together!'
@@ -31,7 +31,7 @@ content:
         position: center
         color: '#555'
         brightness: 0.7
-        media: priscilla-du-preez-K8XYGbw4Ahg-unsplash.jpg
+        media: albums/demo/priscilla-du-preez-K8XYGbw4Ahg-unsplash.jpg
         fit: cover
     - title: World-Class Semiconductor Lab
       content: 'Just opened last month!'
@@ -40,7 +40,7 @@ content:
         position: center
         color: '#333'
         brightness: 0.5
-        media: fotografierende-333oj7zFsdg-unsplash.jpg
+        media: albums/demo/fotografierende-333oj7zFsdg-unsplash.jpg
         fit: cover
       link:
         icon: graduation-cap
