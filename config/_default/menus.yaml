@@ -10,9 +10,29 @@ main:
   - name: Projets
     url: '#projects'
     weight: 20
+  - identifiter: 'formations'
+    name : 'Formations'
+    url: /
+    weight: 30
+  - name : 'Prise de son & Post-production'
+    parent : 'formations'
+    url: /
+    weight : 10
+  - name : 'SPAT Revolution'
+    parent : 'formations'
+    url: /
+    weight : 20
+  - name : 'Initiation à la 3D sonore'
+    parent : 'formations'
+    url: /
+    weight : 30
+  - name : 'Le son binaural'
+    parent : 'formations'
+    url: /
+    weight : 40
   - name: Contact
     url: '#contact'
-    weight: 30
+    weight: 40
 
 # Link to a PDF of your resume/CV from the menu.
 # To enable, copy your resume/CV to `static/uploads/resume.pdf` and uncomment the lines below.
