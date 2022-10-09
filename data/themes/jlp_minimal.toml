@@ -3,12 +3,12 @@ name = "MinimalJLP"
 
 [light]
   # Primary
-  primary = "#f16b34"
+  primary = "#cb6925"
 
   # Menu
   menu_primary = "#fff"
   menu_text = "#34495e"
-  menu_text_active = "#2962ff"
+  menu_text_active = "#cb6925"
   menu_title = "#2b2b2b"
 
   # Home sections
@@ -17,7 +17,7 @@ name = "MinimalJLP"
 
 [dark]
   # Primary
-  primary = "#f16b34"
+  primary = "#cb6925"
 
-  link = "#f16b34"
-  link_hover = "#f16b34"
+  link = "#cb6925"
+  link_hover = "#cb6925"
