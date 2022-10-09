@@ -5,7 +5,7 @@ headless: true  # This file represents a page section.
 # Put Your Section Options Here (title, background, etc.) ...
 title: Expériences
 subtitle:
-weight: 10 # The position of section on page
+weight: 55 # The position of section on page
 
 # Showcase personal skills or business features.
 # Add/remove as many `feature` blocks below as you like.
