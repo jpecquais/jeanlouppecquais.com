@@ -6,8 +6,8 @@
 # Appearance
 
 appearance:
-  theme_day: minimalJLP
-  theme_night: minimalJLP
+  theme_day: coffee
+  theme_night: coffee
   font: minimal
   font_size: L
 
