@@ -29,8 +29,6 @@ content:
       tag: '*'
     - name: Musique
       tag: Musique
-    - name: Formation
-      tag: Formation
     - name: Développement
       tag: Developpement
 
