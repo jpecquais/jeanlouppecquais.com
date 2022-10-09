@@ -11,8 +11,8 @@ weight: 55 # The position of section on page
 # Add/remove as many `feature` blocks below as you like.
 # For available icons, see: https://wowchemy.com/docs/page-builder/#icons
 feature:
-  - icon: speaker
-    icon_pack: fab
+  - icon: headphones
+    icon_pack: fas
     name: Son spatialisé
     description: 80%
   - icon: microphone
