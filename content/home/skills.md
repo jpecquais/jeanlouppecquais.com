@@ -12,12 +12,12 @@ weight: 55 # The position of section on page
 # For available icons, see: https://wowchemy.com/docs/page-builder/#icons
 feature:
   - icon: speakers
-    icon_pack: fas
+    icon_pack: fab
     name: Son spatialisé
     description: 80%
   - icon: microphone
     icon_pack: fas
-    name: Enregistrements sonores
+    name: Enregistrement et mixage
     description: 100%
   - icon: code
     icon_pack: fas
