@@ -13,7 +13,7 @@ weight: 55 # The position of section on page
 feature:
   - icon: headphones
     icon_pack: fas
-    name: Son spatialisé
+    name: Son immersif
     description: 80%
   - icon: microphone
     icon_pack: fas
