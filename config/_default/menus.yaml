@@ -7,12 +7,12 @@ main:
   - name: Accueil
     url: '#about'
     weight: 10
-  - name: Projets
-    url: '#projects'
-    weight: 20
   - identifiter: 'formations'
     name : 'Formations'
     url: '#training'
+    weight: 20
+  - name: Projets
+    url: '#projects'
     weight: 30
   - name: Contact
     url: '#contact'
