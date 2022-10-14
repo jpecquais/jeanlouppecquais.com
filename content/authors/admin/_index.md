@@ -21,14 +21,6 @@ organizations:
   - name: Transversal Studio
     url: https://transversalstudio.fr/
 
-# organizations:
-#   - name: FLUX:: Immersive
-#     url: https://www.flux.audio/
-#   - name: Whiti Audio
-#     url: https://formation.whitiaudio.fr/
-#   - name: Transversal Studio
-#     url: https://transversalstudio.fr/
-
 # Short bio (displayed in user profile at end of posts)
 bio: Formateur et ingénieur du son, spécialisé dans l'audio immersif et les techniques de studio.
 
@@ -36,7 +28,7 @@ bio: Formateur et ingénieur du son, spécialisé dans l'audio immersif et les t
 interests:
   - Son immersif
   - Prise de son et production musicale
-  - Outils de création sonore
+  - Développement de logiciels audio
 
 # Education to show in About widget
 education:
@@ -74,8 +66,8 @@ email: 'jeanlouppecquais@ik.me'
 highlight_name: true
 ---
 
-Jean-Loup Pecquais est ingénieur du son, diplômé de l'école nationale supérieure Louis-Lumière. Ses spécialités incluent le son immersif et la pédagogie des métiers du son, aussi bien dans la prise de son que dans les techniques de spatialisation sonore. Il travaille pour les sociétés FLUX::, Transversal Studio, Whiti Audio Formation et d'autre.
+Jean-Loup Pecquais est ingénieur du son, diplômé de l'école nationale supérieure Louis-Lumière. Ses spécialités incluent le son immersif et la pédagogie des métiers du son, de la prise de son aux techniques de spatialisation sonore, en passant par de la formation sur logiciel audio (REAPER, SPAT Revolution). Il travaille, entre autres, pour les sociétés FLUX::, Transversal Studio et Whiti Audio Formation.
 
 Il est également guitariste et passionné de musique, jouant dans les groupes Outwards et Burger Bang. Son temps libre est occupé par divers bricolages d'électroniques ou de lutherie.
 
-{{< icon name="download" pack="fas" >}} Télécharger son {{< staticref "uploads/demo_resume.pdf" "newtab" >}}CV{{< /staticref >}}.
+{{< icon name="download" pack="fas" >}} Télécharger mon {{< staticref "uploads/demo_resume.pdf" "newtab" >}}CV{{< /staticref >}}.
