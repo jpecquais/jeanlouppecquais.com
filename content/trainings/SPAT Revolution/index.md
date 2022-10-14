@@ -1,9 +1,9 @@
 ---
-title: Technique de prises de son & de mixage
-summary: Support pour les formations prise de son & mixage.
+title: Initiation à SPAT Revolution
+summary: Présentation d'un logiciel de spatialisation tout en un.
 tags:
-  - Prise de son
-  - Mixage
+  - Spatialisation sonore
+  - Live
   - Studio
 # date: '2016-04-27T00:00:00Z'
 
@@ -11,7 +11,7 @@ tags:
 external_link: ''
 
 image:
-  caption: photographie par Jacek Dylag
+  caption: infographie par FLUX:: Immersive
   focal_point: Smart
 
 # links:
