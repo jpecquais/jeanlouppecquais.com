@@ -11,7 +11,7 @@ tags:
 external_link: ''
 
 image:
-  caption: infographie par FLUX:: Immersive
+  caption: 'infographie par FLUX:: Immersive'
   focal_point: Smart
 
 # links:
