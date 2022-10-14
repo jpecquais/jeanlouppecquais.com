@@ -14,7 +14,7 @@ role: Ingénieur du son & formateur
 
 # Organizations/Affiliations to show in About widget
 organizations:
-  - name: FLUX:: Immersive
+  - name: "FLUX:: Immersive"
     url: https://www.flux.audio/
 # organizations:
 #   - name: FLUX:: Immersive
