@@ -2,7 +2,7 @@
 title: REAPER pour la production sonore
 summary: Présentation de la foramtion sur la station de travail audio-numérique de Cockos.
 tags:
-  - M.A.O.
+  - MAO
   - Mixage
   - Studio
 # date: '2016-04-27T00:00:00Z'
