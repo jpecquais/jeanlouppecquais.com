@@ -14,6 +14,12 @@ image:
   caption: infographie par Cockos
   focal_point: Smart
 
+links:
+  - icon: book
+    icon_pack: fas
+    name: Support de formation
+    url: /
+
 # links:
 #   - icon: house
 #     icon_pack: fas
