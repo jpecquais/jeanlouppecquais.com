@@ -1,5 +1,5 @@
 ---
-title: SPAT Revolution pour la création sonore immersive
+title: SPAT Revolution, outil de mise en scène sonore immersive
 summary: Présentation d'un logiciel de spatialisation tout en un.
 tags:
   - Spatialisation sonore
