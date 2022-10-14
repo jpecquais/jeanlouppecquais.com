@@ -12,7 +12,7 @@ main:
     weight: 20
   - identifiter: 'formations'
     name : 'Formations'
-    url: /
+    url: '#trainings'
     weight: 30
   - name : 'Prise de son & Post-production'
     parent : 'Formations'
