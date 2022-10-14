@@ -14,7 +14,7 @@ image:
   caption: photographie par Jacek Dylag
   focal_point: Smart
 
-- links:
+links:
   - icon: book
     icon_pack: fas
     name: Support de formation
