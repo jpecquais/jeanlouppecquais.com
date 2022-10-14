@@ -16,6 +16,11 @@ role: Ingénieur du son & formateur
 organizations:
   - name: "FLUX:: Immersive"
     url: https://www.flux.audio/
+  - name: Whiti Audio
+    url: https://formation.whitiaudio.fr/
+  - name: Transversal Studio
+    url: https://transversalstudio.fr/
+
 # organizations:
 #   - name: FLUX:: Immersive
 #     url: https://www.flux.audio/
