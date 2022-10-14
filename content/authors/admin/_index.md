@@ -13,13 +13,13 @@ superuser: true
 role: Ingénieur du son & formateur
 
 # Organizations/Affiliations to show in About widget
- organizations:
-   - name: FLUX:: Immersive
-     url: https://www.flux.audio/
-   - name: Whiti Audio
-     url: https://formation.whitiaudio.fr/
-   - name: Transversal Studio
-     url: https://transversalstudio.fr/
+organizations:
+  - name: FLUX:: Immersive
+    url: https://www.flux.audio/
+  - name: Whiti Audio
+    url: https://formation.whitiaudio.fr/
+  - name: Transversal Studio
+    url: https://transversalstudio.fr/
 
 # Short bio (displayed in user profile at end of posts)
 bio: Formateur et ingénieur du son, spécialisé dans l'audio immersif et les techniques de studio.
