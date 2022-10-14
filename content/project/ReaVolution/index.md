@@ -15,7 +15,7 @@ image:
 links:
   - icon: house
     icon_pack: fas
-    name: Website
+    name: Site web
     url: https://www.flux.audio/project/reavolution-for-spat-revolution/
 url_code: ''
 url_pdf: ''

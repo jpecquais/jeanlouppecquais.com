@@ -18,7 +18,7 @@ links:
   - icon: book
     icon_pack: fas
     name: Support de formation
-    url: /
+    url: https://jpecquais.github.io/doc-technique-son/
 
 # links:
 #   - icon: house

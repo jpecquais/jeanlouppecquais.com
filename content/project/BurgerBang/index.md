@@ -15,7 +15,7 @@ image:
 links:
   - icon: youtube
     icon_pack: fab
-    name: Watch
+    name: Voir
     url: https://youtube.com/playlist?list=PL5VxlMwmaE1HteIDI0E2ph0T1CZ9WVBul
 # url_code: ''
 # url_pdf: ''
