@@ -14,22 +14,6 @@ main:
     name : 'Formations'
     url: '#trainings'
     weight: 30
-  - name : 'Prise de son & Post-production'
-    parent : 'Formations'
-    url: /
-    weight : 10
-  - name : 'SPAT Revolution'
-    parent : 'Formations'
-    url: /
-    weight : 20
-  - name : 'Initiation à la 3D sonore'
-    parent : 'Formations'
-    url: /
-    weight : 30
-  - name : 'Le son binaural'
-    parent : 'Formations'
-    url: /
-    weight : 40
   - name: Contact
     url: '#contact'
     weight: 40
