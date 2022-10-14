@@ -1,6 +1,6 @@
 ---
 title: Burger Bang
-summary: Groupe de pop-rock Vantais.
+summary: Groupe de pop-rock Vannetais.
 tags:
   - Musique
 # date: '2016-04-27T00:00:00Z'

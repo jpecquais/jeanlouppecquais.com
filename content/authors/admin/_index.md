@@ -36,6 +36,9 @@ education:
     - course: Master Son
       institution: ENS Louis-Lumière
       year: 2019
+    - course: Ecole préparatoire aux écoles d'audiovisuel
+      institution: Prep'art Nîmes
+      year: 2014
 
 # Social/Academic Networking
 # For available icons, see: https://wowchemy.com/docs/getting-started/page-builder/#icons

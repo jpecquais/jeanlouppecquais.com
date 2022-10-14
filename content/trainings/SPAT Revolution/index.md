@@ -14,6 +14,12 @@ image:
   caption: 'infographie par FLUX:: Immersive'
   focal_point: Smart
 
+links:
+  - icon: home
+    icon_pack: fas
+    name: Page de la formation
+    url: /
+
 # links:
 #   - icon: house
 #     icon_pack: fas
