@@ -1,5 +1,5 @@
 ---
-title: Technique de prises de son & de mixage
+title: Techniques de prises de son & de mixage
 summary: Support pour les formations prise de son & mixage.
 tags:
   - Prise de son

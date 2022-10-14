@@ -1,9 +1,9 @@
 ---
-title: SPAT Revolution pour la création sonore immersive
-summary: Présentation d'un logiciel de spatialisation tout en un.
+title: REAPER pour la production sonore
+summary: Présentation de la foramtion sur la station de travail audio-numérique de Cockos.
 tags:
-  - Spatialisation sonore
-  - Live
+  - M.A.O.
+  - Mixage
   - Studio
 # date: '2016-04-27T00:00:00Z'
 
@@ -11,7 +11,7 @@ tags:
 external_link: ''
 
 image:
-  caption: 'infographie par FLUX:: Immersive'
+  caption: infographie par Cockos
   focal_point: Smart
 
 # links:
