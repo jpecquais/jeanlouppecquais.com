@@ -1,6 +1,6 @@
 ---
 title: REAPER pour la production sonore
-summary: Présentation de la foramtion sur la station de travail audio-numérique de Cockos.
+summary: Présentation de la formation sur la station de travail audio-numérique de Cockos.
 tags:
   - MAO
   - Mixage
