@@ -2,21 +2,23 @@
 title: Technique de prises de son & de mixage
 summary: Support pour les formations prise de son & mixage.
 tags:
-  - Developpement
+  - Prise de son
+  - Mixage
+  - Studio
 # date: '2016-04-27T00:00:00Z'
 
 # Optional external URL for project (replaces project detail page).
 external_link: ''
 
 image:
-  caption: Infographie par FLUX Immersive
+  caption: N/A
   focal_point: Smart
 
-links:
-  - icon: house
-    icon_pack: fas
-    name: Website
-    url: https://www.flux.audio/project/reavolution-for-spat-revolution/
+# links:
+#   - icon: house
+#     icon_pack: fas
+#     name: Website
+#     url: https://www.flux.audio/project/reavolution-for-spat-revolution/
 url_code: ''
 url_pdf: ''
 url_slides: ''

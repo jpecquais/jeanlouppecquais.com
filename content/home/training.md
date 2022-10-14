@@ -14,7 +14,7 @@ content:
   filters:
     # The folders to display content from
     folders:
-      - training
+      - trainings
     tag: ''
     category: ''
     publication_type: ''
@@ -33,8 +33,8 @@ content:
   sort_ascending: false
 design:
   # Choose a listing view
-  view: compact
+  view: list
   # Choose how many columns the section has. Valid values: '1' or '2'.
-  columns: '1'
+  columns: '2'
 ---
 
