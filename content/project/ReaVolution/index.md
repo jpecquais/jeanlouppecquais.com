@@ -14,7 +14,7 @@ image:
 
 links:
   - icon: house
-    icon_pack: fab
+    icon_pack: fas
     name: Website
     url: https://www.flux.audio/project/reavolution-for-spat-revolution/
 url_code: ''
@@ -30,11 +30,11 @@ url_video: ''
 # slides: example
 ---
 
-ReaVolution est une extension développée en lua, pour le logiciel [REAPER](reaper.fm).
+ReaVolution est une extension développée en lua, pour le logiciel [REAPER](https://reaper.fm).
 
-L'initiative est naît de deux nécessité :
+L'initiative est naît de deux nécessités :
 
 + Proposer une solution de lecteur/enregistreur audio simple et ergonomique associé au logiciel SPAT Revolution
 + Permettre à deux utilisateurs d'autres logiciels de son de migrer simplement sur REAPER
 
-Ce projet, open-source, a été intégralement financer et endorser par [FLUX:: Immersive](flux.audio). Il est téléchargeable via le [FLUX:: Center](flux.audio/download). Le code source est accessible dans ce [dépôt github](https://github.com/FLUX-SE/ReaVolution).
+Ce projet, open source, a été intégralement financé et endossé par [FLUX:: Immersive](https://flux.audio). Il est téléchargeable sur le [FLUX:: Center](https://flux.audio/download). Le code source est accessible dans ce [dépôt github](https://github.com/FLUX-SE/ReaVolution).

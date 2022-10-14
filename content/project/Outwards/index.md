@@ -16,8 +16,8 @@ image:
 
 links:
   - icon: house
-    icon_pack: fab
+    icon_pack: fas
     name: Website
-    url: outwardsmusic.com
+    url: https://outwardsmusic.com
 
 ---
