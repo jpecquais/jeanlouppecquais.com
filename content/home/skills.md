@@ -3,7 +3,7 @@ widget: featurette # As of v5.8-dev, 'featurette' is renamed 'features'
 headless: true  # This file represents a page section.
 
 # Put Your Section Options Here (title, background, etc.) ...
-title: Expériences
+title: Compétence
 subtitle:
 weight: 55 # The position of section on page
 

@@ -9,18 +9,18 @@ tags:
 external_link: ''
 
 image:
-  caption: Photographie par Morgan Taltavull
+  caption: Image par Morgan Taltavull
   focal_point: Smart
 
 links:
-  - icon: twitter
+  - icon: youtube
     icon_pack: fab
-    name: Follow
-    url: https://twitter.com/georgecushen
-url_code: ''
-url_pdf: ''
-url_slides: ''
-url_video: ''
+    name: Watch
+    url: https://youtube.com/playlist?list=PL5VxlMwmaE1HteIDI0E2ph0T1CZ9WVBul
+# url_code: ''
+# url_pdf: ''
+# url_slides: ''
+# url_video: ''
 
 # Slides (optional).
 #   Associate this project with Markdown slides.
@@ -30,4 +30,10 @@ url_video: ''
 # slides: example
 ---
 
-Le Burger Bang est un projet musical nait à Vannes, au Transversal Studio. Quelques fois par ans, les musiciens se retrouvent une journée en studio, sans plan, sans idée de ce qu'ils vont jouer. Au cours de la journée, le morceau doit être composé, arrangé et enregistré. Cette urgence permet une efficacité certaine dans les morceaux crées, plus focalisé sur la musique que sur le talent de chacun des membres. Le noyau dur du projet compte Morgan Taltavull à la basse, Nicolas Bondi au chant, Ludovic Diaz à la batterie et Thomas Taylor et Jean-Loup Pecquais aux guitares.
+Le Burger Bang est un projet musical, naît à Vannes, au Transversal Studio.
+
+Quelques fois par ans, les musiciens se retrouvent une journée en studio, sans plan, sans idée de ce qu’ils vont jouer. Au cours de la journée, le morceau doit être composé, arrangé et enregistré. Cette urgence infuse une efficacité certaine dans les morceaux créés, devenant alors plus focalisés sur la musicalité que sur la démonstration du talent individuel de chacun des membres.
+
+Le noyau dur du projet compte Morgan Taltavull à la basse, Nicolas Bondi au chant, Ludovic Diaz à la batterie et Thomas Taylor et Jean-Loup Pecquais aux guitares.
+
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/ICHYJCn7Cd0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

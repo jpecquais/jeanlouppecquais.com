@@ -13,10 +13,10 @@ image:
   focal_point: Smart
 
 links:
-  - icon: twitter
+  - icon: house
     icon_pack: fab
-    name: Follow
-    url: https://twitter.com/georgecushen
+    name: Website
+    url: https://www.flux.audio/project/reavolution-for-spat-revolution/
 url_code: ''
 url_pdf: ''
 url_slides: ''
@@ -30,4 +30,11 @@ url_video: ''
 # slides: example
 ---
 
-Le Burger Bang est un projet musical nait à Vannes, au Transversal Studio. Quelques fois par ans, les musiciens se retrouvent une journée en studio, sans plan, sans idée de ce qu'ils vont jouer. Au cours de la journée, le morceau doit être composé, arrangé et enregistré. Cette urgence permet une efficacité certaine dans les morceaux crées, plus focalisé sur la musique que sur le talent de chacun des membres. Le noyau dur du projet compte Morgan Taltavull à la basse, Nicolas Bondi au chant, Ludovic Diaz à la batterie et Thomas Taylor et Jean-Loup Pecquais aux guitares.
+ReaVolution est une extension développée en lua, pour le logiciel [REAPER](reaper.fm).
+
+L'initiative est naît de deux nécessité :
+
++ Proposer une solution de lecteur/enregistreur audio simple et ergonomique associé au logiciel SPAT Revolution
++ Permettre à deux utilisateurs d'autres logiciels de son de migrer simplement sur REAPER
+
+Ce projet, open-source, a été intégralement financer et endorser par [FLUX:: Immersive](flux.audio). Il est téléchargeable via le [FLUX:: Center](flux.audio/download). Le code source est accessible dans ce [dépôt github](https://github.com/FLUX-SE/ReaVolution).

@@ -18,7 +18,7 @@ role: Ingénieur du son & formateur
 #     url: https://www.stanford.edu/
 
 # Short bio (displayed in user profile at end of posts)
-bio: My research interests include distributed robotics, mobile computing and programmable matter.
+bio: Formateur et ingénieur du son, spécialisé dans l'audio immersif et les techniques de studio.
 
 # Interests to show in About widget
 interests:
