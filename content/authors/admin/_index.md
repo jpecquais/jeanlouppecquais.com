@@ -62,7 +62,7 @@ social:
 # and uncomment the lines below.
 # - icon: cv
 #   icon_pack: ai
-#   link: uploads/resume.pdf
+#   link: https://github.com/jpecquais/cv-latex/suites/12279792162/artifacts/650429428
 
 # Enter email to display Gravatar (if Gravatar enabled in Config)
 email: 'jeanlouppecquais@ik.me'
@@ -75,4 +75,4 @@ Jean-Loup Pecquais est ingénieur du son, diplômé de l'école nationale supér
 
 Il est également guitariste et passionné de musique, jouant dans les groupes Outwards et Burger Bang. Son temps libre est occupé par sa famille ainsi que par divers bricolages, en électroniques ou en lutherie.
 
-{{< icon name="download" pack="fas" >}} Télécharger mon {{< staticref "uploads/demo_resume.pdf" "newtab" >}}CV{{< /staticref >}}.
+{{< icon name="download" pack="fas" >}} Télécharger mon {{< staticref "https://github.com/jpecquais/cv-latex/releases/download/latest/cv.pdf" "newtab" >}}CV{{< /staticref >}}.

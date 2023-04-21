@@ -7,16 +7,48 @@ main:
   - name: Accueil
     url: '#about'
     weight: 10
-  - identifiter: 'formations'
-    name : 'Formations'
-    url: '#training'
+  - name : 'Formations'
+    identifier: formation
+    # url: '#training'
     weight: 20
-  - name: Projets
-    url: '#projects'
+  - name: '🎙️ Prise de son et mixage'
+    url: trainings/pds-mix
+    parent: formation
+    weight: 10
+  - name: '🔈 initiation 3D Sonore'
+    # url: 
+    parent: formation
+    weight: 20
+  - name: '🎧 Binaural'
+    url: trainings/spat-revo
+    parent: formation
     weight: 30
+  - name: '🎛️ SPAT Revolution'
+    url: trainings/spat-revo
+    parent: formation
+    weight: 30
+  - name: '🎚️ REAPER'
+    url: trainings/reaper
+    parent: formation
+    weight: 40
+  - name: Projets
+    # url: '#projects'
+    identifier: projets
+    weight: 30
+  - name: '🤘 Outwards'
+    url: project/outwards
+    parent: projets
+    weight: 10
+  - name: '🍔 Burger Bang'
+    url: project/burgerbang
+    parent: projets
+    weight: 20
+  - name: Guide pratique des techniques du son
+    url: https://jpecquais.github.io/doc-technique-son/
+    weight: 40
   - name: Contact
     url: '#contact'
-    weight: 40
+    weight: 50
 
 # Link to a PDF of your resume/CV from the menu.
 # To enable, copy your resume/CV to `static/uploads/resume.pdf` and uncomment the lines below.
