@@ -13,8 +13,6 @@ jobs:
         steps:
     
           - uses: actions/checkout@v1
-        # with:
-        #     submodules: true
 
           - name: Setup Hugo
             uses: peaceiris/actions-hugo@v2
@@ -24,11 +22,6 @@ jobs:
     
           - name: Build site
             run: hugo --gc --minify
-
-        #   - name: Upload build files
-        #     uses: actions/upload-artifact@v2
-        #     with:
-        #       path: public/
     
           - name: FTP site
             uses: SamKirkland/FTP-Deploy-Action@v4.3.4
@@ -36,8 +29,8 @@ jobs:
               server: ftp.cluster028.hosting.ovh.net
               username: jeanloupez
               password: ${{ secrets.FTP_PASSWORD }}
-            #   protocol: ftps
-            #   port: 22
+              protocol: ftps
+              port: 22
               local-dir: ./public/
               server-dir: ./www/
             #   git-ftp-args: --insecure --all
