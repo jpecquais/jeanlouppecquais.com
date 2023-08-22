@@ -1,0 +1,34 @@
+name: Deploy via FTP
+
+on:
+  push:
+    branches:
+    - master
+  schedule:
+    - cron:  '0 8 * * *' #every day at 8 am
+
+jobs:
+    Deploy:
+        runs-on: ubuntu-latest
+        steps:
+    
+          - uses: actions/checkout@v1
+        # with:
+        #     submodules: true
+
+          - name: Setup Hugo
+            uses: peaceiris/actions-hugo@v2
+            with:
+              hugo-version: 'latest'
+    
+          - name: Build site
+            run: hugo --minify
+    
+          - name: FTP site
+            uses: SamKirkland/FTP-Deploy-Action@3.0.0
+            with:
+              ftp-server: ftp.cluster028.hosting.ovh.net/home/jeanloupez
+              ftp-username: username
+              ftp-password: ${{ secrets.FTP_PASSWORD }}
+              local-dir: public/
+              git-ftp-args: --insecure --all
