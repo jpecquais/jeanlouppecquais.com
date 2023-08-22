@@ -24,12 +24,20 @@ jobs:
     
           - name: Build site
             run: hugo --gc --minify
+
+          - name: Upload build files
+            uses: actions/upload-artifact@v2
+            with:
+              path: public/
     
           - name: FTP site
             uses: SamKirkland/FTP-Deploy-Action@3.0.0
             with:
-              ftp-server: ftp.cluster028.hosting.ovh.net/home/jeanloupez
+              ftp-server: ftp.cluster028.hosting.ovh.net
               ftp-username: jeanloupez
               ftp-password: ${{ secrets.FTP_PASSWORD }}
-              local-dir: public/
+            #   protocol: ftps
+            #   port: 22
+              local-dir: ./public/
+              server-dir: ./www/
               git-ftp-args: --insecure --all
