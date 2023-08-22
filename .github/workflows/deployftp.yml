@@ -29,8 +29,6 @@ jobs:
               server: ftp.cluster028.hosting.ovh.net
               username: jeanloupez
               password: ${{ secrets.FTP_PASSWORD }}
-              protocol: ftps
-              port: 22
               local-dir: ./public/
               server-dir: ./www/
             #   git-ftp-args: --insecure --all
