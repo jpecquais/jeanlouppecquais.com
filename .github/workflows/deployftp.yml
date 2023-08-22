@@ -25,10 +25,10 @@ jobs:
           - name: Build site
             run: hugo --gc --minify
 
-          - name: Upload build files
-            uses: actions/upload-artifact@v2
-            with:
-              path: public/
+        #   - name: Upload build files
+        #     uses: actions/upload-artifact@v2
+        #     with:
+        #       path: public/
     
           - name: FTP site
             uses: SamKirkland/FTP-Deploy-Action@v4.3.4
