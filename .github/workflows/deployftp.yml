@@ -28,7 +28,7 @@ jobs:
             uses: SamKirkland/FTP-Deploy-Action@3.0.0
             with:
               ftp-server: ftp.cluster028.hosting.ovh.net/home/jeanloupez
-              ftp-username: username
+              ftp-username: jeanloupez
               ftp-password: ${{ secrets.FTP_PASSWORD }}
               local-dir: public/
               git-ftp-args: --insecure --all
