@@ -1,0 +1,3 @@
+[submodule "static/cv-latex"]
+	path = static/cv-latex
+	url = https://github.com/jpecquais/cv-latex.git
