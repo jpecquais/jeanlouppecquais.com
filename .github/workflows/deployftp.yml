@@ -26,7 +26,7 @@ jobs:
             uses: xu-cheng/latex-action@v2
             with:
               root_file: |
-                assets/cv-latex/cv.tex
+                static/cv-latex/cv.tex
 
           - name: Build site
             run: hugo --gc --minify
