@@ -2,7 +2,7 @@
 title: Guide pratique des techniques du son
 summary: Base de savoir open-source & généraliste.
 tags:
-  - Ouvrages
+  - documents
 # date: '2016-04-27T00:00:00Z'
 
 # Optional external URL for project (replaces project detail page).
