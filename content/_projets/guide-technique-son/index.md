@@ -17,7 +17,7 @@ links:
   - icon: book
     icon_pack: fas
     name: Accès au livre
-    url: https://jpecquais.github.io/doc-technique-son/
+    url: https://doc.jeanlouppecquais.com
 
 # links:
 #   - icon: house
