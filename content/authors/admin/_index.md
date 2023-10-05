@@ -75,4 +75,4 @@ Jean-Loup Pecquais est ingénieur du son, diplômé de l'école nationale supér
 
 Il est également guitariste et passionné de musique, jouant dans les groupes Outwards et Burger Bang. Son temps libre est occupé par sa famille ainsi que par divers bricolages, en électroniques ou en lutherie.
 
-{{< icon name="download" pack="fas" >}} Télécharger mon {{< staticref "https://github.com/jpecquais/cv-latex/releases/download/latest/cv.pdf" "newtab" >}}CV{{< /staticref >}}.
+{{< icon name="download" pack="fas" >}} Télécharger mon {{< staticref "cv-latex/cv.pdf" "newtab" >}}CV{{< /staticref >}}.
