@@ -13,13 +13,21 @@ jobs:
         steps:
     
           - uses: actions/checkout@v1
+            with:
+              submodules: recursive
 
           - name: Setup Hugo
             uses: peaceiris/actions-hugo@v2
             with:
               hugo-version: 'latest'
               extended: true
-    
+
+          - name: Build CV
+            uses: xu-cheng/latex-action@v2
+            with:
+              root_file: |
+                assets/cv-latex/cv.tex
+
           - name: Build site
             run: hugo --gc --minify
     
