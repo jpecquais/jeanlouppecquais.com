@@ -1,0 +1,10 @@
+{
+ "compilerOptions": {
+  "baseUrl": ".",
+  "paths": {
+   "*": [
+    "../../../../../../../var/folders/8g/w5wwdlzx68gffgtx_k9vdjx80000gn/T/hugo_cache_jeanlouppecquais/modules/filecache/modules/pkg/mod/github.com/wowchemy/wowchemy-hugo-themes/modules/wowchemy/v5@v5.8.1-0.20230812165002-59b648791d3f/assets/*"
+   ]
+  }
+ }
+}

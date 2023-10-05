@@ -6,9 +6,9 @@
 # Appearance
 
 appearance:
-  theme_day: jlp_minimal
-  theme_night: jlp_minimal
-  font: minimal
+  theme_day: jlp_theme
+  theme_night: jlp_theme
+  font: jlp_theme
   font_size: L
 
 # SEO
@@ -18,11 +18,13 @@ marketing:
     site_type: Person
     local_business_type: ''
     org_name: ''
-    description: 'Site internet de Jean-Loup Pecquais, ingénieur du son et formateur.'
+    description: 'A highly-customizable Hugo academic resume theme powered by Wowchemy website builder.'
     twitter: 'wowchemy'
   analytics:
     google_analytics: ''
     baidu_tongji: ''
+    google_tag_manager: ''
+    microsoft_clarity: ''  
   verification:
     google: ''
     baidu: ''
