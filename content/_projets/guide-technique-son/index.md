@@ -10,7 +10,7 @@ external_link: 'https://doc.jeanlouppecquais.com'
 
 
 image:
-  caption: photographie par Jacek Dylag
+  # caption: photographie par Jacek Dylag
   focal_point: Smart
 
 links:
