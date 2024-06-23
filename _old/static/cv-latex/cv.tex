@@ -1,0 +1,77 @@
+\documentclass[11pt,a4paper,sans]{moderncv}
+
+\moderncvstyle{casual}
+\moderncvcolor{blue}
+
+\setlength{\hintscolumnwidth}{2cm}
+\usepackage[utf8]{inputenc}% encodage, à modifier selon vos habitudes
+\usepackage[scale=0.8]{geometry}% pour régler les marges du CV les options habituelles de l'extension geometry peuvent s'appliquer ici
+\usepackage{helvet}% pour utiliser la police helvetica par exemple.
+\usepackage[french]{babel}% pour un document en français.
+
+\name{Jean-Loup}{Pecquais}% no comment
+\title{Ingénieur du son / Formateur}% ceci est optionnel et permet d'ajouter des informations en dessous du titre du CV. À commenter si on veut l'enlever.
+\address{21 rue de Paris}{91\,120 Palaiseau}{France}% optionnel aussi, supprimer ou laisser vide l'argument pays par exemple.
+%les données suivantes sont aussi optionnelles donc à commenter si on n'en veut pas
+\phone[mobile]{06~76~15~78~86}
+\email{jeanlouppecquais@ik.me}
+\homepage{www.jeanlouppecquais.com}
+%\social[linkedin]{pierre.durand}
+%\social[twitter]{pierre.durand}
+%\social[github]{pierre.durand}
+%\extrainfo{informations complémentaires.}
+%\quote{Encore un titre}%toujours optionnel, se place avant le corps du CV
+
+\begin{document}
+\makecvtitle
+\section{Formation}
+\cventry{Depuis\,2022}{Conservatoire National des Arts et Métiers}{diplôme visé : Ingénieur systèmes électroniques}{}{\textit{Paris}}{}
+\cventry{2016--2019}{\'Ecole nationale supérieure Louis Lumière}{Master Son}{}{\textit{Saint-Denis}}{}
+\cventry{2014--2016}{\'Ecole préparatoire}{Institut Saint Stanislas}{}{\textit{Nîmes}}{}
+\cventry{2011--2012}{Baccalauréat Série S}{Lycée Saint Joseph}{}{\textit{Carpentras}}%
+    {\textit{Spécialité physique}}% on peut mettre ici de 3 à 6 arguments qui peuvent être laissés vides
+
+\section{Experience professionnelle}
+
+\cventry{Depuis\,2022}{Intervenant à l'ENS Louis Lumière}{Saint-Denis}{}{}{%
+\begin{itemize}
+\item Infomatique audio ;
+\item Utilisation du logiciel REAPER ;
+\item Initiation à la programmation (lua \& FAUST).
+\end{itemize}}
+
+\cventry{Depuis\,2021}{Formateur à Whiti Audio Formation}{Saint-Jean le Blanc}{}{}{%
+\begin{itemize}
+\item Initiation 3D sonore ;
+\item Utilisation du logiciel REAPER ;
+\item Prise de son \& mixage.
+\end{itemize}}
+
+\cventry{Depuis\,2020}{Consultant pour FLUX:: Immersive}{Meung-sur-Loire}%
+            {}%
+            {}
+{%
+\begin{itemize}%
+\item  \'Elaboration et enseignement de la formation sur le logiciel SPAT Revolution;
+\item Documentation de l'ensemble des produits;
+\item Développement de l'extension ReaVolution pour REAPER;
+\end{itemize}}
+
+\cventry{Depuis\,2020}{Formateur à Transversal Studio}{Vannes}{}{}{%
+\begin{itemize}
+\item Prise de son \& mixage.
+\item Utilisation du logiciel REAPER ;
+\end{itemize}}
+
+\section{Langues}
+%Possibilité d'insérer des commentaires dans les entrées
+\cvitemwithcomment{Anglais}{Lu, parlé, écrit}{}
+\section{Compétences informatiques}
+%possibilité de mettre les entrées en deux colonnes 
+\cvdoubleitem{REAPER}{Avancé}{SPAT\,Rev.}{Avancé}
+\cvdoubleitem{C++}{Intermédiaire}{Python}{Intermédiaire}
+\cvdoubleitem{FAUST}{Intermédiaire}{Max/Pd}{Intermédiaire}
+\section{Centres d'intérêts}
+\cvitem{Hobby}{Guitariste et chanteur des groupe Outwards et Pompéi}
+%\cvitem{Hobby 2}{Description}
+\end{document}
