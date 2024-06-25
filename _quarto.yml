@@ -2,18 +2,20 @@ project:
   type: website
 
 website:
-  title: "site"
+  title: "jeanlouppecquais.com"
   navbar:
     right:
-      - about.qmd
-      - icon: github
-        href: https://github.com/
-      - icon: twitter
-        href: https://twitter.com
+      - training.qmd
+      - projects.qmd
+      - music.qmd
+      # - blog.qmd
+
 format:
   html:
     theme: cosmo
     css: styles.css
 
-
+lang: fr
+language:
+  title-block-author-single: Auteur
 

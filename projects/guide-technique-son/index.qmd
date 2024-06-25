@@ -1,0 +1,7 @@
+---
+title: Guide pratique des techniques du son
+# summary: Base de savoir open-source & généraliste.
+image: featured.jpg
+author: Jean-Loup Pecquais
+---
+

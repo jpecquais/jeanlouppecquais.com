@@ -1,0 +1,24 @@
+---
+title: "Musique"
+listing:
+  contents:
+    - title: Outwards
+      path: https://www.outwards.com
+      image: assets/media/img/outwards.jpg
+      description: "Entre rock alternatif et rock progressif"
+    - title: Buger Bang
+      path: https://google.com
+      image: assets/media/img/burgerbang.jpg
+      description: "Collectif rock breton"
+    - title: Pompei
+      path: https://360prod.fr/concerts-en-son-360/pompei/
+      image: assets/media/img/pompei.webp
+      description: "Pink Floyd & spatialisation sonore"
+  sort: "date desc"
+  type: grid
+  categories: false
+  sort-ui: false
+  filter-ui: false
+page-layout: full
+title-block-banner: true
+---
