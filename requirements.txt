@@ -1,6 +1,4 @@
 matplotlib
 numpy
-pandas
-plotly==5.13.1
 jupyter
 scipy
