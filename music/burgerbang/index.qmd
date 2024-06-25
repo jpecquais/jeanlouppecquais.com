@@ -1,0 +1,5 @@
+---
+title: "Burger Bang"
+image: bb.jpg
+author: "Jean-Loup Pecquais"
+---

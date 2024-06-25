@@ -1,0 +1,21 @@
+project:
+  type: website
+
+website:
+  title: "jeanlouppecquais.com"
+  navbar:
+    right:
+      - training.qmd
+      - projects.qmd
+      - music.qmd
+      # - blog.qmd
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+
+lang: fr
+language:
+  title-block-author-single: Auteur
+

@@ -1,0 +1,31 @@
+[
+  {
+    "listing": "/blog.html",
+    "items": [
+      "/posts/post-with-code/index.html",
+      "/posts/welcome/index.html"
+    ]
+  },
+  {
+    "listing": "/training.html",
+    "items": [
+      "/training/pds-mix/index.html",
+      "/training/initiation-programmation/index.html",
+      "/training/spat-revolution/index.html",
+      "/training/informatique-audio/index.html",
+      "/training/reaper/index.html",
+      "/training/initiation-3D-sonore/index.html"
+    ]
+  },
+  {
+    "listing": "/projects.html",
+    "items": [
+      "/projects/guide-technique-son/index.html",
+      "/projects/reavolution/index.html"
+    ]
+  },
+  {
+    "listing": "/music.html",
+    "items": []
+  }
+]
