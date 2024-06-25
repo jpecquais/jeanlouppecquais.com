@@ -47,5 +47,5 @@ jobs:
           username: jeanloupez
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./_site/
-          server-dir: ./
+          server-dir: ./www/
         #   git-ftp-args: --insecure --all
