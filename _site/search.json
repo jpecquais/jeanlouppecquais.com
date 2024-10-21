@@ -1,17 +1,17 @@
 [
   {
-    "objectID": "training/reaper/index.html",
-    "href": "training/reaper/index.html",
-    "title": "Production sonore avec REAPER",
-    "section": "",
-    "text": "Cette formation approfondie de REAPER, d’une durée de cinq jours, vise à familiariser les stagiaires avec ce logiciel puissant dédié à la production audio et à la composition musicale. Tout au long de cette formation, les stagiaires seront guidés à travers un apprentissage progressif pour qu’ils puissent maîtriser toutes les facettes de REAPER.\nDès le début, les participants seront plongés dans l’univers de REAPER, en commençant par l’installation, la configuration et la découverte de son interface. Ils apprendront à personnaliser REAPER pour qu’il corresponde parfaitement à leurs besoins spécifiques. Ensuite, ils plongeront dans l’enregistrement audio, en découvrant les techniques de gestion des prises, le routage audio et les compétences essentielles pour le montage audio. Ils auront également l’occasion d’acquérir des compétences avancées en matière d’édition audio, de manipulation de l’audio et de création de marqueurs.\nAu cours de la formation, les stagiaires exploreront également les aspects du mixage dans REAPER, en découvrant la bibliothèque d’effets, les automations, les groupes de pistes et bien d’autres fonctionnalités essentielles pour donner vie à leurs projets musicaux. Ils découvriront comment personnaliser encore davantage REAPER en configurant des raccourcis, des macros et en explorant les extensions et les scripts pour étendre leurs compétences de production audio. Cette formation permettra aux stagiaires de devenir des utilisateurs expérimentés de REAPER, capables de tirer pleinement parti de ce logiciel dans leurs projets musicaux et sonores."
-  },
-  {
     "objectID": "blog.html",
     "href": "blog.html",
     "title": "Blog",
     "section": "",
-    "text": "Post With Code\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n23 juin 2024\n\n\nHarlow Malloc\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\n20 juin 2024\n\n\nTristan O’Malley\n\n\n\n\n\n\nAucun article correspondant"
+    "text": "Réseau de neurones et déconvolution - Application à la simulation d’un amplificateur guitare\n\n\nPt.I - Enoncé du problème\n\n\n\ndsp\n\n\nguitar\n\n\n\n\n\n\n\n\n\n16 oct. 2024\n\n\nJean-Loup Pecquais\n\n\n\n\n\n\nAucun article correspondant"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Jean-Loup Pecquais",
+    "section": "",
+    "text": "À propos\nJean-Loup Pecquais est ingénieur du son, diplômé de l’École Nationale Supérieure Louis-Lumière. Ses spécialités incluent le son immersif, l’informatique et le traitement du signal appliqué à l’audio. Il travaille aujourd’hui en tant que développeur et ingénieur d’application chez Harman ainsi que comme enseignant à l’ENS Louis Lumière.\nIl est également guitariste et passionné de musique, jouant dans les groupes Outwards et Burger Bang. Son temps libre est occupé par sa famille ainsi que par divers bricolages, en électroniques ou en lutherie."
   },
   {
     "objectID": "training/initiation-3D-sonore/index.html",
@@ -21,32 +21,11 @@
     "text": "Cette formation, intitulée “Initiation à la 3D Sonore,” est une immersion de cinq jours dans l’univers captivant de la création sonore spatialisée. Conçue par Jean-Marc Duchenne, elle est désormais proposée par le centre de formation Whiti Audio. Au cours de cette formation, vous explorerez l’évolution de la création sonore depuis le XXème siècle, des pionniers tels que Xenakis et Stockhausen jusqu’aux dernières avancées en réalité virtuelle et augmentée.\nLe programme complet de la formation englobe les bases de la perception audio spatiale, les formats de réalisation et de diffusion sonore, les techniques de capture sonore, les méthodes de traitement spatial, ainsi que les environnements logiciels et matériels pour la production immersive. Vous découvrirez les nuances de la diffusion en haute résolution, de l’ambisonique, du mixage orienté objets, du binaural et bien plus encore. Préparez-vous à repousser les limites de la perception sonore en vous inscrivant à la formation “Initiation à la 3D Sonore.” Explorez un monde sonore en trois dimensions et plongez dans l’avenir passionnant de la création sonore spatiale."
   },
   {
-    "objectID": "training/spat-revolution/index.html",
-    "href": "training/spat-revolution/index.html",
-    "title": "SPAT Revolution",
+    "objectID": "training/informatique-audio/index.html",
+    "href": "training/informatique-audio/index.html",
+    "title": "Informatique audio",
     "section": "",
-    "text": "Cette formation immersive sur le logiciel SPAT Revolution de FLUX:: est conçue pour les professionnels de l’audio souhaitant maîtriser la spatialisation sonore et créer des expériences audio immersives. Au début de la formation, les stagiaires découvriront les bases de SPAT Revolution, y compris l’installation et l’activation. Ensuite, ils plongeront dans les détails, explorant les différentes techniques de spatialisation, les différentes lois de panoramique, ou encore les différents paramètres de mixage et de perception sonores pour créer des scénarios sonores fascinants.\nAu cours de la formation, les stagiaires apprendront à automatiser des objets sonores, à configurer des systèmes de haut-parleurs, et à contrôler SPAT Revolution, via d’OSC, à l’aide d’iPad, et d’autres dispositifs. Ils développeront également des compétences essentielles pour la création de contenus immersifs, en travaillant sur des travaux pratiques concrets.\nCette formation ouvrira donc à ses stagiaires les portes de la spatialisation sonore et du logiciel SPAT Revolution."
-  },
-  {
-    "objectID": "training/pds-mix/index.html",
-    "href": "training/pds-mix/index.html",
-    "title": "Techniques de prises de son & de mixage",
-    "section": "",
-    "text": "Cette formation, dispensée par le centre de formation Transversal Studio à Vannes, est une opportunité pour les passionnés de musique et d’audio d’apprendre les techniques de production sonore en studio. Au cours de cette formation complète, les stagiaires découvriront l’ensemble de la chaîne audio, des nuances de l’acoustique à l’utilisation de microphones et d’équipements de pointe. Ils apprendront à capturer le son, en maîtrisant les subtilités du placement de microphones, des techniques stéréophoniques et de la gestion des réseaux casques.\nUne fois de l’autre côté de la vitre du studio, les stagiaires seront prêts à mettre en pratique leurs compétences nouvellement acquises. Ils sauront comment préparer une session, choisir les formats d’enregistrement et communiquer efficacement avec les musiciens. Ils perfectionneront également leurs compétences en mixage, en réalisant des balances et en ajoutant des effets audio pour créer des productions musicales de qualité professionnelle."
-  },
-  {
-    "objectID": "posts/post-with-code/index.html",
-    "href": "posts/post-with-code/index.html",
-    "title": "Post With Code",
-    "section": "",
-    "text": "This is a post with executable code."
-  },
-  {
-    "objectID": "posts/welcome/index.html",
-    "href": "posts/welcome/index.html",
-    "title": "Welcome To My Blog",
-    "section": "",
-    "text": "This is the first post in a Quarto blog. Welcome!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
+    "text": "Le cours “Informatique Audio”, dispensé sur trois jours, constitue une exploration approfondie de l’intersection entre l’informatique et les métiers du son. Dispensé aux étudiants deÒ première année de l’École Nationale Supérieure Louis Lumière, il a pour objectif de fournir aux étudiants une base solide dans ce domaine passionnant.\nCe cours commence par retracer l’origine de l’informatique, repartant de technologies simples pour expliquer la complexité des systèmes contemporains. Ensuite, les étudiants explorent les bases en architecture informatique, acquérant ainsi une compréhension des fondements des systèmes informatiques et de leur fonctionnement, essentielle pour maîtriser les outils audionumériques actuels.\nUne part significative du cours se consacre à l’étude des systèmes informatiques professionnels et dédiés au traitement de son en temps réel. Cette section inclut l’exploration de matériels propriétaires dédiés, de solutions généralistes et de systèmes embarqués, offrant aux étudiants un tour d’horizon de ces technologies cruciales pour les métiers du son.\nEnfin, le cours présente des études de cas réelles de déploiement de systèmes informatiques, que ce soit dans des studios d’enregistrement ou des événements live. Ces exemples concrets permettent aux étudiants de voir comment les principes théoriques s’appliquent dans la pratique, renforçant ainsi leur compréhension globale de l’informatique appliquée à audio."
   },
   {
     "objectID": "training/initiation-programmation/index.html",
@@ -56,25 +35,32 @@
     "text": "Le cours « Initiation à la programmation pour les métiers du son » est destiné aux étudiants de deuxième année de l’ENS Louis Lumière. D’une durée de trois jours, il se concentre principalement sur des travaux pratiques.\nLes participants auront l’occasion d’apprendre un langage de programmation haut niveau et impératif, en commençant par la création de scripts pour le logiciel REAPER. Ce cours se termine par la réalisation de traitements sur le signal sonore directement exploitable dans un Digital Audio Workstation (DAW).\nAu terme de ces trois jours, les étudiants seront prêts à intégrer des éléments de programmation dans leur pratique professionnelle, leur ouvrant ainsi de nouvelles possibilités dans leurs futurs domaines d’expertise."
   },
   {
-    "objectID": "training/informatique-audio/index.html",
-    "href": "training/informatique-audio/index.html",
-    "title": "Informatique audio",
+    "objectID": "music.html",
+    "href": "music.html",
+    "title": "Musique",
     "section": "",
-    "text": "Le cours “Informatique Audio”, dispensé sur trois jours, constitue une exploration approfondie de l’intersection entre l’informatique et les métiers du son. Dispensé aux étudiants deÒ première année de l’École Nationale Supérieure Louis Lumière, il a pour objectif de fournir aux étudiants une base solide dans ce domaine passionnant.\nCe cours commence par retracer l’origine de l’informatique, repartant de technologies simples pour expliquer la complexité des systèmes contemporains. Ensuite, les étudiants explorent les bases en architecture informatique, acquérant ainsi une compréhension des fondements des systèmes informatiques et de leur fonctionnement, essentielle pour maîtriser les outils audionumériques actuels.\nUne part significative du cours se consacre à l’étude des systèmes informatiques professionnels et dédiés au traitement de son en temps réel. Cette section inclut l’exploration de matériels propriétaires dédiés, de solutions généralistes et de systèmes embarqués, offrant aux étudiants un tour d’horizon de ces technologies cruciales pour les métiers du son.\nEnfin, le cours présente des études de cas réelles de déploiement de systèmes informatiques, que ce soit dans des studios d’enregistrement ou des événements live. Ces exemples concrets permettent aux étudiants de voir comment les principes théoriques s’appliquent dans la pratique, renforçant ainsi leur compréhension globale de l’informatique appliquée à audio."
+    "text": "Outwards\n\n\nEntre rock alternatif et rock progressif\n\n\n\n\n\n\n\n\n\n\n\n\n\nBuger Bang\n\n\nCollectif rock breton\n\n\n\n\n\n\n\n\n\n\n\n\n\nPompei\n\n\nPink Floyd & spatialisation sonore\n\n\n\n\n\n\n\nAucun article correspondant"
   },
   {
-    "objectID": "training.html",
-    "href": "training.html",
-    "title": "Cours & Formations",
+    "objectID": "training/pds-mix/index.html",
+    "href": "training/pds-mix/index.html",
+    "title": "Techniques de prises de son & de mixage",
     "section": "",
-    "text": "Techniques de prises de son & de mixage\n\n\n\n\n\n\nJean-Loup Pecquais\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nInitiation à la programmation\n\n\n\n\n\n\nJean-Loup Pecquais\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSPAT Revolution\n\n\n\n\n\n\nJean-Loup Pecquais\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nInformatique audio\n\n\n\n\n\n\nJean-Loup Pecquais\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nProduction sonore avec REAPER\n\n\n\n\n\n\nJean-Loup Pecquais\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nInitiation à la 3D sonore\n\n\n\n\n\n\nJean-Loup Pecquais\n\n\n\n\n\n\n\n\nAucun article correspondant"
+    "text": "Cette formation, dispensée par le centre de formation Transversal Studio à Vannes, est une opportunité pour les passionnés de musique et d’audio d’apprendre les techniques de production sonore en studio. Au cours de cette formation complète, les stagiaires découvriront l’ensemble de la chaîne audio, des nuances de l’acoustique à l’utilisation de microphones et d’équipements de pointe. Ils apprendront à capturer le son, en maîtrisant les subtilités du placement de microphones, des techniques stéréophoniques et de la gestion des réseaux casques.\nUne fois de l’autre côté de la vitre du studio, les stagiaires seront prêts à mettre en pratique leurs compétences nouvellement acquises. Ils sauront comment préparer une session, choisir les formats d’enregistrement et communiquer efficacement avec les musiciens. Ils perfectionneront également leurs compétences en mixage, en réalisant des balances et en ajoutant des effets audio pour créer des productions musicales de qualité professionnelle."
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Jean-Loup Pecquais",
+    "objectID": "training/spat-revolution/index.html",
+    "href": "training/spat-revolution/index.html",
+    "title": "SPAT Revolution",
     "section": "",
-    "text": "A propos\nJean-Loup Pecquais est ingénieur du son, diplômé de l’école nationale supérieure Louis-Lumière. Ses spécialités incluent le son immersif et la pédagogie des métiers du son, de la prise de son aux techniques de spatialisation sonore, en passant par de la formation sur logiciel audio (REAPER, SPAT Revolution). Il travaille, en tant qu’indépendant, pour des sociétés telles que FLUX::, Transversal Studio et Whiti Audio Formation.\nIl est également guitariste et passionné de musique, jouant dans les groupes Outwards et Burger Bang. Son temps libre est occupé par sa famille ainsi que par divers bricolages, en électroniques ou en lutherie."
+    "text": "Cette formation immersive sur le logiciel SPAT Revolution de FLUX:: est conçue pour les professionnels de l’audio souhaitant maîtriser la spatialisation sonore et créer des expériences audio immersives. Au début de la formation, les stagiaires découvriront les bases de SPAT Revolution, y compris l’installation et l’activation. Ensuite, ils plongeront dans les détails, explorant les différentes techniques de spatialisation, les différentes lois de panoramique, ou encore les différents paramètres de mixage et de perception sonores pour créer des scénarios sonores fascinants.\nAu cours de la formation, les stagiaires apprendront à automatiser des objets sonores, à configurer des systèmes de haut-parleurs, et à contrôler SPAT Revolution, via d’OSC, à l’aide d’iPad, et d’autres dispositifs. Ils développeront également des compétences essentielles pour la création de contenus immersifs, en travaillant sur des travaux pratiques concrets.\nCette formation ouvrira donc à ses stagiaires les portes de la spatialisation sonore et du logiciel SPAT Revolution."
+  },
+  {
+    "objectID": "training/reaper/index.html",
+    "href": "training/reaper/index.html",
+    "title": "Production sonore avec REAPER",
+    "section": "",
+    "text": "Cette formation approfondie de REAPER, d’une durée de cinq jours, vise à familiariser les stagiaires avec ce logiciel puissant dédié à la production audio et à la composition musicale. Tout au long de cette formation, les stagiaires seront guidés à travers un apprentissage progressif pour qu’ils puissent maîtriser toutes les facettes de REAPER.\nDès le début, les participants seront plongés dans l’univers de REAPER, en commençant par l’installation, la configuration et la découverte de son interface. Ils apprendront à personnaliser REAPER pour qu’il corresponde parfaitement à leurs besoins spécifiques. Ensuite, ils plongeront dans l’enregistrement audio, en découvrant les techniques de gestion des prises, le routage audio et les compétences essentielles pour le montage audio. Ils auront également l’occasion d’acquérir des compétences avancées en matière d’édition audio, de manipulation de l’audio et de création de marqueurs.\nAu cours de la formation, les stagiaires exploreront également les aspects du mixage dans REAPER, en découvrant la bibliothèque d’effets, les automations, les groupes de pistes et bien d’autres fonctionnalités essentielles pour donner vie à leurs projets musicaux. Ils découvriront comment personnaliser encore davantage REAPER en configurant des raccourcis, des macros et en explorant les extensions et les scripts pour étendre leurs compétences de production audio. Cette formation permettra aux stagiaires de devenir des utilisateurs expérimentés de REAPER, capables de tirer pleinement parti de ce logiciel dans leurs projets musicaux et sonores."
   },
   {
     "objectID": "projects.html",
@@ -84,24 +70,24 @@
     "text": "Guide pratique des techniques du son\n\n\n\n\n\n\nJean-Loup Pecquais\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nReaVolution\n\n\n\n\n\n\nJean-Loup Pecquais\n\n\n\n\n\n\n\n\nAucun article correspondant"
   },
   {
-    "objectID": "music.html",
-    "href": "music.html",
-    "title": "Musique",
+    "objectID": "training.html",
+    "href": "training.html",
+    "title": "Cours & Formations",
     "section": "",
-    "text": "Outwards\n\n\nEntre rock alternatif et rock progressif\n\n\n\n\n\n\n\n\n\n\n\n\n\nBuger Bang\n\n\nCollectif rock breton\n\n\n\n\n\n\n\n\n\n\n\n\n\nPompei\n\n\nPink Floyd & spatialisation sonore\n\n\n\n\n\n\n\nAucun article correspondant"
+    "text": "Techniques de prises de son & de mixage\n\n\n\n\n\n\nJean-Loup Pecquais\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nInitiation à la programmation\n\n\n\n\n\n\nJean-Loup Pecquais\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSPAT Revolution\n\n\n\n\n\n\nJean-Loup Pecquais\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nInformatique audio\n\n\n\n\n\n\nJean-Loup Pecquais\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nProduction sonore avec REAPER\n\n\n\n\n\n\nJean-Loup Pecquais\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nInitiation à la 3D sonore\n\n\n\n\n\n\nJean-Loup Pecquais\n\n\n\n\n\n\n\n\nAucun article correspondant"
   },
   {
-    "objectID": "index.html#education",
-    "href": "index.html#education",
-    "title": "Jean-Loup Pecquais",
-    "section": "Education",
-    "text": "Education\nUniversity of California, San Diego | San Diego, CA PhD in Mathematics | Sept 2011 - June 2015\nMacalester College | St. Paul MA B.A in Economics | Sept 2007 - June 2011"
+    "objectID": "posts/reseau-neuronne-deconvolution/index.html",
+    "href": "posts/reseau-neuronne-deconvolution/index.html",
+    "title": "Réseau de neurones et déconvolution - Application à la simulation d’un amplificateur guitare",
+    "section": "",
+    "text": "image générée par IA\nÀ l’heure où j’écris cet article, la simulation d’équipements audiomusicaux repose de plus en plus sur l’entraînement de réseaux de neurones 1, souvent grâce à l’apprentissage profond (deep learning) 2. Cette méthode est particulièrement séduisante, car elle ne nécessite aucune connaissance préalable sur l’équipement à modéliser. On parle alors de simulation “boîte noire” (black box) : seul le résultat final compte, peu importe comment il est produit.\nMe concernant, je suis intrigué par la capacité de cette technologie à fournir des simulations convaincantes d’amplificateurs pour guitare électrique. Plus particulièrement, la modélisation de l’étage d’amplification de puissance est cruciale pour remplacer un amplificateur sur scène sans perdre son effet sur le signal. Rappelons que les amplificateurs de guitare sont, par conception, particulièrement non linéaires, que ce soit dans leur réponse en fréquence ou dans l’ajout de distorsion harmonique.\nLe second aspect intéressant dans l’apprentissage profond est la possibilité de modéliser ses équipements. Voici alors la situation idéale : laissez votre ampli à lampe préféré à la maison, faites en une simple “emprunte” et emmener seulement une petite “boîte noire” numérique sur scène. Sur le papier, l’idée semble convaincante.\nLes difficultés commencent lorsque l’on souhaite réaliser ses propres captures. Le protocole est généralement le même pour la plupart des constructeurs de telles simulations : on envoie un signal “test” dans notre équipement, on enregistre la sortie du périphérique, puis on entraîne le réseau de neurones, soit directement sur un appareil dédié, soit en ligne, sur un Google Colab par exemple.\nCependant, il faut bien distinguer plusieurs types d’équipements :\nDans le premier cas, l’acquisition pose moins de difficulté. On sort le signal de son interface audio, on récupère la sortie du périphérique dans une entrée en ligne ou un préamplificateur, et le tour est joué.\nDans le second cas, les choses se corsent. Un ampli de puissance à lampe possède un transformateur de sortie qui doit impérativement voir une charge particulière à ses bornes, sinon, on risque la défaillance de l’équipement. De plus, le niveau de sortie est tel qu’il est inimaginable de câbler la sortie d’un amplificateur de puissance dans une entrée en ligne. On a alors besoin d’un équipement qui va à la fois jouer le rôle de charge passive du haut-parleur (loadbox) et d’atténuateur vers un niveau en ligne.\nDans cette famille d’équipement, que nous appellerons simplement loadbox, on distingue deux catégories principales:\nCes dernières sont les plus “réalistes” par rapport au comportement d’un haut-parleur réel, qui, lui-même, ne possède pas une impédance d’entrée constante en fonction de la fréquence.\nSi les loadbox à charges purement résistives sont relativement abordables, les autres le sont beaucoup moins. C’est donc un investissement conséquent à rajouter en plus de son équipement à modéliser et de son équipement permettant de réaliser le traitement du signal à partir d’un modèle issu d’un apprentissage profond.\nQui plus est, cette approche tend à considérer le haut-parleur guitare comme un transducteur purement linéaire. Typiquement, une chaîne de traitement numérique “moderne” pour guitariste inclut une simulation par réseau de neurones pour la partie amplification et une opération de convolution pour la simulation du haut-parleur (convolution 4 réalisée avec la réponse impulsionnelle faite d’un haut-parleur). Rappelons ici que l’opération de convolution est une opération strictement linéaire. Cette méthode minimise ainsi le rôle du haut-parleur dans les non-linéarités introduites sur le signal.\nLa question est donc: comment pourrait-on faire mieux, ou, du moins, autrement ?\nLa méthode proposée ici est de ne pas court-circuiter le haut-parleur dans l’étape de la mesure. Ainsi, au lieu de relier l’amplificateur de puissance à une loadbox, ce dernier est normalement connecté à son/ses haut-parleur(s). Dès lors, on enregistre simplement ce qu’émet le haut-parleur à l’aide d’un microphone.\nDe prime à bord, on inclut donc les non-linéarités du haut-parleur et ses interactions avec l’amplificateur de puissance, mais aussi la réponse en fréquence du transducteur ! On perd alors la flexibilité de pouvoir changer “virtuellement” de haut-parleur en changeant de réponse impulsionnelle dans un moteur de convolution.\nLa solution proposée est donc de réaliser, en plus de la mesure nécessaire à l’entraînement du réseau de neurones, la réponse impulsionnelle du haut-parleur, puis de déconvoluer 5 cette réponse impulsionnelle des enregistrements réalisés en vue de l’apprentissage profond. Afin de ne pas altérer la réponse en fréquence de l’amplificateur, on réalise la réponse impulsionnelle avec un autre amplificateur, que l’on sait suffisamment linéaire.\nQuels sont les avantages de cette méthode ? Premièrement, il semble que l’on “extrait” ici plus d’information sur le comportement de l’amplificateur que l’on cherche à modéliser. Deuxièmement, un microphone de mesure et un amplificateur relativement “transparent” sont des équipements moins onéreux qu’une loadbox à charge variable.\nDans le prochain article, nous aborderons dans le détail le protocole de mesure ainsi que les enjeux entourant la déconvolution."
   },
   {
-    "objectID": "index.html#experience",
-    "href": "index.html#experience",
-    "title": "Jean-Loup Pecquais",
-    "section": "Experience",
-    "text": "Experience\nWengo Analytics | Head Data Scientist | April 2018 - present\nGeoScynce | Chief Analyst | Sept 2012 - April 2018"
+    "objectID": "posts/reseau-neuronne-deconvolution/index.html#footnotes",
+    "href": "posts/reseau-neuronne-deconvolution/index.html#footnotes",
+    "title": "Réseau de neurones et déconvolution - Application à la simulation d’un amplificateur guitare",
+    "section": "Notes de bas de page",
+    "text": "Notes de bas de page\n\n\nEn apprentissage automatique (machine learning), un réseau de neurones (également appelé réseau de neurones artificiels ou réseau neuronal) est un modèle inspiré par la structure et le fonctionnement des réseaux neuronaux biologiques dans les cerveaux des animaux. Les réseaux de neurones artificiels sont utilisés pour diverses tâches, notamment la modélisation prédictive, le contrôle adaptatif et la résolution de problèmes en intelligence artificielle. Ils peuvent apprendre de l’expérience et tirer des conclusions à partir d’un ensemble complexe et apparemment non lié d’informations.↩︎\nL’apprentissage profond est une sous-catégorie de l’apprentissage automatique qui utilise des réseaux de neurones avec de nombreuses couches pour modéliser des structures de données complexes.↩︎\nL’impédance est une mesure de l’opposition d’un circuit électrique au passage d’un courant alternatif. Elle est une combinaison de la résistance et de la réactance.↩︎\nPour les lectrices et lecteurs moins aguerris en traitement du signal, l’opération de convolution est d’une importance majeure dans la matière. Voici un bon point de départ.↩︎\nLa déconvolution est une opération mathématique utilisée pour inverser les effets de la convolution, permettant de retrouver le signal d’origine à partir d’un signal convolué.↩︎"
   }
 ]

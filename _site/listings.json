@@ -2,8 +2,18 @@
   {
     "listing": "/blog.html",
     "items": [
-      "/posts/post-with-code/index.html",
-      "/posts/welcome/index.html"
+      "/posts/reseau-neuronne-deconvolution/index.html"
+    ]
+  },
+  {
+    "listing": "/music.html",
+    "items": []
+  },
+  {
+    "listing": "/projects.html",
+    "items": [
+      "/projects/guide-technique-son/index.html",
+      "/projects/reavolution/index.html"
     ]
   },
   {
@@ -16,16 +26,5 @@
       "/training/reaper/index.html",
       "/training/initiation-3D-sonore/index.html"
     ]
-  },
-  {
-    "listing": "/projects.html",
-    "items": [
-      "/projects/guide-technique-son/index.html",
-      "/projects/reavolution/index.html"
-    ]
-  },
-  {
-    "listing": "/music.html",
-    "items": []
   }
 ]

@@ -8,7 +8,7 @@ website:
       - training.qmd
       - projects.qmd
       - music.qmd
-      # - blog.qmd
+      - blog.qmd
 
 format:
   html:
