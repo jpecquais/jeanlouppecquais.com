@@ -5,7 +5,7 @@ author: "Jean-Loup Pecquais"
 date: "2024-10-16"
 categories: [dsp, guitar]
 image: "ressources/header.png"
-draft: true
+draft: false
 website:
   sidebar:
     tools:
@@ -15,13 +15,13 @@ website:
 
 ![*image générée par IA*](ressources/header.png)
 
-À l'heure où j'écris cet article, la simulation d'équipements audiomusicaux repose de plus en plus sur l'entraînement de réseaux de neurones ^[En apprentissage automatique (*machine learning*), un réseau de neurones (également appelé réseau de neurones artificiels ou réseau neuronal) est un modèle inspiré par la structure et le fonctionnement des réseaux neuronaux biologiques dans les cerveaux des animaux. Les réseaux de neurones artificiels sont utilisés pour diverses tâches, notamment la modélisation prédictive, le contrôle adaptatif et la résolution de problèmes en intelligence artificielle. Ils peuvent apprendre de l'expérience et tirer des conclusions à partir d'un ensemble complexe et apparemment non lié d'informations.], souvent grâce à l'apprentissage profond (*deep learning*) ^[L'apprentissage profond est une sous-catégorie de l'apprentissage automatique qui utilise des réseaux de neurones avec de nombreuses couches pour modéliser des structures de données complexes.]. Cette méthode est particulièrement séduisante, car elle ne nécessite aucune connaissance préalable sur l'équipement à modéliser. On parle alors de simulation "boîte noire" (black box) : seul le résultat final compte, peu importe comment il est produit.
+À l'heure où j'écris cet article, la simulation d'équipements "audiomusicaux" repose de plus en plus sur l'entraînement de réseaux de neurones ^[En apprentissage automatique (*machine learning*), un réseau de neurones (également appelé réseau de neurones artificiels ou réseau neuronal) est un modèle inspiré par la structure et le fonctionnement des réseaux neuronaux biologiques dans les cerveaux des animaux. Les réseaux de neurones artificiels sont utilisés pour diverses tâches, notamment la modélisation prédictive, le contrôle adaptatif et la résolution de problèmes en intelligence artificielle. Ils peuvent apprendre de l'expérience et tirer des conclusions à partir d'un ensemble complexe et apparemment non lié d'informations.], souvent grâce à l'apprentissage profond (*deep learning*) ^[L'apprentissage profond est une sous-catégorie de l'apprentissage automatique qui utilise des réseaux de neurones avec de nombreuses couches pour modéliser des structures de données complexes.]. Cette méthode est particulièrement séduisante, car elle ne nécessite aucune connaissance préalable sur l'équipement à modéliser. On parle alors de simulation "boîte noire" (black box) : seul le résultat final compte, peu importe comment il est produit.
 
 Me concernant, je suis intrigué par la capacité de cette technologie à fournir des simulations convaincantes d'amplificateurs pour guitare électrique. Plus particulièrement, la modélisation de l'étage d'amplification de puissance est cruciale pour remplacer un amplificateur sur scène sans perdre son effet sur le signal. Rappelons que les amplificateurs de guitare sont, par conception, particulièrement non linéaires, que ce soit dans leur réponse en fréquence ou dans l'ajout de distorsion harmonique.
 
 Le second aspect intéressant dans l'apprentissage profond est la possibilité de **modéliser ses équipements**. Voici alors la situation idéale : laissez votre ampli à lampe préféré à la maison, faites en une simple "emprunte" et emmener seulement une petite "boîte noire" numérique sur scène. Sur le papier, l'idée semble convaincante.
 
-Les difficultés commencent lorsque l'on souhaite réaliser ses propres captures. Le protocole est généralement le même pour la plupart des constructeurs de telles simulations : on envoie un signal "test" dans notre équipement, on enregistre la sortie du périphérique, puis on entraîne le réseau de neurones, soit directement sur un appareil dédié, soit en ligne, sur un *Google Colab* par exemple.
+Les difficultés commencent lorsque l'on souhaite réaliser ses propres captures. En règle générale, la procédure est similaire pour la plupart des fabricants de telles simulations : on émet un signal dans notre matériel, on enregistre la sortie du périphérique, puis on entraîne le réseau de neurones en lui injectant les deux signaux, soit sur un appareil spécifique, soit en ligne, sur une plateforme telle que *Google Colab,* par exemple.
 
 Cependant, il faut bien distinguer plusieurs types d'équipements :
 
