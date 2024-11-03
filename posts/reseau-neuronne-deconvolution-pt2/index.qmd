@@ -2,7 +2,7 @@
 title: "Réseau de neurones et déconvolution - \n Application à la simulation d'un amplificateur guitare"
 subtitle: "Pt.II - Mise en place du dispositif"
 author: "Jean-Loup Pecquais"
-date: "2024-10-16"
+date: "2024-11-03"
 categories: [dsp, guitar, deconvolution]
 image: "ressources/header.png"
 draft: false
