@@ -23,19 +23,6 @@ jobs:
       - run: sudo apt-get update
       - run: sudo apt-get install librsvg2-bin
 
-      - name: Print current directory
-        run: pwd
-
-      - name: Print Quarto version
-        run: quarto --version
-
-      - name: Add Quarto Extension
-        run: quarto add coatless-quarto/embedio --no-prompt
-        working-directory: ${{ github.workspace }}
-
-      - name: Verify Extension Installation
-        run: quarto list extensions
-
       - name: Install Python and Dependencies
         uses: actions/setup-python@v4
         with:
@@ -43,13 +30,6 @@ jobs:
           cache: 'pip'
       - run: pip install jupyter
       - run: pip install -r requirements.txt
-
-      # - name: Render and Publish
-      #   uses: quarto-dev/quarto-actions/publish@v2
-      #   with:
-      #     target: gh-pages
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Render Quarto Project
         uses: quarto-dev/quarto-actions/render@v2

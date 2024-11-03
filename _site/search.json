@@ -102,7 +102,7 @@
     "href": "posts/reseau-neuronne-deconvolution-pt2/index.html#résultats",
     "title": "Réseau de neurones et déconvolution - Application à la simulation d’un amplificateur guitare",
     "section": "Résultats",
-    "text": "Résultats\nUne fois le script exécuté, on obtient notre fichier cible pour le réseau de neurones, où l’empreinte sonore du haut-parleur a été retirée.\nEn guise de comparaison, voici le même signal audio, avant et après déconvolution :\n\n\n\n\n\n\nYour browser does not support the audio tag.Avant déconvolution\n\n\nYour browser does not support the audio tag.Après déconvolution\n\n\n\nDans le prochain article, nous regarderons comment implémenter ce modèle sur une carte Bela, puis nous prendrons le temps d’écouter le résultat."
+    "text": "Résultats\nUne fois le script exécuté, on obtient notre fichier cible pour le réseau de neurones, où l’empreinte sonore du haut-parleur a été retirée.\nEn guise de comparaison, voici le même signal audio, avant et après déconvolution :\n\n\n\n\nDans le prochain article, nous regarderons comment implémenter ce modèle sur une carte Bela, puis nous prendrons le temps d’écouter le résultat."
   },
   {
     "objectID": "posts/reseau-neuronne-deconvolution-pt2/index.html#footnotes",
