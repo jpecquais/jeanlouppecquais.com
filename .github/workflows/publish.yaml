@@ -21,8 +21,11 @@ jobs:
           tinytex: true
       - run: sudo apt-get update
       - run: sudo apt-get install librsvg2-bin
-      - run: quarto add coatless-quarto/embedio --no-prompt
-      
+
+      - name: Add Quarto Extension
+        run: quarto add coatless-quarto/embedio --no-prompt
+        working-directory: ${{ github.workspace }}
+        
       - name: Install Python and Dependencies
         uses: actions/setup-python@v4
         with:
