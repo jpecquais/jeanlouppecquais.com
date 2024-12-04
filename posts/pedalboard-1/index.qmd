@@ -1,0 +1,26 @@
+---
+title: "Conception d’un pedalboard"
+subtitle: "Pt.I - Chemin du signal"
+author: "Jean-Loup Pecquais"
+date: "2024-10-16"
+categories: [guitar]
+image: "ressources/header.png"
+draft: false
+website:
+  sidebar:
+    tools:
+      - icon: github
+        href: https://github.com/
+---
+
+![*image générée par IA*](ressources/header.jpg)
+
+La guitare électrique est un instrument assez particulier dans le sens ou celui-ci prend une forme modulaire. En effet, la guitare électrique elle-même n’est qu’un tier du dispositif sonore, les deux autres étant l’amplificateur et le pédalier (ou pedalboard en anglais).
+
+Le pédalier est en soi une entité également polymorphe. Il peut aller d’une absence totale de la chaîne sonore du guitariste à une place cruciale (tant dans son rôle que dans l’occupation de l’espace scénique).
+
+L’effet le plus commun du guitariste est la distortion harmonique du signal. Elle prend différent nom en fonction de son intensité : boost, overdrive, crunch, distortion, fuzz, etc. On observe en général deux stratégies principales sur la réalisation de cet effet. Soit on compte sur son amplificateur et ses différents canaux, soit on compte sur différentes pédales. Dans ce dernier cas, l’amplificateur est en général réglé pour ne pas rajouter trop de distortion harmonique.
+
+Il s’en suit la question de comment cette distortion harmonique est générée. On rencontre en général deux oppositions fréquentes : transistor VS tubes et analogique VS numérique. Historiquement, l’amplification du signal était faites par des tubes à vide. Volumineux, coûteux et fragiles, ils ont été ensuite remplacés par des transistors, apportant une solution à ces trois problèmes. Cependant, la plupart des constructeurs historiques d’amplificateurs (Fender, Marshall, Vox, etc.) ont commencé leurs productions à une époque ou les tubes à vide étaient encore rois.
+
+On trouve ainsi une idée fréquente qu’un bon amplificateur guitare est toujours un amplificateur à tube, voir, une « belle » saturation est toujours une saturation à tube. En l’absence d’une vrai évaluation objective, je me contenterai ici d’une forme de retour d’expérience. Bien que n’ayant jamais été séduit par des amplificateurs à transistor, la plus part des pédales de saturation que j’ai pût employer n’utilisent pas de tubes pour produire leur effet (Proco Rat, EHX Big Muff, Ibanez Tube Screamer, etc.)
