@@ -4,7 +4,7 @@
     "href": "blog.html",
     "title": "Blog",
     "section": "",
-    "text": "Réseau de neurones et déconvolution - Application à la simulation d’un amplificateur guitare\n\n\nPt.II - Mise en place du dispositif\n\n\n\ndsp\n\n\nguitar\n\n\ndeconvolution\n\n\n\n\n\n\n\n\n\n3 nov. 2024\n\n\nJean-Loup Pecquais\n\n\n\n\n\n\n\n\n\n\n\n\nRéseau de neurones et déconvolution - Application à la simulation d’un amplificateur guitare\n\n\nPt.I - Enoncé du problème\n\n\n\ndsp\n\n\nguitar\n\n\n\n\n\n\n\n\n\n16 oct. 2024\n\n\nJean-Loup Pecquais\n\n\n\n\n\n\nAucun article correspondant"
+    "text": "Conception d’un pedalboard\n\n\nPt.I - Chemin du signal\n\n\n\nguitar\n\n\n\n\n\n\n\n\n\n4 déc. 2024\n\n\nJean-Loup Pecquais\n\n\n\n\n\n\n\n\n\n\n\n\nRéseau de neurones et déconvolution - Application à la simulation d’un amplificateur guitare\n\n\nPt.II - Mise en place du dispositif\n\n\n\ndsp\n\n\nguitar\n\n\ndeconvolution\n\n\n\n\n\n\n\n\n\n3 nov. 2024\n\n\nJean-Loup Pecquais\n\n\n\n\n\n\n\n\n\n\n\n\nRéseau de neurones et déconvolution - Application à la simulation d’un amplificateur guitare\n\n\nPt.I - Enoncé du problème\n\n\n\ndsp\n\n\nguitar\n\n\n\n\n\n\n\n\n\n16 oct. 2024\n\n\nJean-Loup Pecquais\n\n\n\n\n\n\nAucun article correspondant"
   },
   {
     "objectID": "index.html",
@@ -145,5 +145,68 @@
     "title": "Cours & Formations",
     "section": "",
     "text": "Techniques de prises de son & de mixage\n\n\n\n\n\n\nJean-Loup Pecquais\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nInitiation à la programmation\n\n\n\n\n\n\nJean-Loup Pecquais\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSPAT Revolution\n\n\n\n\n\n\nJean-Loup Pecquais\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nInformatique audio\n\n\n\n\n\n\nJean-Loup Pecquais\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nProduction sonore avec REAPER\n\n\n\n\n\n\nJean-Loup Pecquais\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nInitiation à la 3D sonore\n\n\n\n\n\n\nJean-Loup Pecquais\n\n\n\n\n\n\n\n\nAucun article correspondant"
+  },
+  {
+    "objectID": "posts/pedalboard-1/index.html",
+    "href": "posts/pedalboard-1/index.html",
+    "title": "Conception d’un pedalboard",
+    "section": "",
+    "text": "image générée par IA"
+  },
+  {
+    "objectID": "posts/pedalboard-1/index.html#introduction",
+    "href": "posts/pedalboard-1/index.html#introduction",
+    "title": "Conception d’un pedalboard",
+    "section": "Introduction",
+    "text": "Introduction"
+  },
+  {
+    "objectID": "posts/pedalboard-1/index.html#généralités",
+    "href": "posts/pedalboard-1/index.html#généralités",
+    "title": "Conception d’un pedalboard",
+    "section": "Généralités",
+    "text": "Généralités\nLa guitare électrique est un instrument assez particulier dans le sens ou celui-ci prend une forme modulaire. En effet, la guitare électrique elle-même n’est qu’un tier du dispositif sonore, les deux autres étant l’amplificateur et le pédalier (ou pedalboard en anglais).\nLe pédalier est en soi une entité également polymorphe. Il peut aller d’une absence totale de la chaîne sonore du guitariste à une place cruciale (tant dans son rôle que dans l’occupation de l’espace scénique).\nL’effet le plus commun du guitariste est la distortion harmonique du signal. Elle prend différent nom en fonction de son intensité : boost, overdrive, crunch, distortion, fuzz, etc. On observe en général deux stratégies principales sur la réalisation de cet effet. Soit on compte sur son amplificateur et ses différents canaux, soit on compte sur différentes pédales. Dans ce dernier cas, l’amplificateur est en général réglé pour ne pas rajouter trop de distortion harmonique.\nIl s’en suit la question de comment cette distortion harmonique est générée. On rencontre en général deux oppositions fréquentes : transistor VS tubes et analogique VS numérique. Historiquement, l’amplification du signal était faites par des tubes à vide. Volumineux, coûteux et fragiles, ils ont été ensuite remplacés par des transistors, apportant une solution à ces trois problèmes. Cependant, la plupart des constructeurs historiques d’amplificateurs (Fender, Marshall, Vox, etc.) ont commencé leurs productions à une époque ou les tubes à vide étaient encore rois.\nOn trouve ainsi une idée fréquente qu’un bon amplificateur guitare est toujours un amplificateur à tube, voir, une « belle » saturation est toujours une saturation à tube. En l’absence d’une vrai évaluation objective, je me contenterai ici d’une forme de retour d’expérience. Bien que n’ayant jamais été séduit par des amplificateurs à transistor, la plus part des pédales de saturation que j’ai pût employer n’utilisent pas de tubes pour produire leur effet (Proco Rat, EHX Big Muff, Ibanez Tube Screamer, etc.). Faute de mieux, on admettra alors qu’il est en général préférable de mélanger les approches pour obtenir des résultats satisfaisant.\nPrenons tout de même le temps de préciser que toute cette question du timbre est évidemment étroitement lié au genre et à l’esthétique musicale recherchée et qu’il existe autant d’exemples que de contre-exemples. Ici, seul l’oreille et son appréciation sont juges.\nEn ce qui concerne le dilème entre analogique et numérique, le sujet est plus épineux. Commençons par dire que, depuis mes débuts de guitaristes (2005-2006), les simulateurs numériques ont bien progressés, si bien qu’ils ont complètement pénétré le marché des musiciens professionnels. Tous ces systèmes (Kemper, Axe FX, Neural DSP, Line 6, Boss, etc.) sont légés, complets et simples à utiliser. Il reste cependant un éléphant dans le couloir. Du moins, de ma propre expérience, aucun simulation d’ampli ou de pédales numérique n’a réussi à me convaincre de rester définitivement dans le monde numérique. Difficile de définir précisément le problème, mais l’interaction entre l’instrument et la chaîne d’effet devient très différente, souvent, à mon goût, un peu inerte. Aussi, l’ajout d’une simulation d’une pédale entre le guitare et l’ampli se comporte assez différement du monde analogique.\nCela signifie t-il que tout est à jetter dans les effets guitares numériques ? Certainement pas ! Premièrement, je suis assez certain d’avoir déjà adoré, sur disque, des sons de guitare provenant de ce genre de système sans le savoir. Je crois aussi être parfaitement incapable de distinguer un son de guitare produit numérique d’un son produit analogiquement, car dans mon experience, la différence est plus dans la sensation de jeu que dans l’écoute elle-même. Insistons maintenant sur le fait que ces outils numériques ont le vent en poupe car ils permettre de complètement retirer l’amplificateur à lampe du système. Cela vient avec un certain nombre d’avantages :\n\nEncombrement sur scène réduit.\nElimination d’un élément lourd à transporter.\nRéduction considérable du volume sonore sur scène."
+  },
+  {
+    "objectID": "posts/pedalboard-1/index.html#cas-pratique",
+    "href": "posts/pedalboard-1/index.html#cas-pratique",
+    "title": "Conception d’un pedalboard",
+    "section": "Cas pratique",
+    "text": "Cas pratique\n\nProblématique\nMon projet musical principal, à l’heure ou j’écris cet article, est un groupe de reprise des Pink Floyd, en quatuor, et jouant sur un système octophonique 1. Un tel système de diffusion permet donc de placer des sources tout autour de la zone d’audience. Dans de telle condictions, il est primordiale de supprimer un maximum de son de plateau afin de ne pas brouiller la scénographie sonore reproduite par le système de diffusion. La suppression des amplis est donc impérative.\nDans un tout autre context, il est bien difficile de jouer de la guitare sur un ampli de guitare en appartement sans provoquer les protestations de tout le voisinage.\nEnonçons la problématique de la façon suivante : comment peut-on reproduire un son de guitare, reproduisant le plus fidèlement possible la sensation de jeu, et le timbre, d’un vrai ampli de guitare tout en s’en dispansant.\n\n\nDécomposition d’un amplificateur de guitare et proposition de solution\nUn ampli peut généralement être décomposé en trois sections :\n\nLe préamplificateur\nL’amplificateur de puissance\nLe haut-parleur\n\nDans les cas d’un amplificateur de guitare, chacun des ces étages sont autement non-linéaires et donc sources de distortions.\nLa stratégie alors adoptée est de conserver l’étage de préamplificateur analogique, de simuler l’amplificateur de puissance et les non-linéarité du haut-parleur grâce à un réseau de neuronnes artificiels, et enfin, de reproduire la réponse en fréquence du haut-parleur avec une réponse impulsionnelle.\nLa mise en oeuvre pratique est alors celle-ci :\nJ’utilise deux préamplificateurs à lampes, au format pédales, le Kingley Constable et le Effectrode Blackbird, connectés en parallèles. Ces deux préamplis sont ensuite connectés à une carte Bela, assurant leur sommation ainsi que la simulation de l’ampli de puissance et du haut-parleur2.\nCoquetterie supplémentaire, la Bela disposant de suffisament de ressources, je peux également y calculer une simulation de haut-parleur rotatif3.\n\n\n\nImplémentation d’un amplificateur “virtuel”, avec une entrée mono, et une sortie stéréo, induite par la simulation de haut-parleur rotatif."
+  },
+  {
+    "objectID": "posts/pedalboard-1/index.html#footnotes",
+    "href": "posts/pedalboard-1/index.html#footnotes",
+    "title": "Conception d’un pedalboard",
+    "section": "Notes de bas de page",
+    "text": "Notes de bas de page\n\n\nL’octophonie est un cercle de huit haut-parleurs régulièrement espacés sur un cercle.↩︎\nVoir ces articles↩︎\nSimulation qui aura sans doute son propre article.↩︎"
+  },
+  {
+    "objectID": "posts/pedalboard-1/index.html#le-pedalboard",
+    "href": "posts/pedalboard-1/index.html#le-pedalboard",
+    "title": "Conception d’un pedalboard",
+    "section": "Le pedalboard",
+    "text": "Le pedalboard\nJ’ai fais le choix de construire l’ensemble de mon système de création sonore sur un pedalboard. Sa taille est assez importante, mais compte tenu des possibilités qu’il offre et du fait qu’il se passe d’un ampli, il devient alors relativement raisonnable.\nCe pedalboard se décompose en N sections:\n\nUne chaîne de traitement avant l’étape de simulation d’amplication\nUne chaîne de traitement post étape de simulation d’amplification\nLa dite simulation d’amplification\nUne chaîne de traitement auxiliaire\n\n\n\n\nChemin du signal global\n\n\n\nEtage de pré et post amplification\nLe chemin du signal avant d’attaque la simulation d’amplification est assez classique et principalement analogique. On y trouve quatres circuits de saturation :\n\nDOD Looking glass\nALH Guitar Division drive\nBYOC Big Muff (Ram’s Head)\nAeon FX Nucleus (Colordrive)\n\nLa DOD joue le rôle de très légère saturation, la ALH est un clone d’une tube driver et joue le rôle saturation modérée, la Big Muff joue le rôle de fuzz/distortion. Aucune de ces trois pédales n’est jamais associée à une autre. Cela génère trop de bruits parasites, et un son souvent peu désirable. Enfin, la Nucleus, clone d’une Colordrive, joue le rôle de boost pour les solo. Elle rajoute à la fois du volume et de la compression/saturation sur le signal.\nEn plus, on retrouve un compresseur, le KP-1 de chez PFX, deux pédales de modulations, la Ripply Fall de JAM et la Camoflange de ThorpyFX et une Eventide H90. La H90 possède deux canaux de traitement dissociés, et seulement un des deux est connecté.\nCela donne le chaînage suivant :\n\n\n\nChemin du signal de la section pre amplification.\n\n\nOn notera la présence d’un switcher, le BOSS ES-8, permettant de garantir un signal plus propre ainsi que la commutation des effets via le protocol MIDI.\nL’étage de post amplification est sans doute le plus simple. Il n’est constitué que d’une seule pédale, la Strymon Volante, suffisamment polyvalente pour se suffir à mes besoins."
+  },
+  {
+    "objectID": "posts/pedalboard-1/index.html#etage-de-post-amplification",
+    "href": "posts/pedalboard-1/index.html#etage-de-post-amplification",
+    "title": "Conception d’un pedalboard",
+    "section": "Etage de post amplification",
+    "text": "Etage de post amplification\nCet étage est sans doute le plus simple. Il n’est constitué que d’une seule pédale, la Strymon Volante, suffisamment polyvalente pour se suffir à mes besoins."
+  },
+  {
+    "objectID": "posts/pedalboard-1/index.html#amplification",
+    "href": "posts/pedalboard-1/index.html#amplification",
+    "title": "Conception d’un pedalboard",
+    "section": "Amplification",
+    "text": "Amplification"
+  },
+  {
+    "objectID": "posts/pedalboard-1/index.html#etage-de-traitement-auxiliaire",
+    "href": "posts/pedalboard-1/index.html#etage-de-traitement-auxiliaire",
+    "title": "Conception d’un pedalboard",
+    "section": "Etage de traitement auxiliaire",
+    "text": "Etage de traitement auxiliaire\nMon pedalboard possède deux chemins du signal distincts. L’un assure la partie “classique”, l’autre permet de effets plus créatifs, comme le transformation du son de guitare en synthétiseur soustractif, où encore l’emploi de synthèse granulaire. On a donc une sortie principale et une sortie auxiliaire, toutes deux monophoniques.\nEn fonction du type de son à réaliser avec cette sortie auxiliaire, il est possible de prélever le signal à deux points différents dans le chemin du signal, soit directement à l’entré, soit au niveau de l’amplificateur. En pratique, il est nécessaire d’avoir un signal très propre pour pouvoir correctement le transformer en son synthétique. A l’inverse, pour certains effets de granulaire, ou d’ambiant, il est plus intéressant d’avoir accès à son plus proche d’un son de guitare électrique usuel."
   }
 ]

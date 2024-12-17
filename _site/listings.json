@@ -2,6 +2,7 @@
   {
     "listing": "/blog.html",
     "items": [
+      "/posts/pedalboard-1/index.html",
       "/posts/reseau-neuronne-deconvolution-pt2/index.html",
       "/posts/reseau-neuronne-deconvolution-pt1/index.html"
     ]
