@@ -3,7 +3,7 @@ title: "Mixage Ambisonique dans REAPER - Introduction"
 subtitle: "Une Alternative au Dolby Atmos"
 author: "Jean-Loup Pecquais"
 date: "2025-03-13"
-categories: [guitar]
+categories: [audio,spatialisation,ambisonie]
 image: "ressources/header.png"
 draft: false
 website:
