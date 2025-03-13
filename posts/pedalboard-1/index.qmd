@@ -5,7 +5,7 @@ author: "Jean-Loup Pecquais"
 date: "2024-12-04"
 categories: [guitar]
 image: "ressources/header.png"
-draft: false
+draft: true
 website:
   sidebar:
     tools:

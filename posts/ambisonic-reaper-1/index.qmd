@@ -1,0 +1,62 @@
+---
+title: "Mixage Ambisonique dans REAPER - Introduction"
+subtitle: "Une Alternative au Dolby Atmos"
+author: "Jean-Loup Pecquais"
+date: "2024-12-04"
+categories: [guitar]
+image: "ressources/header.png"
+draft: false
+website:
+  sidebar:
+    tools:
+      - icon: github
+        href: https://github.com/
+---
+
+![*image générée par IA*](ressources/header.png)
+
+## Introduction
+
+### La "révolution" de l'Atmos ?
+
+À l’heure où j’écris cet article, en début 2025, la spatialisation sonore dans la musique enregistrée prend le visage du Dolby Atmos. Trente ans plus tôt, c’était le 5.1 surround, puis le 7.1 et maintenant, la firme américaine nous propose un format de mixage orienté objet, permettant ainsi, théoriquement, de s’affranchir de la connaissance du système de diffusion lors de la phase de mixage.
+
+Ne faisons pas durer le suspense plus longtemps, je fais partie des personnes tout à fait dubitatives devant l’engouement provoqué par cette technologie. En effet, je crois ses défauts assez nombreux. Prenons le temps d’en énumérer quelques-uns :
+
++ Un mixage réalisé en Dolby Atmos ne peut être rendu, à ce jour, que sur certains systèmes de diffusion particuliers (5.1.2,7.1.4,9.1.6,etc.), tous ses systèmes ayant le mauvais goût d’être **hétérogènes** dans la répartition des haut-parleurs dans l’espace.
++  La loi de panoramique adopté par le Dolby Atmos emprunte beaucoup au **Vector Based Amplitude Panning** (ou VBAP). Bien que le VBAP possède un certain nombre de qualités (économe en ressources et relativement robuste face à des systèmes de diffusion non homogène), il possède malheureusement un inconvénient : il génère une variation de la perception de la largeur de la source en fonction de sa position. Cela s’entend particulièrement sur des mouvements.
++ Il n’existe, à ce jour, pas de solution réellement satisfaisante pour le traitement des groupes d’objets. Quid de la compression de bus, de la compression parallèle et autres traitements aujourd’hui synonymes de certaines esthétiques de production ? Dolby, et les acteurs de l’industrie du son « immersif » répondent en général que l’amélioration des outils de spatialisation améliore également le démasquage (par la multiplication du nombre d’enceintes). Il s’agit d’un argument de techniciens, ne faisant pas la part des choses entre des traitements sonores de nécessité technique et ceux de nécessité esthétique.
++ Comme il n’existe plus de bus master en Atmos, la notion de mastering devient elle aussi bien compliquée. De plus, les résultats peuvent varier considérablement en fonction du format de restitution (haut-parleurs ou casque avec synthèse binaurale). Ici encore, aucune solution correcte n’est proposée, Dolby allant même jusqu’à proclamer que l’Atmos rend le mastering inutile.
++ La qualité sonore du rendu binaural des mixages Atmos est tout à fait discutable.
++ Le prix de la chaîne de production Atmos est souvent prohibitif.
+
+Mais tous ces défauts ne seraient rien sans la volonté de Dolby de faire passer sa technologie pour une révolution. Cette posture est particulièrement agaçante, car elle semble nier près de cent années de recherches sur le sujet. Car oui, la question de la spatialisation sonore de synthèse remonte presque aussi loin que l’invention de l’enregistrement sonore.
+
+### L'alternative de l'ambisonie
+
+Il existe pourtant une technologie, dont la naissance remonte aux années soixante-dix, et qui proposait déjà des avantages similaires à l’Atmos : l’ambisonie. Mis au point par un génial ingénieur anglais, [Michael Gerzon](https://en.wikipedia.org/wiki/Michael_Gerzon)^[Gerzon est également le premier à proposer une approche de la réverbération artificiel employant une matrice de réinjection (Feedback Delay Network).], l’ambisonie permet, grâce à une technique de matriçage, de réaliser un mixage sans se soucier du système de diffusion (casque ou haut-parleurs, peu importe leurs nombres, etc.).
+
+![Michael Gerzon - Prise de son ambisonique avec microphones discrets](ressources/gerzon2.jpg){width=30%}
+
+Gerzon réalisa de nombreux enregistrements ambisoniques et fut aussi le concepteur des microphones Soundfield, marque aujourd’hui possédée par Rhodes. De santé fragile, il décéda dans les années quatre-vingt-dix.
+
+Depuis, de nombreuses recherches ont eu à cœur d’améliorer le procédé ambisonique. D’abord, par l’introduction de l’ambisonie d’ordre plus élevé (Higher Order Ambisonic - HOA), permettant ainsi un meilleur adressage des systèmes comportant beaucoup d’enceintes. Puis par l’élaboration de décodeurs optimisant le rendu ambisonique sur des systèmes non homogènes, comme le *AllRound Ambisonic Decoder* (AllRAD) et l'*Energy Preserving Ambisonic Decoder* (EPAD).
+
+Il existe aujourd’hui deux suites de plug-ins majeures permettant la création de mixages ambisonique:
+
++ La suite [IEM](https://plugins.iem.at/)
++ La suite [SPARTA](https://leomccormack.github.io/sparta-site/)
+
+:::{layout-nrow="2"}
+![*EnergyVisualizer* de la suite IEM](http://plugins.iem.at/images/featured/EnergyVisualizer.png){width=50%}
+
+![*Plugins* de la suite SPARTA](https://bedroomproducersblog.com/wp-content/uploads/2021/05/sparta.jpg){width=50%}
+:::
+
+Toutes les deux sont distribuées gratuitement et sont *open source*. Cependant, un mixage ambisonique, surtout quand il utilise les ordres plus élevés, devient rapidement gourmand en nombre de canaux par piste. Un mixage réalisé à l’ordre 3 demande déjà seize canaux par pistes encodées. Il convient donc de trouver un logiciel de mixage permettant cette flexibilité.
+
+[REAPER](https://www.reaper.fm/) est une station de travail audio numérique développé par l’entreprise Cockos. Édité depuis 2005, ce logiciel a conquis une large communauté grâce à son grand nombre de fonctionnalités, ses grandes possibilités de personnalisation et un tarif terriblement concurrentiel. Dans notre cas d’usage, il est bon de dire que chaque piste, dans REAPER, supporte jusqu’à 128 canaux. Nous pouvons donc employer l’ambisonie d’ordre 10 (121 canaux) ^[En 3D, le nombre de canaux d'un flux ambisonique ce calcul grâce à la formule suivante : $N_{ch} = (N+1)^2$, où $N$ est l'ordre ambisonique].
+
+Cet article sert d'introduction à une série qui aura à cœur d'expliquer les éléments théoriques et pratiques du mixage ambisonique avec une attention particulière à proposer une méthode de travail simple, claire et qui ne remet pas en cause près de cent ans de pratiques techniques et surtout esthétiques dans nos métiers.
+
+Le prochain article traitera de la théorie entourant la pratique de l'ambisonique.
