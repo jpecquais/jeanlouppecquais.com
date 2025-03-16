@@ -5,15 +5,29 @@ website:
   title: "jeanlouppecquais.com"
   navbar:
     right:
-      - training.qmd
-      - projects.qmd
+      # - training.qmd
       - music.qmd
       - blog.qmd
+      - text: Projets
+        menu:
+        - text: Outwards
+          href: https://www.outwardsmusic.com/
+          target: _blank
+        - text: Burger Bang
+          href: https://www.youtube.com/@burgerbang
+          target: _blank
+        - text: Pompéi
+          href: https://360prod.fr/collab/pompei
+          target: _blank
+        - text: Guide pratique des techniques du son
+          href: https://doc.jeanlouppecquais.com/
+          target: _blank
 
 format:
   html:
     theme: cosmo
-    css: styles.css
+    css: assets/styles/common.css
+    page-layout: full
 
 lang: fr
 language:

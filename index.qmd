@@ -3,6 +3,24 @@ title: "Jean-Loup Pecquais"
 subtitle: "Ingénieur du son & formateur"
 image: avatar.jpg
 lang: fr
+listing:
+  - id: news-music
+    sort-ui: false
+    filter-ui: false
+    max-items: 5
+    contents: music
+    fields: [image, title, date]
+    type: table
+  - id: news-blog
+    sort-ui: false
+    filter-ui: false
+    max-items: 5
+    contents: posts
+    fields: [image, title, date]
+    type: table
+# format: 
+#   html:
+#     page-layout: full
 about:
   id: hero-heading
   image-shape: round
@@ -28,3 +46,13 @@ about:
 Jean-Loup Pecquais est ingénieur du son, spécialisé dans le son immersif, l'informatique audio et le traitement du signal sonore. Il travaille actuellement comme développeur et ingénieur applicatif chez [Harman](https://pro.harman.com/), et enseigne à l'[ENS Louis Lumière](https://www.ens-louis-lumiere.fr/).
 
 Il est également guitariste et membre des groupes Outwards, Pompéi et Burger Bang.
+
+## Dernières musiques
+
+:::{#news-music}
+:::
+
+## Derniers articles
+
+:::{#news-blog}
+:::

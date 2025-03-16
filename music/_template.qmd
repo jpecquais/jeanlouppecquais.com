@@ -1,0 +1,49 @@
+---
+format:
+    html:
+        css: ../../assets/styles/audio-player.css
+---
+
+<!-- [Télécharger tous les formats](audio/full-release.zip) -->
+
+## Options d'écoute
+
+**Quel format écouter ?** Rien de plus simple !
+
+:::{.grid}
+
+::: {.g-col-12 .g-col-md-3}
+![](../../assets/media/icons/stereo.svg){width=50%}
+
+**Stéréo UHJ**
+
+Destiné à être réstitué sur une paire de haut-parleurs sans effet d'entourement. C'est (presque) votre stéréo habituelle !
+:::
+
+::: {.g-col-12 .g-col-md-3}
+![](../../assets/media/icons/binaural.svg){width=50%}
+
+**Binaural**
+
+Pour une écoute au casque avec un effet d'entourement.
+:::
+
+::: {.g-col-12 .g-col-md-3}
+![](../../assets/media/icons/transaural.svg){width=50%}
+
+**Transaural**
+
+Pour une paire de haut-parleurs. La scène sonore est considérablement élargie pour un système et un auditeur correctement positionnés
+:::
+
+::: {.g-col-12 .g-col-md-3}
+![](../../assets/media/icons/ambisonic.svg){width=50%}
+
+**Ambisonie**
+
+Contient le mixage original, avant décodage vers un format écoutable (stéréo et autre). Nécessite donc un décodeur externe et un utilisateur averti !
+:::
+
+:::
+
+Pour les plus curieux, voici un [article complet](../../formats/index.qmd) sur le sujet !

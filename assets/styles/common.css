@@ -1,0 +1,12 @@
+p, ul{
+    text-align: justify !important
+}
+
+img{
+    display: block;
+    margin: 0px auto;
+   }
+
+.caption{
+    text-align: center !important
+}
