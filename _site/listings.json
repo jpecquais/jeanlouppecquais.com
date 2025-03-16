@@ -2,7 +2,6 @@
   {
     "listing": "/blog.html",
     "items": [
-      "/posts/ambisonic-reaper-1/ressources/too_much.html",
       "/posts/ambisonic-reaper-1/index.html",
       "/posts/reseau-neuronne-deconvolution-pt2/index.html",
       "/posts/reseau-neuronne-deconvolution-pt1/index.html"
@@ -10,7 +9,9 @@
   },
   {
     "listing": "/music.html",
-    "items": []
+    "items": [
+      "/music/2025-03-14 - pompei - pompei/index.html"
+    ]
   },
   {
     "listing": "/projects.html",
@@ -28,6 +29,15 @@
       "/training/informatique-audio/index.html",
       "/training/reaper/index.html",
       "/training/initiation-3D-sonore/index.html"
+    ]
+  },
+  {
+    "listing": "/index.html",
+    "items": [
+      "/music/2025-03-14 - pompei - pompei/index.html",
+      "/posts/ambisonic-reaper-1/index.html",
+      "/posts/reseau-neuronne-deconvolution-pt2/index.html",
+      "/posts/reseau-neuronne-deconvolution-pt1/index.html"
     ]
   }
 ]

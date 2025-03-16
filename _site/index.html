@@ -30,6 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-listing/list.min.js"></script>
+<script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -65,12 +67,98 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Recherche"
   }
 }</script>
+<script>
 
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-news-music .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
 
-<link rel="stylesheet" href="styles.css">
+    const options = {
+      valueNames: ['listing-image','listing-title','listing-date',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
+      
+      searchColumns: ["listing-date","listing-title","listing-author"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-news-music'] = new List('listing-news-music', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-news-blog .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-image','listing-title','listing-date',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
+      
+      searchColumns: ["listing-date","listing-title","listing-author"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-news-blog'] = new List('listing-news-blog', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="assets/styles/common.css">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -88,14 +176,6 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./training.html"> 
-<span class="menu-text">Cours &amp; Formations</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./projects.html"> 
-<span class="menu-text">Projets</span></a>
-  </li>  
-  <li class="nav-item">
     <a class="nav-link" href="./music.html"> 
 <span class="menu-text">Musique</span></a>
   </li>  
@@ -103,6 +183,29 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link" href="./blog.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-projets" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Projets</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-projets">    
+        <li>
+    <a class="dropdown-item" href="https://www.outwardsmusic.com/" target="_blank">
+ <span class="dropdown-text">Outwards</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://www.youtube.com/@burgerbang" target="_blank">
+ <span class="dropdown-text">Burger Bang</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://360prod.fr/collab/pompei" target="_blank">
+ <span class="dropdown-text">Pompéi</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://doc.jeanlouppecquais.com/" target="_blank">
+ <span class="dropdown-text">Guide pratique des techniques du son</span></a>
+  </li>  
+    </ul>
+  </li>
 </ul>
           </div> <!-- /navcollapse -->
           <div class="quarto-navbar-tools">
@@ -111,12 +214,12 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     
 <!-- main -->
-<div class="quarto-about-trestles content">
+<div class="quarto-about-trestles content column-page">
   <div class="about-entity">
     <img src="avatar.jpg" class="about-image
   round " style="height: 20em; width: 20em;">
@@ -125,7 +228,7 @@ ul.task-list li input[type="checkbox"] {
 <h1 class="title">Jean-Loup Pecquais</h1>
 <p class="subtitle lead">Ingénieur du son &amp; formateur</p>
 </div>
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-page">
   </div>
 </header>
     <div class="about-links">
@@ -147,13 +250,107 @@ ul.task-list li input[type="checkbox"] {
   </a>
 </div>
   </div>
-  <div class="about-contents"><main class="content" id="quarto-document-content">
+  <div class="about-contents"><main class="content column-page" id="quarto-document-content">
 <section id="à-propos" class="level1">
 <h1>À propos</h1>
 <p>Jean-Loup Pecquais est ingénieur du son, spécialisé dans le son immersif, l’informatique audio et le traitement du signal sonore. Il travaille actuellement comme développeur et ingénieur applicatif chez <a href="https://pro.harman.com/">Harman</a>, et enseigne à l’<a href="https://www.ens-louis-lumiere.fr/">ENS Louis Lumière</a>.</p>
 <p>Il est également guitariste et membre des groupes Outwards, Pompéi et Burger Bang.</p>
+<section id="dernières-musiques" class="level2">
+<h2 data-anchor-id="dernières-musiques">Dernières musiques</h2>
+<div id="listing-news-music" class="quarto-listing quarto-listing-container-table">
+<table class="quarto-listing-table table">
+<thead>
+<tr>
+<th>
+</th>
+<th>
+Titre
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody class="list">
+<tr data-index="0" data-categories="Pompéi" data-listing-date-sort="1741906800000" data-listing-file-modified-sort="1742022253291" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="18" data-listing-word-count-sort="3536" data-listing-title-sort="Pompéi" data-listing-filename-sort="index.qmd">
+<td>
+<span class="listing-image"><img src="./music/2025-03-14 - pompei - pompei/img/logo_pompei_square.png" style="height: 40px;"></span>
+</td>
+<td>
+<a href="./music/2025-03-14 - pompei - pompei/index.html" class="title listing-title">Pompéi</a>
+</td>
+<td>
+<span class="listing-date">14 mars 2025</span>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="listing-no-matching d-none">
+Aucun article correspondant
+</div>
+</div>
+</section>
+<section id="derniers-articles" class="level2">
+<h2 data-anchor-id="derniers-articles">Derniers articles</h2>
+<div id="listing-news-blog" class="quarto-listing quarto-listing-container-table">
+<table class="quarto-listing-table table">
+<thead>
+<tr>
+<th>
+</th>
+<th>
+Titre
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody class="list">
+<tr data-index="0" data-categories="guitar" data-listing-date-sort="1733266800000" data-listing-file-modified-sort="1742130745860" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="856" data-listing-title-sort="Mixage Ambisonique dans REAPER - Introduction" data-listing-filename-sort="index.qmd">
+<td>
+<span class="listing-image"><img src="./posts/ambisonic-reaper-1/ressources/header.png" style="height: 40px;"></span>
+</td>
+<td>
+<a href="./posts/ambisonic-reaper-1/index.html" class="title listing-title">Mixage Ambisonique dans REAPER - Introduction</a>
+</td>
+<td>
+<span class="listing-date">4 déc. 2024</span>
+</td>
+</tr>
+<tr data-index="1" data-categories="dsp,guitar,deconvolution" data-listing-date-sort="1730588400000" data-listing-file-modified-sort="1738083786340" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1205" data-listing-title-sort="Réseau de neurones et déconvolution - 
+ Application à la simulation d'un amplificateur guitare" data-listing-filename-sort="index.qmd">
+<td>
+<span class="listing-image"><img src="./posts/reseau-neuronne-deconvolution-pt2/ressources/header.png" style="height: 40px;"></span>
+</td>
+<td>
+<a href="./posts/reseau-neuronne-deconvolution-pt2/index.html" class="title listing-title">Réseau de neurones et déconvolution - Application à la simulation d’un amplificateur guitare</a>
+</td>
+<td>
+<span class="listing-date">3 nov. 2024</span>
+</td>
+</tr>
+<tr data-index="2" data-categories="dsp,guitar" data-listing-date-sort="1729029600000" data-listing-file-modified-sort="1738083786327" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1147" data-listing-title-sort="Réseau de neurones et déconvolution - 
+ Application à la simulation d'un amplificateur guitare" data-listing-filename-sort="index.qmd">
+<td>
+<span class="listing-image"><img src="./posts/reseau-neuronne-deconvolution-pt1/ressources/header.png" style="height: 40px;"></span>
+</td>
+<td>
+<a href="./posts/reseau-neuronne-deconvolution-pt1/index.html" class="title listing-title">Réseau de neurones et déconvolution - Application à la simulation d’un amplificateur guitare</a>
+</td>
+<td>
+<span class="listing-date">16 oct. 2024</span>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="listing-no-matching d-none">
+Aucun article correspondant
+</div>
+</div>
 
 
+</section>
 </section>
 </main></div>
 </div>

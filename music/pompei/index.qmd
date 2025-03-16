@@ -1,5 +1,0 @@
----
-title: Pompei
-author: "Jean-Loup Pecquais"
-image: pp.webp
----

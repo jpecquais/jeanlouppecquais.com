@@ -4,14 +4,14 @@
     "href": "blog.html",
     "title": "Blog",
     "section": "",
-    "text": "Conseils de mixage\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMixage Ambisonique dans REAPER - Introduction\n\n\nUne Alternative au Dolby Atmos\n\n\n\nguitar\n\n\n\n\n\n\n\n\n\n4 déc. 2024\n\n\nJean-Loup Pecquais\n\n\n\n\n\n\n\n\n\n\n\n\nRéseau de neurones et déconvolution - Application à la simulation d’un amplificateur guitare\n\n\nPt.II - Mise en place du dispositif\n\n\n\ndsp\n\n\nguitar\n\n\ndeconvolution\n\n\n\n\n\n\n\n\n\n3 nov. 2024\n\n\nJean-Loup Pecquais\n\n\n\n\n\n\n\n\n\n\n\n\nRéseau de neurones et déconvolution - Application à la simulation d’un amplificateur guitare\n\n\nPt.I - Enoncé du problème\n\n\n\ndsp\n\n\nguitar\n\n\n\n\n\n\n\n\n\n16 oct. 2024\n\n\nJean-Loup Pecquais\n\n\n\n\n\n\nAucun article correspondant"
+    "text": "Mixage Ambisonique dans REAPER - Introduction\n\n\nUne Alternative au Dolby Atmos\n\n\n\nguitar\n\n\n\n\n\n\n\n\n\n4 déc. 2024\n\n\nJean-Loup Pecquais\n\n\n\n\n\n\n\n\n\n\n\n\nRéseau de neurones et déconvolution - Application à la simulation d’un amplificateur guitare\n\n\nPt.II - Mise en place du dispositif\n\n\n\ndsp\n\n\nguitar\n\n\ndeconvolution\n\n\n\n\n\n\n\n\n\n3 nov. 2024\n\n\nJean-Loup Pecquais\n\n\n\n\n\n\n\n\n\n\n\n\nRéseau de neurones et déconvolution - Application à la simulation d’un amplificateur guitare\n\n\nPt.I - Enoncé du problème\n\n\n\ndsp\n\n\nguitar\n\n\n\n\n\n\n\n\n\n16 oct. 2024\n\n\nJean-Loup Pecquais\n\n\n\n\n\n\nAucun article correspondant"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Jean-Loup Pecquais",
     "section": "",
-    "text": "À propos\nJean-Loup Pecquais est ingénieur du son, spécialisé dans le son immersif, l’informatique audio et le traitement du signal sonore. Il travaille actuellement comme développeur et ingénieur applicatif chez Harman, et enseigne à l’ENS Louis Lumière.\nIl est également guitariste et membre des groupes Outwards, Pompéi et Burger Bang."
+    "text": "Jean-Loup Pecquais est ingénieur du son, spécialisé dans le son immersif, l’informatique audio et le traitement du signal sonore. Il travaille actuellement comme développeur et ingénieur applicatif chez Harman, et enseigne à l’ENS Louis Lumière.\nIl est également guitariste et membre des groupes Outwards, Pompéi et Burger Bang.\n\n\n\n\n\n\n\n\n\nTitre\n\n\nDate\n\n\n\n\n\n\n\n\n\nPompéi\n\n\n14 mars 2025\n\n\n\n\n\nAucun article correspondant\n\n\n\n\n\n\n\n\n\n\n\n\nTitre\n\n\nDate\n\n\n\n\n\n\n\n\n\nMixage Ambisonique dans REAPER - Introduction\n\n\n4 déc. 2024\n\n\n\n\n\n\n\nRéseau de neurones et déconvolution - Application à la simulation d’un amplificateur guitare\n\n\n3 nov. 2024\n\n\n\n\n\n\n\nRéseau de neurones et déconvolution - Application à la simulation d’un amplificateur guitare\n\n\n16 oct. 2024\n\n\n\n\n\nAucun article correspondant"
   },
   {
     "objectID": "training/initiation-3D-sonore/index.html",
@@ -53,7 +53,7 @@
     "href": "music.html",
     "title": "Musique",
     "section": "",
-    "text": "Outwards\n\n\nEntre rock alternatif et rock progressif\n\n\n\n\n\n\n\n\n\n\n\n\n\nBuger Bang\n\n\nCollectif rock breton\n\n\n\n\n\n\n\n\n\n\n\n\n\nPompei\n\n\nPink Floyd & spatialisation sonore\n\n\n\n\n\n\n\nAucun article correspondant"
+    "text": "Pompéi\n\n\nAlbum\n\n\n\nPompéi\n\n\n\nEnregistrement de reprises de Pink Floyd au studio Nyima\n\n\n\n\n\n14 mars 2025\n\n\nPompéi\n\n\n\n\n\n\nAucun article correspondant"
   },
   {
     "objectID": "posts/reseau-neuronne-deconvolution-pt2/index.html",
@@ -250,5 +250,68 @@
     "title": "jeanlouppecquais.com",
     "section": "Notes de bas de page",
     "text": "Notes de bas de page\n\n\nOn rappel que pour une fréquence d’échantillonnage \\(F_e\\), un système numérique peut correctement représenter des fréquences allant jusqu’à \\(\\frac{F_e}{2}\\)↩︎\nEn pratique, il convient d’appliquer aux représentations spatiales le même raisonnement que nous utilisons pour l’échantillonnage temporel. Tout comme nous limitons l’échantillonnage fréquentiel en conversion analogique-numérique en fonction de nos capacités auditives, nous devrions également adapter la résolution spatiale d’un échantillonnage de l’espace à nos capacités de localisation, qui ont aussi leurs propres limites physiologiques.↩︎\nCette formule s’applique pour de l’ambisonique 3D. En 2D, la relation entre l’ordre ambisonique et le nombre d’harmoniques sphériques/de canaux devient \\(2N+1\\).↩︎\nLors d’un déploiement in-situ, on peut s’adapter à la géométrie d’un lieu en appliquant des retards et des atténuation sur les haut-parleurs trop proches et ainsi les replacer virtuellement sur une sphère idéale.↩︎\nUn même instrument capté par ensemble de microphones de telle façon à échantillonner sa caractéristique sonore. Cette dernière est reconstituée en phase de mixage, par ajustement des équilibres de volumes entre les microphones après leur alignement en phase.↩︎\nDeux logiques s’appliquent ici. Soit, on considère un ensemble d’instruments, soit un unique instrument, mais généralement assez grand. Dans les deux cas, le couple de prise de son constitue la source de prise de son principale et les appoints ne sont joués que comme des compléments.↩︎\nOui, le système Left-Center-Right-Surround de Dobly se nomme bel et bien Dolby Stereo. On imagine alors toutes les confusions qui en ont résulté.↩︎\nFormat d’effet similaire au VST3 ou AudioUnit, mais dont le code est écrit en EEL, langage développé par… Cockos !↩︎"
+  },
+  {
+    "objectID": "music/2025-03-14 - pompei - pompei/index.html",
+    "href": "music/2025-03-14 - pompei - pompei/index.html",
+    "title": "Pompéi",
+    "section": "",
+    "text": "Please wait\n      \n    \n    \n    \n    \n      \n      \n        \n        \n          \n        \n        \n          0:00\n          0:00"
+  },
+  {
+    "objectID": "music/2025-03-14 - pompei - pompei/index.html#à-propos-de-cette-sortie",
+    "href": "music/2025-03-14 - pompei - pompei/index.html#à-propos-de-cette-sortie",
+    "title": "Pompéi",
+    "section": "À propos de cette sortie",
+    "text": "À propos de cette sortie\nÉcrivez votre description sur l’album, l’inspiration, l’histoire, etc."
+  },
+  {
+    "objectID": "music/2025-03-14 - pompei - pompei/index.html#options-découte",
+    "href": "music/2025-03-14 - pompei - pompei/index.html#options-découte",
+    "title": "Pompéi",
+    "section": "Options d’écoute",
+    "text": "Options d’écoute\nQuel format écouter ? Rien de plus simple !\n\n\n\nStéréo UHJ\nDestiné à être réstitué sur une paire de haut-parleurs sans effet d’entourement. C’est (presque) votre stéréo habituelle !\n\n\n\nBinaural\nPour une écoute au casque avec un effet d’entourement.\n\n\n\nTransaural\nPour une paire de haut-parleurs. La scène sonore est considérablement élargie pour un système et un auditeur correctement positionnés\n\n\n\nAmbisonie\nContient le mixage original, avant décodage vers un format écoutable (stéréo et autre). Nécessite donc un décodeur externe et un utilisateur averti !\n\n\nPour les plus curieux, voici un article complet sur le sujet !"
+  },
+  {
+    "objectID": "music/2025-03-14 - pompei - pompei/index.html#pistes",
+    "href": "music/2025-03-14 - pompei - pompei/index.html#pistes",
+    "title": "Pompéi",
+    "section": "Pistes",
+    "text": "Pistes"
+  },
+  {
+    "objectID": "index.html#musicales",
+    "href": "index.html#musicales",
+    "title": "Jean-Loup Pecquais",
+    "section": "Musicales",
+    "text": "Musicales\n\n\n    \n      \n      \n    \n\n\n\n\n\nDate\n\n\nTitre\n\n\nAuteur·rice\n\n\n\n\n\n\n \n\n\nConseils de mixage\n\n\n \n\n\n\n\n4 déc. 2024\n\n\nMixage Ambisonique dans REAPER - Introduction\n\n\nJean-Loup Pecquais\n\n\n\n\n\nAucun article correspondant"
+  },
+  {
+    "objectID": "index.html#du-son",
+    "href": "index.html#du-son",
+    "title": "Jean-Loup Pecquais",
+    "section": "Du Son",
+    "text": "Du Son\n\n\n    \n      \n      \n    \n\n\n\n\n\nDate\n\n\nTitre\n\n\nAuteur·rice\n\n\n\n\n\n\n \n\n\nChildhood\n\n\nOutwards \n\n\n\n\n14 mars 2025\n\n\nPompéi\n\n\nPompéi \n\n\n\n\n\nAucun article correspondant"
+  },
+  {
+    "objectID": "posts/ambisonic-reaper-1/ressources/too_much.html",
+    "href": "posts/ambisonic-reaper-1/ressources/too_much.html",
+    "title": "jeanlouppecquais.com",
+    "section": "",
+    "text": "## Conseils de mixage"
+  },
+  {
+    "objectID": "index.html#dernières-musiques",
+    "href": "index.html#dernières-musiques",
+    "title": "Jean-Loup Pecquais",
+    "section": "",
+    "text": "Titre\n\n\nDate\n\n\n\n\n\n\n\n\n\nPompéi\n\n\n14 mars 2025\n\n\n\n\n\nAucun article correspondant"
+  },
+  {
+    "objectID": "index.html#derniers-articles",
+    "href": "index.html#derniers-articles",
+    "title": "Jean-Loup Pecquais",
+    "section": "",
+    "text": "Titre\n\n\nDate\n\n\n\n\n\n\n\n\n\nMixage Ambisonique dans REAPER - Introduction\n\n\n4 déc. 2024\n\n\n\n\n\n\n\nRéseau de neurones et déconvolution - Application à la simulation d’un amplificateur guitare\n\n\n3 nov. 2024\n\n\n\n\n\n\n\nRéseau de neurones et déconvolution - Application à la simulation d’un amplificateur guitare\n\n\n16 oct. 2024\n\n\n\n\n\nAucun article correspondant"
   }
 ]
