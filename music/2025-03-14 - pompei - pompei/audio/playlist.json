@@ -1,0 +1,123 @@
+[
+  {
+    "tracknumber": 1,
+    "titletrack": "Echoes Pt.1",
+    "artist": "Pomp\u00e9i",
+    "format": {
+      "UHJ": "audio/01-Echoes Pt.1/uhj.opus",
+      "TRANSAURAL": "audio/01-Echoes Pt.1/transaural.opus",
+      "BIN": "audio/01-Echoes Pt.1/bin.opus"
+    },
+    "howl": null
+  },
+  {
+    "tracknumber": 2,
+    "titletrack": "Astronomy Domine",
+    "artist": "Pomp\u00e9i",
+    "format": {
+      "UHJ": "audio/02-Astronomy Domine/uhj.opus",
+      "TRANSAURAL": "audio/02-Astronomy Domine/transaural.opus",
+      "BIN": "audio/02-Astronomy Domine/bin.opus"
+    },
+    "howl": null
+  },
+  {
+    "tracknumber": 3,
+    "titletrack": "Money",
+    "artist": "Pomp\u00e9i",
+    "format": {
+      "UHJ": "audio/03-Money/uhj.opus",
+      "TRANSAURAL": "audio/03-Money/transaural.opus",
+      "BIN": "audio/03-Money/bin.opus"
+    },
+    "howl": null
+  },
+  {
+    "tracknumber": 4,
+    "titletrack": "Echoes Pt.2",
+    "artist": "Pomp\u00e9i",
+    "format": {
+      "UHJ": "audio/04-Echoes Pt.2/uhj.opus",
+      "TRANSAURAL": "audio/04-Echoes Pt.2/transaural.opus",
+      "BIN": "audio/04-Echoes Pt.2/bin.opus"
+    },
+    "howl": null
+  },
+  {
+    "tracknumber": 5,
+    "titletrack": "Speak to Me",
+    "artist": "Pomp\u00e9i",
+    "format": {
+      "UHJ": "audio/05-Speak to Me/uhj.opus",
+      "TRANSAURAL": "audio/05-Speak to Me/transaural.opus",
+      "BIN": "audio/05-Speak to Me/bin.opus"
+    },
+    "howl": null
+  },
+  {
+    "tracknumber": 6,
+    "titletrack": "Any Color You Like",
+    "artist": "Pomp\u00e9i",
+    "format": {
+      "UHJ": "audio/06-Any Color You Like/uhj.opus",
+      "TRANSAURAL": "audio/06-Any Color You Like/transaural.opus",
+      "BIN": "audio/06-Any Color You Like/bin.opus"
+    },
+    "howl": null
+  },
+  {
+    "tracknumber": 7,
+    "titletrack": "Us & Them",
+    "artist": "Pomp\u00e9i",
+    "format": {
+      "UHJ": "audio/07-Us & Them/uhj.opus",
+      "TRANSAURAL": "audio/07-Us & Them/transaural.opus",
+      "BIN": "audio/07-Us & Them/bin.opus"
+    },
+    "howl": null
+  },
+  {
+    "tracknumber": 8,
+    "titletrack": "Breath",
+    "artist": "Pomp\u00e9i",
+    "format": {
+      "UHJ": "audio/08-Breath/uhj.opus",
+      "TRANSAURAL": "audio/08-Breath/transaural.opus",
+      "BIN": "audio/08-Breath/bin.opus"
+    },
+    "howl": null
+  },
+  {
+    "tracknumber": 9,
+    "titletrack": "On the Run",
+    "artist": "Pomp\u00e9i",
+    "format": {
+      "UHJ": "audio/09-On the Run/uhj.opus",
+      "TRANSAURAL": "audio/09-On the Run/transaural.opus",
+      "BIN": "audio/09-On the Run/bin.opus"
+    },
+    "howl": null
+  },
+  {
+    "tracknumber": 10,
+    "titletrack": "Time",
+    "artist": "Pomp\u00e9i",
+    "format": {
+      "UHJ": "audio/10-Time/uhj.opus",
+      "TRANSAURAL": "audio/10-Time/transaural.opus",
+      "BIN": "audio/10-Time/bin.opus"
+    },
+    "howl": null
+  },
+  {
+    "tracknumber": 11,
+    "titletrack": "Saucerful of Secret",
+    "artist": "Pomp\u00e9i",
+    "format": {
+      "UHJ": "audio/11-Saucerful of Secret/uhj.opus",
+      "TRANSAURAL": "audio/11-Saucerful of Secret/transaural.opus",
+      "BIN": "audio/11-Saucerful of Secret/bin.opus"
+    },
+    "howl": null
+  }
+]

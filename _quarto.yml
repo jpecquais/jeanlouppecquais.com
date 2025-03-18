@@ -1,5 +1,7 @@
 project:
   type: website
+  pre-render: assets/scripts/build_audio_file_structure.py
+  post-render: assets/scripts/copy_audio_content.py
 
 website:
   title: "jeanlouppecquais.com"
