@@ -2,3 +2,4 @@
 /_site/
 /_extensions/
 .DS_Store
+.venv
