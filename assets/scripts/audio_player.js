@@ -27,13 +27,8 @@ document.addEventListener('DOMContentLoaded', function() {
       // Extract available formats from the first track
       if (tracks.length > 0 && tracks[0].format) {
         availableFormats = Object.keys(tracks[0].format);
-        
-        // Set default format (preferring BIN if available)
-        if (availableFormats.includes('BIN')) {
-          currentFormat = 'BIN';
-        } else {
-          currentFormat = availableFormats[0];
-        }
+        currentFormat = availableFormats[0];
+        // }
         
         init(); // Initialize the player after loading tracks
       } else {
@@ -53,10 +48,15 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Create format display names map
     const formatDisplayNames = {
+      'Binaural': 'Binaural',
       'BIN': 'Binaural',
+      'UHJ Stereo': 'UHJ Stereo',
       'UHJ': 'UHJ Stereo',
       'TRANSAURAL': 'Transaural',
-      'AMBISONIC': 'Ambisonic'
+      'Transaural': 'Transaural',
+      'Ambisonic': 'Ambisonic',
+      'AMBISONIC': 'Ambisonic',
+      '3OA': 'Ambisonic'
       // Add more mappings as needed
     };
     
