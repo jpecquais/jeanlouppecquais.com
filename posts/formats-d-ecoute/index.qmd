@@ -1,11 +1,13 @@
 ---
-title: Comprendre les différents stratégies de spatialisation sonore
-subtitle: Que dois-je écouter sur ce site web ?
+title: Quel format audio dois-je écouter sur ce site web ?
+subtitle: Comprendre les différentes stratégies de spatialisation sonore
 author: Jean-Loup Pecquais
-date: "2024-19-03"
+date: "2025-03-19"
 categories: [spatialisation]
 image: "ressources/header.png"
 ---
+
+![Image générée par crayion](ressources/header.png)
 
 Depuis début 2025, j'ai décidé d'utiliser ce site pour partager mes créations sonores et musicales (surtout musicales). La difficulté de cet exercice est que je ne travail plus en stéréo, et ceux depuis maintenant quelques années. La stéréo, si jamais le terme ne vous est pas familié, est un dispositif d'écoute, comprenant deux enceintes, placées de tel façon à former un [triangle équilatéral](https://fr.wikipedia.org/wiki/Triangle_%C3%A9quilat%C3%A9ral) avec l'auditeur. On créer ainsi une scène sonore frontale.
 
