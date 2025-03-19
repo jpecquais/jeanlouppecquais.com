@@ -4,9 +4,10 @@
     "titletrack": "Echoes Pt.1",
     "artist": "Pomp\u00e9i",
     "format": {
-      "UHJ": "audio/01-Echoes Pt.1/uhj.opus",
-      "TRANSAURAL": "audio/01-Echoes Pt.1/transaural.opus",
-      "BIN": "audio/01-Echoes Pt.1/bin.opus"
+      "3OA": "audio/3OA/01-Echoes Pt.1.opus",
+      "Transaural": "audio/Transaural/01-Echoes Pt.1.opus",
+      "UHJ Stereo": "audio/UHJ Stereo/01-Echoes Pt.1.opus",
+      "Binaural": "audio/Binaural/01-Echoes Pt.1.opus"
     },
     "howl": null
   },
@@ -15,9 +16,10 @@
     "titletrack": "Astronomy Domine",
     "artist": "Pomp\u00e9i",
     "format": {
-      "UHJ": "audio/02-Astronomy Domine/uhj.opus",
-      "TRANSAURAL": "audio/02-Astronomy Domine/transaural.opus",
-      "BIN": "audio/02-Astronomy Domine/bin.opus"
+      "3OA": "audio/3OA/02-Astronomy Domine.opus",
+      "Transaural": "audio/Transaural/02-Astronomy Domine.opus",
+      "UHJ Stereo": "audio/UHJ Stereo/02-Astronomy Domine.opus",
+      "Binaural": "audio/Binaural/02-Astronomy Domine.opus"
     },
     "howl": null
   },
@@ -26,9 +28,10 @@
     "titletrack": "Money",
     "artist": "Pomp\u00e9i",
     "format": {
-      "UHJ": "audio/03-Money/uhj.opus",
-      "TRANSAURAL": "audio/03-Money/transaural.opus",
-      "BIN": "audio/03-Money/bin.opus"
+      "3OA": "audio/3OA/03-Money.opus",
+      "Transaural": "audio/Transaural/03-Money.opus",
+      "UHJ Stereo": "audio/UHJ Stereo/03-Money.opus",
+      "Binaural": "audio/Binaural/03-Money.opus"
     },
     "howl": null
   },
@@ -37,9 +40,10 @@
     "titletrack": "Echoes Pt.2",
     "artist": "Pomp\u00e9i",
     "format": {
-      "UHJ": "audio/04-Echoes Pt.2/uhj.opus",
-      "TRANSAURAL": "audio/04-Echoes Pt.2/transaural.opus",
-      "BIN": "audio/04-Echoes Pt.2/bin.opus"
+      "3OA": "audio/3OA/04-Echoes Pt.2.opus",
+      "Transaural": "audio/Transaural/04-Echoes Pt.2.opus",
+      "UHJ Stereo": "audio/UHJ Stereo/04-Echoes Pt.2.opus",
+      "Binaural": "audio/Binaural/04-Echoes Pt.2.opus"
     },
     "howl": null
   },
@@ -48,9 +52,10 @@
     "titletrack": "Speak to Me",
     "artist": "Pomp\u00e9i",
     "format": {
-      "UHJ": "audio/05-Speak to Me/uhj.opus",
-      "TRANSAURAL": "audio/05-Speak to Me/transaural.opus",
-      "BIN": "audio/05-Speak to Me/bin.opus"
+      "3OA": "audio/3OA/05-Speak to Me.opus",
+      "Transaural": "audio/Transaural/05-Speak to Me.opus",
+      "UHJ Stereo": "audio/UHJ Stereo/05-Speak to Me.opus",
+      "Binaural": "audio/Binaural/05-Speak to Me.opus"
     },
     "howl": null
   },
@@ -59,9 +64,10 @@
     "titletrack": "Any Color You Like",
     "artist": "Pomp\u00e9i",
     "format": {
-      "UHJ": "audio/06-Any Color You Like/uhj.opus",
-      "TRANSAURAL": "audio/06-Any Color You Like/transaural.opus",
-      "BIN": "audio/06-Any Color You Like/bin.opus"
+      "3OA": "audio/3OA/06-Any Color You Like.opus",
+      "Transaural": "audio/Transaural/06-Any Color You Like.opus",
+      "UHJ Stereo": "audio/UHJ Stereo/06-Any Color You Like.opus",
+      "Binaural": "audio/Binaural/06-Any Color You Like.opus"
     },
     "howl": null
   },
@@ -70,9 +76,10 @@
     "titletrack": "Us & Them",
     "artist": "Pomp\u00e9i",
     "format": {
-      "UHJ": "audio/07-Us & Them/uhj.opus",
-      "TRANSAURAL": "audio/07-Us & Them/transaural.opus",
-      "BIN": "audio/07-Us & Them/bin.opus"
+      "3OA": "audio/3OA/07-Us & Them.opus",
+      "Transaural": "audio/Transaural/07-Us & Them.opus",
+      "UHJ Stereo": "audio/UHJ Stereo/07-Us & Them.opus",
+      "Binaural": "audio/Binaural/07-Us & Them.opus"
     },
     "howl": null
   },
@@ -81,9 +88,10 @@
     "titletrack": "Breath",
     "artist": "Pomp\u00e9i",
     "format": {
-      "UHJ": "audio/08-Breath/uhj.opus",
-      "TRANSAURAL": "audio/08-Breath/transaural.opus",
-      "BIN": "audio/08-Breath/bin.opus"
+      "3OA": "audio/3OA/08-Breath.opus",
+      "Transaural": "audio/Transaural/08-Breath.opus",
+      "UHJ Stereo": "audio/UHJ Stereo/08-Breath.opus",
+      "Binaural": "audio/Binaural/08-Breath.opus"
     },
     "howl": null
   },
@@ -92,9 +100,10 @@
     "titletrack": "On the Run",
     "artist": "Pomp\u00e9i",
     "format": {
-      "UHJ": "audio/09-On the Run/uhj.opus",
-      "TRANSAURAL": "audio/09-On the Run/transaural.opus",
-      "BIN": "audio/09-On the Run/bin.opus"
+      "3OA": "audio/3OA/09-On the Run.opus",
+      "Transaural": "audio/Transaural/09-On the Run.opus",
+      "UHJ Stereo": "audio/UHJ Stereo/09-On the Run.opus",
+      "Binaural": "audio/Binaural/09-On the Run.opus"
     },
     "howl": null
   },
@@ -103,9 +112,10 @@
     "titletrack": "Time",
     "artist": "Pomp\u00e9i",
     "format": {
-      "UHJ": "audio/10-Time/uhj.opus",
-      "TRANSAURAL": "audio/10-Time/transaural.opus",
-      "BIN": "audio/10-Time/bin.opus"
+      "3OA": "audio/3OA/10-Time.opus",
+      "Transaural": "audio/Transaural/10-Time.opus",
+      "UHJ Stereo": "audio/UHJ Stereo/10-Time.opus",
+      "Binaural": "audio/Binaural/10-Time.opus"
     },
     "howl": null
   },
@@ -114,9 +124,10 @@
     "titletrack": "Saucerful of Secret",
     "artist": "Pomp\u00e9i",
     "format": {
-      "UHJ": "audio/11-Saucerful of Secret/uhj.opus",
-      "TRANSAURAL": "audio/11-Saucerful of Secret/transaural.opus",
-      "BIN": "audio/11-Saucerful of Secret/bin.opus"
+      "3OA": "audio/3OA/11-Saucerful of Secret.opus",
+      "Transaural": "audio/Transaural/11-Saucerful of Secret.opus",
+      "UHJ Stereo": "audio/UHJ Stereo/11-Saucerful of Secret.opus",
+      "Binaural": "audio/Binaural/11-Saucerful of Secret.opus"
     },
     "howl": null
   }

@@ -1,0 +1,45 @@
+[
+  {
+    "listing": "/blog.html",
+    "items": [
+      "/posts/formats-d-ecoute/index.html",
+      "/posts/ambisonic-reaper-1/index.html",
+      "/posts/reseau-neuronne-deconvolution-pt2/index.html",
+      "/posts/reseau-neuronne-deconvolution-pt1/index.html"
+    ]
+  },
+  {
+    "listing": "/index.html",
+    "items": [
+      "/music/2025-03-14 - pompei - pompei/index.html",
+      "/posts/formats-d-ecoute/index.html",
+      "/posts/ambisonic-reaper-1/index.html",
+      "/posts/reseau-neuronne-deconvolution-pt2/index.html",
+      "/posts/reseau-neuronne-deconvolution-pt1/index.html"
+    ]
+  },
+  {
+    "listing": "/music.html",
+    "items": [
+      "/music/2025-03-14 - pompei - pompei/index.html"
+    ]
+  },
+  {
+    "listing": "/projects.html",
+    "items": [
+      "/projects/guide-technique-son/index.html",
+      "/projects/reavolution/index.html"
+    ]
+  },
+  {
+    "listing": "/training.html",
+    "items": [
+      "/training/pds-mix/index.html",
+      "/training/initiation-programmation/index.html",
+      "/training/spat-revolution/index.html",
+      "/training/informatique-audio/index.html",
+      "/training/reaper/index.html",
+      "/training/initiation-3D-sonore/index.html"
+    ]
+  }
+]
