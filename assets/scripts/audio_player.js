@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const releasePath = container.getAttribute('data-release');
   
   // Change tracks.json to playlist.json
-  const playlistPath = releasePath.replace('tracks.json', 'playlist.json');
+  const playlistPath = releasePath;
   
   let tracks = [];
   let currentTrack = 0;
