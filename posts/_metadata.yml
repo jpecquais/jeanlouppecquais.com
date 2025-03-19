@@ -10,5 +10,5 @@ title-block-banner: true
 format:
   html:
     toc: false
-  pdf:
+  typst:
     toc: false
