@@ -3,6 +3,7 @@ import json
 from typing import List, Dict
 from pathlib import Path
 from mutagen import oggopus
+import librosa
 
 # This script create json files in each audio folders include in an article in the music section.
 # This json is used to generate the playlist of the audio player.
@@ -15,7 +16,6 @@ def expand_table(table: List,new_size: int):
     if table_len < new_size:
         for i in range(table_len,new_size,1):
             table.insert(i,None)
-            # table[i] = None
 
 # Add the metadata in the data_structure
 def append_audio_metadata(file: Path, structure: List):
@@ -33,12 +33,14 @@ def append_audio_metadata(file: Path, structure: List):
     title = audio['TITLE'][0]
     albumartist = audio['ALBUMARTIST'][0]
     format = audio['COMMENT'][0] #Use comment filed to store audio stream type
+    duration = audio.info.length
 
     expand_table(structure,tracknumber)
     if not structure[position]:
         structure[position] = {'tracknumber': tracknumber,
                                'titletrack': title,
-                               'artist': albumartist}
+                               'artist': albumartist,
+                               'duration': duration}
 
     if not structure[position].get('format'):
         structure[position]['format'] = {

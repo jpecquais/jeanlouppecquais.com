@@ -3,3 +3,4 @@ numpy
 jupyter
 scipy
 mutagen
+librosa

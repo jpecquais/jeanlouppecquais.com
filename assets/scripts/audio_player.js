@@ -117,35 +117,18 @@ document.addEventListener('DOMContentLoaded', function() {
   // Preload track durations without playing them
   function preloadTrackDurations() {
     tracks.forEach((track, index) => {
-      // Only create a temporary Howl if one doesn't already exist
-      if (!track.howl) {
-        // Create a temporary Howl instance just to get the duration
-        const tempHowl = new Howl({
-          src: [track.format[currentFormat]],
-          html5: true,
-          preload: true,
-          onload: function() {
-            // Update the duration in the playlist
-            const playlistItems = document.querySelectorAll('#playlist li');
-            if (playlistItems[index]) {
-              const durationElement = playlistItems[index].querySelector('.track-duration');
-              if (durationElement) {
-                durationElement.textContent = formatTime(tempHowl.duration());
-              }
-            }
-            
-            // Store the duration for later use
-            track.duration = tempHowl.duration();
-            
-            // If this is the current track, update the total time display
-            if (index === currentTrack) {
-              document.getElementById('total-time').textContent = formatTime(track.duration);
-            }
-          }
-        });
-        // Store the Howl instance
-        // track.howl = tempHowl;
+      const playlistItems = document.querySelectorAll('#playlist li');
+      if (playlistItems[index]) {
+        const durationElement = playlistItems[index].querySelector('.track-duration');
+        if (durationElement) {
+          durationElement.textContent = formatTime(track.duration);
+        }
       }
+      
+      // If this is the current track, update the total time display
+      if (index === currentTrack) {
+        document.getElementById('total-time').textContent = formatTime(track.duration);
+      };
     });
   }
 
