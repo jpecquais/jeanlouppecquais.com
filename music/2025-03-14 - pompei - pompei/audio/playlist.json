@@ -3,6 +3,7 @@
     "tracknumber": 1,
     "titletrack": "Echoes Pt.1",
     "artist": "Pomp\u00e9i",
+    "duration": 661.0035,
     "format": {
       "3OA": "audio/3OA/01-Echoes Pt.1.opus",
       "Transaural": "audio/Transaural/01-Echoes Pt.1.opus",
@@ -15,6 +16,7 @@
     "tracknumber": 2,
     "titletrack": "Astronomy Domine",
     "artist": "Pomp\u00e9i",
+    "duration": 231.106,
     "format": {
       "3OA": "audio/3OA/02-Astronomy Domine.opus",
       "Transaural": "audio/Transaural/02-Astronomy Domine.opus",
@@ -27,6 +29,7 @@
     "tracknumber": 3,
     "titletrack": "Money",
     "artist": "Pomp\u00e9i",
+    "duration": 368.9735,
     "format": {
       "3OA": "audio/3OA/03-Money.opus",
       "Transaural": "audio/Transaural/03-Money.opus",
@@ -39,6 +42,7 @@
     "tracknumber": 4,
     "titletrack": "Echoes Pt.2",
     "artist": "Pomp\u00e9i",
+    "duration": 623.7335,
     "format": {
       "3OA": "audio/3OA/04-Echoes Pt.2.opus",
       "Transaural": "audio/Transaural/04-Echoes Pt.2.opus",
@@ -51,6 +55,7 @@
     "tracknumber": 5,
     "titletrack": "Speak to Me",
     "artist": "Pomp\u00e9i",
+    "duration": 112.966,
     "format": {
       "3OA": "audio/3OA/05-Speak to Me.opus",
       "Transaural": "audio/Transaural/05-Speak to Me.opus",
@@ -63,6 +68,7 @@
     "tracknumber": 6,
     "titletrack": "Any Color You Like",
     "artist": "Pomp\u00e9i",
+    "duration": 191.0435,
     "format": {
       "3OA": "audio/3OA/06-Any Color You Like.opus",
       "Transaural": "audio/Transaural/06-Any Color You Like.opus",
@@ -75,6 +81,7 @@
     "tracknumber": 7,
     "titletrack": "Us & Them",
     "artist": "Pomp\u00e9i",
+    "duration": 377.1085,
     "format": {
       "3OA": "audio/3OA/07-Us & Them.opus",
       "Transaural": "audio/Transaural/07-Us & Them.opus",
@@ -87,6 +94,7 @@
     "tracknumber": 8,
     "titletrack": "Breath",
     "artist": "Pomp\u00e9i",
+    "duration": 170.7335,
     "format": {
       "3OA": "audio/3OA/08-Breath.opus",
       "Transaural": "audio/Transaural/08-Breath.opus",
@@ -99,6 +107,7 @@
     "tracknumber": 9,
     "titletrack": "On the Run",
     "artist": "Pomp\u00e9i",
+    "duration": 127.681,
     "format": {
       "3OA": "audio/3OA/09-On the Run.opus",
       "Transaural": "audio/Transaural/09-On the Run.opus",
@@ -111,6 +120,7 @@
     "tracknumber": 10,
     "titletrack": "Time",
     "artist": "Pomp\u00e9i",
+    "duration": 402.4885,
     "format": {
       "3OA": "audio/3OA/10-Time.opus",
       "Transaural": "audio/Transaural/10-Time.opus",
@@ -123,6 +133,7 @@
     "tracknumber": 11,
     "titletrack": "Saucerful of Secret",
     "artist": "Pomp\u00e9i",
+    "duration": 398.706,
     "format": {
       "3OA": "audio/3OA/11-Saucerful of Secret.opus",
       "Transaural": "audio/Transaural/11-Saucerful of Secret.opus",
