@@ -4,7 +4,7 @@ subtitle: "Pt.I - Chemin du signal"
 author: "Jean-Loup Pecquais"
 date: "2024-12-04"
 categories: [guitar]
-image: "ressources/header.png"
+image: "resources/header.png"
 draft: true
 website:
   sidebar:
@@ -13,7 +13,7 @@ website:
         href: https://github.com/
 ---
 
-![*image générée par IA*](ressources/header.png)
+![*image générée par IA*](resources/header.png)
 
 ## Introduction
 
