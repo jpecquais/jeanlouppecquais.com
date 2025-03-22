@@ -386,3 +386,62 @@
 .playlist::-webkit-scrollbar-thumb:hover {
   background: #b3b3b3;
 }
+
+
+
+/* Format and Download Container */
+.format-download-container {
+  display: flex;
+  align-items: flex-end;
+  gap: 1rem;
+  margin: 0 1.5rem 1rem;
+}
+
+/* Update format selector to work in the container */
+.format-selector {
+  flex: 1;
+  margin: 0;
+}
+
+/* Download Button Styles */
+.download-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  padding: 0.75rem 1.25rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 6px rgba(87, 85, 217, 0.25);
+  white-space: nowrap;
+}
+
+.download-btn:hover {
+  background-color: #4745c0;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(87, 85, 217, 0.3);
+}
+
+.download-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(87, 85, 217, 0.2);
+}
+
+.download-btn i {
+  font-size: 1rem;
+}
+
+.download-btn:disabled {
+  background-color: #aaa;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+

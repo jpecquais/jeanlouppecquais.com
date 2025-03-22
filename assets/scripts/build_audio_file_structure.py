@@ -47,7 +47,7 @@ def append_audio_metadata(file: Path, structure: List):
                 str(format): str(path_to_store)
             }
     else:
-        structure[position]['format'][str(format)] = str(path_to_store)
+        structure[position]['format'][str(format)] = str("../.."/path_to_store)
 
     if not structure[position].get('howl'):
         structure[position]['howl'] = None
@@ -74,18 +74,18 @@ def scan_release_audio_folders(audio_path,structure):
     return structure
 
 #Process all the release
-def process_all_releases(project_root):
+def process_all_media(project_root):
     """Process all releases in the music directory."""
     # Path to the music directory
-    music_path = project_root / "music"
+    media_path = project_root / "media"
     
     # Check if the music directory exists
-    if not music_path.exists():
-        print(f"Music directory not found at {music_path}")
+    if not media_path.exists():
+        print(f"Media directory not found at {media_path}")
         return
     
     # Get all release folders
-    release_folders = [item for item in music_path.iterdir() if item.is_dir()]
+    release_folders = [item for item in media_path.iterdir() if item.is_dir()]
     
     print(f"Found {len(release_folders)} releases")
     
@@ -95,18 +95,12 @@ def process_all_releases(project_root):
         if release_name == "_template_files":
             continue
         
-        # Create the structure.json file for this release
-        audio_path = Path(release_path, "audio")
-        if not audio_path:
-            print(f"No audio founds in this {release_name}")
-            return
-        
         res = [None]
-        res = scan_release_audio_folders(audio_path,res)
+        res = scan_release_audio_folders(release_path,res)
         if not res: return
         structure = [entry for entry in res if entry] #TODO: ugly, all of that should be handled algorithmically
         
-        output_path = release_path / "audio" / "playlist.json"
+        output_path = release_path / "playlist.json"
         
         # Write the structure.json file
         with open(output_path, "w") as f:
@@ -118,4 +112,4 @@ if __name__ == "__main__":
     # Get the project root directory (assuming script is in project root)
     project_root = Path(Path(__file__).parent,"../../")
     
-    process_all_releases(project_root)
+    process_all_media(project_root)

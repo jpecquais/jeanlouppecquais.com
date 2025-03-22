@@ -1,5 +1,7 @@
 /.quarto/
 /_site/
 /_extensions/
+/_freeze/
 .DS_Store
 .venv
+media

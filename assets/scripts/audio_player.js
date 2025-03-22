@@ -43,6 +43,9 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Add format selector to the UI - dynamically based on available formats
   function addFormatSelector() {
+    const formatDownloadContainer = document.createElement('div');
+    formatDownloadContainer.className = 'format-download-container';
+    
     const formatSelector = document.createElement('div');
     formatSelector.className = 'format-selector';
     
@@ -75,13 +78,44 @@ document.addEventListener('DOMContentLoaded', function() {
       </select>
     `;
     
-    // Insert the format selector before the playlist
-    document.querySelector('.playlist-container').prepend(formatSelector);
+    // Create download button
+    const downloadBtn = document.createElement('button');
+    downloadBtn.id = 'download-btn';
+    downloadBtn.className = 'download-btn';
+    downloadBtn.innerHTML = '<i class="fas fa-download"></i> Téléchargement';
+    
+    // Add download functionality
+    downloadBtn.addEventListener('click', function() {
+      downloadCurrentTrack();
+    });
+    
+    // Add components to container
+    formatDownloadContainer.appendChild(formatSelector);
+    formatDownloadContainer.appendChild(downloadBtn);
+    
+    // Insert the container before the playlist
+    document.querySelector('.playlist-container').prepend(formatDownloadContainer);
     
     // Add event listener to format selector
     document.getElementById('format-select').addEventListener('change', function() {
       changeFormat(this.value);
     });
+  }
+  
+  // Add this function for downloading the current track
+  function downloadCurrentTrack() {
+
+    const container = document.querySelector('.audio-player-container');
+    const download_path = container.getAttribute('download-path');
+    
+    // Create a temporary link element
+    const downloadLink = document.createElement('a');
+    downloadLink.href = download_path;
+    
+    // Append to body, trigger click and remove
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+    document.body.removeChild(downloadLink);
   }
   
   // Initialize playlist
