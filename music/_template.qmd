@@ -57,7 +57,7 @@ format:
     </ul>
   </div>
 </div>
-<div class="audio-player-container" data-release="{{< meta release >}}"></div>
+<div class="audio-player-container" data-release="{{< meta release >}}" download-path="{{< meta download >}}"></div>
 <script src="../../assets/scripts/audio_player.js"></script>
 ```
 
@@ -101,4 +101,4 @@ Contient le mixage original, avant décodage vers un format écoutable (stéréo
 
 :::
 
-Pour les plus curieux, voici un [article complet](../../formats/index.qmd) sur le sujet !
+Pour les plus curieux, voici un [article complet](../../posts/formats-d-ecoute/index.qmd) sur le sujet !

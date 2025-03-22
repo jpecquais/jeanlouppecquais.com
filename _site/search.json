@@ -128,25 +128,25 @@
     "text": "Notes de bas de page\n\n\nUn sweep est un signal constitué d’un son pur, mais dont la fréquence évolue dans le temps. L’objectif est de couvrir toutes les gammes de fréquences que l’on souhaite examiner. Dans le domaine de la mesure du matériel audio, il est recommandé d’utiliser un balayage logarithmique, où la fréquence augmente ou diminue progressivement selon un schéma logarithmique. Cette approche est avantageuse, car notre sensibilité aux différentes fréquences suit une progression logarithmique.↩︎\nUn boîtier de réamping adapte le signal de niveau ligne pour une entrée d’amplificateur pour guitare.↩︎\nVoir wikipedia.↩︎\nVoir wikipedia↩︎"
   },
   {
-    "objectID": "music/2025-03-14 - pompei - pompei/index.html",
-    "href": "music/2025-03-14 - pompei - pompei/index.html",
-    "title": "Pompéi",
-    "section": "",
-    "text": "Please wait\n      \n    \n    \n    \n      \n      \n        \n        \n          \n        \n        \n          0:00\n          0:00"
-  },
-  {
-    "objectID": "music/2025-03-14 - pompei - pompei/index.html#options-découte",
-    "href": "music/2025-03-14 - pompei - pompei/index.html#options-découte",
-    "title": "Pompéi",
-    "section": "Options d’écoute",
-    "text": "Options d’écoute\nQuel format écouter ? Rien de plus simple !\n\n\n\nStéréo UHJ\nDestiné à être réstitué sur une paire de haut-parleurs sans effet d’entourement. C’est (presque) votre stéréo habituelle !\n\n\n\nBinaural\nPour une écoute au casque avec un effet d’entourement.\n\n\n\nTransaural\nPour une paire de haut-parleurs. La scène sonore est considérablement élargie pour un système et un auditeur correctement positionnés\n\n\n\nAmbisonie\nContient le mixage original, avant décodage vers un format écoutable (stéréo et autre). Nécessite donc un décodeur externe et un utilisateur averti !\n\n\nPour les plus curieux, voici un article complet sur le sujet !"
-  },
-  {
     "objectID": "music.html",
     "href": "music.html",
     "title": "Musique",
     "section": "",
     "text": "Pompéi\n\n\nAlbum\n\n\n\nPompéi\n\n\n\nEnregistrement de reprises de Pink Floyd au studio Nyima\n\n\n\n\n\n14 mars 2025\n\n\nPompéi\n\n\n\n\n\n\nAucun article correspondant"
+  },
+  {
+    "objectID": "music/2025-03-14-pompei-pompei/index.html",
+    "href": "music/2025-03-14-pompei-pompei/index.html",
+    "title": "Pompéi",
+    "section": "",
+    "text": "Please wait\n      \n    \n    \n    \n      \n      \n        \n        \n          \n        \n        \n          0:00\n          0:00"
+  },
+  {
+    "objectID": "music/2025-03-14-pompei-pompei/index.html#options-découte",
+    "href": "music/2025-03-14-pompei-pompei/index.html#options-découte",
+    "title": "Pompéi",
+    "section": "Options d’écoute",
+    "text": "Options d’écoute\nQuel format écouter ? Rien de plus simple !\n\n\n\nStéréo UHJ\nDestiné à être réstitué sur une paire de haut-parleurs sans effet d’entourement. C’est (presque) votre stéréo habituelle !\n\n\n\nBinaural\nPour une écoute au casque avec un effet d’entourement.\n\n\n\nTransaural\nPour une paire de haut-parleurs. La scène sonore est considérablement élargie pour un système et un auditeur correctement positionnés\n\n\n\nAmbisonie\nContient le mixage original, avant décodage vers un format écoutable (stéréo et autre). Nécessite donc un décodeur externe et un utilisateur averti !\n\n\nPour les plus curieux, voici un article complet sur le sujet !"
   },
   {
     "objectID": "posts/ambisonic-reaper-1/index.html",

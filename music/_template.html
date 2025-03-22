@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.551">
+<meta name="generator" content="quarto-1.6.42">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -29,10 +29,12 @@ ul.task-list li input[type="checkbox"] {
 <script src="_template_files/libs/quarto-html/tippy.umd.min.js"></script>
 <script src="_template_files/libs/quarto-html/anchor.min.js"></script>
 <link href="_template_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="_template_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="_template_files/libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="_template_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="_template_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="_template_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="_template_files/libs/bootstrap/bootstrap-c0367b04c37547644fece4185067e4a7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 
 
 <link rel="stylesheet" href="../../assets/styles/audio-player.css">
@@ -42,12 +44,61 @@ ul.task-list li input[type="checkbox"] {
 
 <div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
 
-<main class="content" id="quarto-document-content">
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
 
 <!-- [Télécharger tous les formats](audio/full-release.zip) -->
+<div class="enhanced-player">
+  <div class="player-container">
+    <!-- Album Art -->
+    <div class="album-art">
+      <img src="?meta:image" alt="Album Cover">
+      <div class="track-info">
+        <h3 id="track-title" class="anchored">Loading...</h3>
+        <p id="track-artist">Please wait</p>
+      </div>
+    </div>
+    <!-- Player Controls -->
+    <div class="player-controls">
+      <!-- Progress Bar -->
+      <div class="progress-container">
+        <div class="waveform" id="waveform"></div>
+        <div class="progress-bar" id="progress-bar">
+          <div class="progress" id="progress"></div>
+        </div>
+        <div class="time-info">
+          <span id="current-time">0:00</span>
+          <span id="total-time">0:00</span>
+        </div>
+      </div>
+      <!-- Control Buttons -->
+      <div class="controls">
+        <button id="prev-btn" class="control-btn"><i class="fas fa-step-backward"></i></button>
+        <button id="play-btn" class="control-btn play-pause"><i class="fas fa-play"></i></button>
+        <button id="next-btn" class="control-btn"><i class="fas fa-step-forward"></i></button>
+        <div class="volume-control">
+          <i class="fas fa-volume-up" id="volume-icon"></i>
+          <div class="volume-slider-container">
+            <input type="range" id="volume-slider" min="0" max="100" value="70">
+          </div>
+        </div>
+        <button id="repeat-btn" class="control-btn"><i class="fas fa-repeat"></i></button>
+      </div>
+    </div>
+  </div>
+  <!-- Playlist -->
+  <div class="playlist-container">
+    <h3 class="anchored">Playlist</h3>
+    <ul id="playlist" class="playlist">
+      <!-- Playlist items will be added here -->
+    </ul>
+  </div>
+</div>
+<div class="audio-player-container" data-release="?meta:release"></div>
+<script src="../../assets/scripts/audio_player.js"></script>
+<p><a href="?meta:download">Lien de téléchargement</a></p>
 <section id="options-découte" class="level2">
 <h2 class="anchored" data-anchor-id="options-découte">Options d’écoute</h2>
 <p><strong>Quel format écouter ?</strong> Rien de plus simple !</p>
@@ -55,25 +106,25 @@ ul.task-list li input[type="checkbox"] {
 <div class="g-col-12 g-col-md-3">
 <p><img src="../../assets/media/icons/stereo.svg" class="img-fluid" style="width:50.0%"></p>
 <p><strong>Stéréo UHJ</strong></p>
-<p>Pour une paire de haut-parleurs, pas d’effet d’entourement ici, mais il s’agitc’est (presque) votre stéréo habituelle !</p>
+<p>Destiné à être réstitué sur une paire de haut-parleurs sans effet d’entourement. C’est (presque) votre stéréo habituelle !</p>
 </div>
 <div class="g-col-12 g-col-md-3">
 <p><img src="../../assets/media/icons/binaural.svg" class="img-fluid" style="width:50.0%"></p>
 <p><strong>Binaural</strong></p>
-<p>Pour une écoute au casque entourante.</p>
+<p>Pour une écoute au casque avec un effet d’entourement.</p>
 </div>
 <div class="g-col-12 g-col-md-3">
 <p><img src="../../assets/media/icons/transaural.svg" class="img-fluid" style="width:50.0%"></p>
 <p><strong>Transaural</strong></p>
-<p>Pour une paire de haut-parleurs. La scène sonore est élargie pour un système et un auditeur correctement positionnés</p>
+<p>Pour une paire de haut-parleurs. La scène sonore est considérablement élargie pour un système et un auditeur correctement positionnés</p>
 </div>
 <div class="g-col-12 g-col-md-3">
 <p><img src="../../assets/media/icons/ambisonic.svg" class="img-fluid" style="width:50.0%"></p>
 <p><strong>Ambisonie</strong></p>
-<p>Pour une écoute sur un décodeur externe.</p>
+<p>Contient le mixage original, avant décodage vers un format écoutable (stéréo et autre). Nécessite donc un décodeur externe et un utilisateur averti !</p>
 </div>
 </div>
-<p>Pour les plus curieux, voici un <a href="../../formats/index.qmd">article complet</a> sur le sujet !</p>
+<p>Pour les plus curieux, voici un <a href="../../posts/formats-d-ecoute/index.qmd">article complet</a> sur le sujet !</p>
 </section>
 
 </main>
@@ -113,18 +164,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -156,7 +196,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -164,7 +224,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
@@ -261,7 +321,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
