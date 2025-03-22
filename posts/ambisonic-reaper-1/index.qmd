@@ -4,7 +4,7 @@ subtitle: "Une Alternative au Dolby Atmos"
 author: "Jean-Loup Pecquais"
 date: "2024-12-04"
 categories: [guitar]
-image: "ressources/header.png"
+image: "resources/header.png"
 draft: false
 website:
   sidebar:
@@ -13,7 +13,7 @@ website:
         href: https://github.com/
 ---
 
-![*image générée par IA*](ressources/header.png)
+![*image générée par IA*](resources/header.png)
 
 ## Introduction
 
@@ -36,7 +36,7 @@ Mais tous ces défauts ne seraient rien sans la volonté de Dolby de faire passe
 
 Il existe pourtant une technologie, dont la naissance remonte aux années soixante-dix, et qui proposait déjà des avantages similaires à l’Atmos : l’ambisonie. Mis au point par un génial ingénieur anglais, [Michael Gerzon](https://en.wikipedia.org/wiki/Michael_Gerzon)^[Gerzon est également le premier à proposer une approche de la réverbération artificiel employant une matrice de réinjection (Feedback Delay Network).], l’ambisonie permet, grâce à une technique de matriçage, de réaliser un mixage sans se soucier du système de diffusion (casque ou haut-parleurs, peu importe leurs nombres, etc.).
 
-![Michael Gerzon - Prise de son ambisonique avec microphones discrets](ressources/gerzon2.jpg){width=30%}
+![Michael Gerzon - Prise de son ambisonique avec microphones discrets](resources/gerzon2.jpg){width=30%}
 
 Gerzon réalisa de nombreux enregistrements ambisoniques et fut aussi le concepteur des microphones Soundfield, marque aujourd’hui possédée par Rhodes. De santé fragile, il décéda dans les années quatre-vingt-dix.
 

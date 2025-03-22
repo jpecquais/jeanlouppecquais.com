@@ -72,7 +72,7 @@ format:
 
 **Stéréo UHJ**
 
-Destiné à être réstitué sur une paire de haut-parleurs sans effet d'entourement. C'est (presque) votre stéréo habituelle !
+Destiné à être restitué sur une paire de haut-parleurs sans effet d’enveloppement. Une expérience (presque) identique à votre stéréo habituelle !
 :::
 
 ::: {.g-col-12 .g-col-md-3}
@@ -80,7 +80,7 @@ Destiné à être réstitué sur une paire de haut-parleurs sans effet d'entoure
 
 **Binaural**
 
-Pour une écoute au casque avec un effet d'entourement.
+Conçu pour produire un effet d’enveloppement lorsqu’écouté au casque.
 :::
 
 ::: {.g-col-12 .g-col-md-3}
@@ -96,9 +96,9 @@ Pour une paire de haut-parleurs. La scène sonore est considérablement élargie
 
 **Ambisonie**
 
-Contient le mixage original, avant décodage vers un format écoutable (stéréo et autre). Nécessite donc un décodeur externe et un utilisateur averti !
+Mixage original avant décodage vers un format écoutable (stéréo et autre). Nécessite donc un décodeur externe et un utilisateur averti !
 :::
 
 :::
 
-Pour les plus curieux, voici un [article complet](../../posts/formats-d-ecoute/index.qmd) sur le sujet !
+Pour les personnes les plus curieuses, voici un [article complet](../../posts/formats-d-ecoute/index.qmd) sur le sujet !

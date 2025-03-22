@@ -4,7 +4,7 @@ subtitle: "Pt.II - Mise en place du dispositif"
 author: "Jean-Loup Pecquais"
 date: "2024-11-03"
 categories: [dsp, guitar, deconvolution]
-image: "ressources/header.png"
+image: "resources/header.png"
 draft: false
 website:
   sidebar:
@@ -13,7 +13,7 @@ website:
         href: https://github.com/
 ---
 
-![Image générée par IA](ressources/header.png)
+![Image générée par IA](resources/header.png)
 
 Dans l'[article précédent](../reseau-neuronne-deconvolution-pt1/index.qmd), nous avions discuté d'un ensemble de problématiques entourant la création de modèles pour les réseaux de neurones dans le but de simuler des amplificateurs de guitare, ainsi que proposé une piste d'amélioration. Nous la résumerons de la façon suivante :
 
@@ -21,7 +21,7 @@ Dans l'[article précédent](../reseau-neuronne-deconvolution-pt1/index.qmd), no
 + On procède à la création d'une réponse impulsionnelle du haut-parleur grâce à un amplificateur "neutre"
 + On déconvolue les empreintes de l'amplificateur guitare avec la réponse impulsionnelle du haut-parleur.
 
-![Pour rappel : schéma du dispositif](ressources/dl_wiring_spkr+mic.svg)
+![Pour rappel : schéma du dispositif](resources/dl_wiring_spkr+mic.svg)
 
 Voyons maintenant la mise en pratique.
 
@@ -39,7 +39,7 @@ La réponse impulsionnelle du haut-parleur est réalisée grâce à REAPER. En e
 
 Le signal sort du convertisseur vers un boîtier de réamping[^2] pour ensuite attaquer l'entrée de l'amplificateur Dawmer. Le haut-parleur du Laney est directement connecté sur ce dernier.
 
-Une fois tout cela réalisé, on se retrouve avec cette [réponse impulsionnelle](ressources/cabinet_impulse_response.wav).
+Une fois tout cela réalisé, on se retrouve avec cette [réponse impulsionnelle](resources/cabinet_impulse_response.wav).
 
 ## Enregistrement des empreintes
 
@@ -183,9 +183,9 @@ Une fois le script exécuté, on obtient notre fichier cible pour le réseau de 
 
 En guise de comparaison, voici le même signal audio, avant et après déconvolution :
 
-<audio controls src="ressources/laney-poweramp-p5.mp3"></audio>
+<audio controls src="resources/laney-poweramp-p5.mp3"></audio>
 
-<audio controls src="ressources/laney-poweramp-p5-deconvolved.mp3"></audio>
+<audio controls src="resources/laney-poweramp-p5-deconvolved.mp3"></audio>
 
 Dans le prochain article, nous regarderons comment implémenter ce modèle sur une carte [Bela](https://bela.io/), puis nous prendrons le temps d'écouter le résultat.
 

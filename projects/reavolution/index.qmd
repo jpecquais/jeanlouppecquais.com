@@ -1,6 +1,0 @@
----
-title: ReaVolution
-# summary: Extension REAPER pour SPAT Revolution.
-image: featured.jpg
-author: Jean-Loup Pecquais
----
