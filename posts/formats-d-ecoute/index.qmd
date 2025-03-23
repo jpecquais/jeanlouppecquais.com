@@ -4,10 +4,12 @@ subtitle: Comprendre les différentes stratégies de spatialisation sonore
 author: Jean-Loup Pecquais
 date: "2025-03-19"
 categories: [spatialisation]
-image: "ressources/header.png"
+image: "resources/header.png"
 ---
 
 ![Image générée par crayion](resources/header.png)
+
+## Exposition du problème
 
 Depuis début 2025, j'ai décidé d'utiliser ce site pour partager mes créations sonores et musicales (surtout musicales). Il se trouve que cela représente un exercice assez difficile, car je ne travaille plus en stéréo, et ce, depuis plusieurs années maintenant. La stéréo, si jamais le terme ne vous est pas familier, est un dispositif d'écoute, comprenant deux enceintes, placées de telle façon à former un [triangle équilatéral](https://fr.wikipedia.org/wiki/Triangle_%C3%A9quilat%C3%A9ral) avec l'auditeur. On crée ainsi une scène sonore frontale.
 
@@ -27,36 +29,43 @@ Pour pallier à ces deux problèmes, il existe deux principales solutions:
 + Le mixage orienté objet
 + L'ambisonie
 
-Le mixage orienté objet, qui est aujourd’hui, à tort, synonyme de Dolby Atmos, est une stratégie qui consiste à associer à chaque canal audio d’un mixage (disons à chaque instrument ou élément d’un mixage pour simplifier) des métadonnées permettant de décrire la position (entre autres) de ces canaux dans l’espace. L'ensemble des deux forment un objet sonore, d'où le terme "mixage orienté objet". Il n'y a donc pas de **sommation** des canaux. Cette étape de fabrication du mixage (donc de sommation) se fait chez l'auditeur directement, en fonction de son système de reproduction. Cette approche, qui semble très flexible sur le papier, se révèle en réalité très restrictive, car le mixeur perd la capacité de contrôler la sommation des éléments dans l’espace.
+Le mixage orienté objet, qui est aujourd’hui, à tort, synonyme de Dolby Atmos, est une stratégie qui consiste à associer à chaque canal audio d’un mixage (disons à chaque instrument ou élément d’un mixage pour simplifier) des infotmations (appellées métadonnés) permettant de décrire la position (entre autres) de ces canaux dans l’espace. L'ensemble des deux forment un objet sonore, d'où le terme "mixage orienté objet". Il n'y a donc pas de **sommation** des canaux. Cette étape de fabrication du mixage (donc de sommation) se fait chez l'auditeur directement, en fonction de son système de reproduction. Cette approche, qui semble très flexible sur le papier, se révèle en réalité très restrictive, car le mixeur perd la capacité de contrôler la sommation des éléments dans l’espace.
 
-<!-- ![Harmoniques sphériques représentant le domaine ambisonique](resources/Sphericalfunctions.svg){width=80%} -->
+L'ambisonie aborde le problème d'un autre point de vue, celui de la physique. L'ambisonie cherche à représenter le champ acoustique en un point. On procède alors a la décomposition de ce dernier par harmonique sphériques et chaque canal audio d'un signal ambisonique correspond à une harmonique sphérique. Cela nous permet de créer un mixage sans tenir compte du système d’écoute, mais en conservant les points de sommation. C'est vers ce format de mixage que je me tourne aujourd'hui.
 
-L'ambisonie aborde le problème d'un autre point de vue, celui de la physique. L'ambisonie cherche à représenter le champ acoustique en un point. Cela nous permet de créer un mixage sans tenir compte du système d’écoute, mais en conservant les points de sommation. C'est vers ce format de mixage que je me tourne aujourd'hui.
+![Harmoniques sphériques représentant le domaine ambisonique](resources/Sphericalfunctions.svg){width=80%}
+
+## Productions hébergées
 
 Les productions hébergées sur ce site sont généralement disponibles dans quatre formats différents : binaural, UHJ stéréo, transaural et en ambisonie.
 
+<!-- ::: {layout="[[20,80]]"} -->
 ::: {layout="[[20,80]]"}
-![](../../assets/media/icons/ambisonic.svg){width=20%}
+![](../../assets/media/icons/ambisonic.drawio.svg){width=60%}
 
-L'ambisonie, comme expliqué ci-dessus, est le mixage original. Il peut, par exemple, être décodé vers un arrangement de haut-parleur arbitraire. Il est disponible pour qu'un utilisateur aguerri puisse écouter une des productions hébergées sur le site dans un format qui l'arrange. Par contre, l'ambisonie ne peut pas être écouté tel quel. Il doit nécessairement être décodé vers un format écoutable.
+L'ambisonie, comme expliqué ci-dessus, est le mixage original. Les autres formats disponibles sont décodés à partir de celui-ci. Ce format est disponible pour qu'un utilisateur aguerri puisse écouter une des productions hébergées sur le site dans un autre format que ceux proposés. Par contre, l'ambisonie ne peut pas être écouté tel quel. Il doit nécessairement être décodé vers un format écoutable.
 :::
+
 
 ::: {layout="[[80,20]]"}
-L'UHJ stéréo est le format le plus proche de la stéréo conventionnelle. On peut donc l'écouter sur une paire de haut-parleurs, mais sans effet d’enveloppement ou d’immersion. Pour en savoir plus sur cette technologie, je vous renvoie vers sa [page Wikipédia](https://en.wikipedia.org/wiki/Ambisonic_UHJ_format). Comme pour la stéréophonie classique, l'UHJ ne se comporte pas très bien lorsqu'il est écouté au casque.
+L'UHJ stéréo est le format le plus proche de la stéréo conventionnelle. On peut donc l'écouter sur une paire de haut-parleurs, mais sans effet d’enveloppement ou d’immersion. Cependant, si vous êtes l'heureux possesseur d'un décodeur UHJ, vous pouvez alors écouter ces deux canaux sur des arrangements de haut-parleurs entourant, comme la quadriphonie. Pour en savoir plus sur cette technologie, je vous renvoie vers sa [page Wikipédia](https://en.wikipedia.org/wiki/Ambisonic_UHJ_format). Comme pour la stéréophonie classique, l'UHJ ne se comporte pas très bien lorsqu'il est écouté au casque.
 
-![](../../assets/media/icons/stereo.svg){width=20%}
+![](../../assets/media/icons/stereo.drawio.svg){width=20%}
 :::
 
 ::: {layout="[[20,80]]"}
-![](../../assets/media/icons/binaural.svg){width=20%}
+![](../../assets/media/icons/binaural.drawio.svg){width=20%}
 
-Le binaural est un format d'écoute dit "immersif". Il reproduit une scène sonore entourant l'auditeur. Cependant, le binaural doit être impérativement écouté au casque ou avec des écouteurs pour reproduire cet effet d’enveloppement.
+Le binaural est un format d'écoute dit "immersif". Il reproduit une scène sonore dans l'impression d'entourer l'auditeur. Cet effet est produit par l'utilisation de filtres appelés HRTF (*Head Related Transfer Function*) permettant de simuler l'effet de nos oreilles et notre tête dans notre écoute naturelle. Cependant, le binaural doit être impérativement écouté au casque ou avec des écouteurs pour reproduire cet effet d’enveloppement.
 :::
+
 
 ::: {layout="[[80,20]]"}
 Le transaural, dernier format d'écoute disponible sur ce site, permet d'étendre la scène sonore reproductible par un système stéréophonique. Bien que ce format ne soit pas strictement défini comme étant « entourant », il crée néanmoins une impression de largeur assez saisissante. Il est par contre indispensable de respecter scrupuleusement le placement des enceintes et de l'auditeur en forme de triangle équilatéral, sous peine de sacrifier les qualités spatiales du transaural. On notera que le transaural se comporte relativement correctement au casque.
 
-![](../../assets/media/icons/transaural.svg){width=20%}
+![](../../assets/media/icons/transaural.drawio.svg){width=20%}
 :::
 
-Voilà qui devrait normalement vous aiguiller un peu plus sur les formats d'écoutes disponibles ici !
+Voilà qui devrait normalement vous aiguiller un peu plus sur les formats d'écoutes disponibles ici. Vous noterez que le choix de formats disponibles ici a été principalement guidé par leur facilité à être écoutés par toutes et tous. N’importe qui possédant une paire de haut-parleurs ou d’écouteurs pourra profiter d’une expérience cohérente à l’écoute de ces créations.
+
+Bonne écoute !

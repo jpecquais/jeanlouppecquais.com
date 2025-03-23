@@ -27,12 +27,15 @@ document.addEventListener('DOMContentLoaded', function() {
       // Extract available formats from the first track
       if (tracks.length > 0 && tracks[0].format) {
         availableFormats = Object.keys(tracks[0].format);
-        currentFormat = availableFormats[0];
-        // }
+        
+        // Set binaural as default format if available
+        if (availableFormats.includes('Binaural') || availableFormats.includes('BIN')) {
+          currentFormat = availableFormats.includes('Binaural') ? 'Binaural' : 'BIN';
+        } else {
+          currentFormat = availableFormats[0]; // Fallback to first format if binaural not available
+        }
         
         init(); // Initialize the player after loading tracks
-      } else {
-        throw new Error('Invalid playlist format or empty playlist');
       }
     })
     .catch(error => {

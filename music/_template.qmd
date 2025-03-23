@@ -68,7 +68,7 @@ format:
 :::{.grid}
 
 ::: {.g-col-12 .g-col-md-3}
-![](../../assets/media/icons/stereo.svg){width=50%}
+![](../../assets/media/icons/stereo.drawio.svg){width=50%}
 
 **Stéréo UHJ**
 
@@ -76,7 +76,7 @@ Destiné à être restitué sur une paire de haut-parleurs sans effet d’envelo
 :::
 
 ::: {.g-col-12 .g-col-md-3}
-![](../../assets/media/icons/binaural.svg){width=50%}
+![](../../assets/media/icons/binaural.drawio.svg){width=50%}
 
 **Binaural**
 
@@ -84,7 +84,7 @@ Conçu pour produire un effet d’enveloppement lorsqu’écouté au casque.
 :::
 
 ::: {.g-col-12 .g-col-md-3}
-![](../../assets/media/icons/transaural.svg){width=50%}
+![](../../assets/media/icons/transaural.drawio.svg){width=50%}
 
 **Transaural**
 
@@ -92,7 +92,7 @@ Pour une paire de haut-parleurs. La scène sonore est considérablement élargie
 :::
 
 ::: {.g-col-12 .g-col-md-3}
-![](../../assets/media/icons/ambisonic.svg){width=50%}
+![](../../assets/media/icons/ambisonic.drawio.svg){width=50%}
 
 **Ambisonie**
 

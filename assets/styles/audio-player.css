@@ -445,3 +445,96 @@
 }
 
 
+
+/* Improved responsiveness for format selector and download button */
+/* Base styles remain unchanged */
+
+/* Format and Download Container - Adding responsive behavior */
+.format-download-container {
+  display: flex;
+  flex-direction: column; /* Stack vertically on mobile */
+  gap: 1rem;
+  margin: 0 1.5rem 1rem;
+}
+
+/* Make format selectors and buttons full width on mobile */
+.format-selector {
+  flex: 1;
+  margin: 0;
+  width: 100%;
+}
+
+.format-selector select {
+  width: 100%;
+  min-height: 44px; /* Improve touch target size */
+  padding: 0.75rem 2rem 0.75rem 1rem; /* Increase padding for better touch */
+}
+
+/* Download Button Styles - Improved for mobile */
+.download-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  padding: 0.85rem 1.25rem; /* Slightly taller for better touch target */
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 6px rgba(87, 85, 217, 0.25);
+  white-space: nowrap;
+  width: 100%; /* Full width on mobile */
+  min-height: 44px; /* Improve touch target size */
+}
+
+/* Media query to revert to horizontal layout on larger screens */
+@media (min-width: 576px) {
+  .format-download-container {
+    flex-direction: row;
+    align-items: flex-end;
+  }
+  
+  .download-btn {
+    width: auto; /* Auto width on desktop */
+  }
+}
+
+/* Additional mobile optimizations */
+@media (max-width: 575px) {
+  .format-selector label {
+    font-size: 1rem; /* Slightly larger labels on mobile */
+    margin-bottom: 0.5rem;
+  }
+  
+  .download-btn {
+    margin-top: 0.5rem;
+  }
+  
+  /* Improve touch target sizes in the playlist */
+  .playlist li {
+    padding: 1rem 1.5rem;
+  }
+  
+  /* Make volume slider a bit taller for easier touch */
+  input[type="range"] {
+    height: 7px;
+  }
+  
+  input[type="range"]::-webkit-slider-thumb {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+/* Enhance focus states for accessibility */
+.format-selector select:focus,
+.download-btn:focus,
+.control-btn:focus,
+input[type="range"]:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}

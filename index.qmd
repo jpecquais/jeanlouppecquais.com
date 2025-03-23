@@ -1,7 +1,7 @@
 ---
 title: "Jean-Loup Pecquais"
 subtitle: "Ingénieur du son & formateur"
-image: avatar.jpg
+image: assets/media/img/avatar.jpg
 lang: fr
 listing:
   - id: news-music
@@ -26,18 +26,18 @@ about:
   image-shape: round
   template: trestles
   links:
-    - icon: bi-file-earmark-person-fill
-      text: CV
-      href: cv.pdf
     - icon: github
       text: Github
       href: https://github.com/jpecquais
-    - icon: linkedin
-      text: Linkedin
-      href: https://www.linkedin.com/in/jean-loup-pecquais-49a251ab/
-    - icon: envelope
-      text: Contact
-      href: '/#contact'
+    # - icon: bi-file-earmark-person-fill
+    #   text: ENS Louis Lumiere
+    #   href: https://www.ens-louis-lumiere.fr/lecole/les-enseignants-principaux/pecquais-jean-loup/
+    # - icon: linkedin
+    #   text: Linkedin
+    #   href: https://www.linkedin.com/in/jean-loup-pecquais-49a251ab/
+    # - icon: envelope
+    #   text: Contact
+    #   href: '/#contact'
 
 ---
 
