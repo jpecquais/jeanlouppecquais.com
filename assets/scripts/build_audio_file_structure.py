@@ -26,7 +26,7 @@ def append_audio_metadata(file: Path, structure: List):
         print(f'{file.name} is not an opus file')
         return
 
-    path_to_store = file.relative_to(file.parent.parent.parent)
+    path_to_store = file.relative_to(file.parent.parent.parent.parent.parent.parent)
     
     tracknumber = int(audio['TRACKNUMBER'][0])
     position = tracknumber-1
@@ -47,7 +47,7 @@ def append_audio_metadata(file: Path, structure: List):
                 str(format): str(path_to_store)
             }
     else:
-        structure[position]['format'][str(format)] = str("../.."/path_to_store)
+        structure[position]['format'][str(format)] = str(path_to_store)
 
     if not structure[position].get('howl'):
         structure[position]['howl'] = None

@@ -67,7 +67,7 @@ J'utilise deux préamplificateurs à lampes, au format pédales, le Kingley Cons
 
 Coquetterie supplémentaire, la Bela disposant de suffisament de ressources, je peux également y calculer une simulation de haut-parleur rotatif[^3].
 
-![Implémentation d'un amplificateur "virtuel", avec une entrée mono, et une sortie stéréo, induite par la simulation de haut-parleur rotatif.](ressources/amp_section.svg)
+![Implémentation d'un amplificateur "virtuel", avec une entrée mono, et une sortie stéréo, induite par la simulation de haut-parleur rotatif.](resources/amp_section.svg)
 
 ## Le pedalboard
 
@@ -80,7 +80,7 @@ Ce pedalboard se décompose en N sections:
 + La dite simulation d'amplification
 + Une chaîne de traitement auxiliaire
 
-![Chemin du signal global](ressources/global_chain.svg)
+![Chemin du signal global](resources/global_chain.svg)
 
 ### Etage de pré et post amplification
 
@@ -97,7 +97,7 @@ En plus, on retrouve un compresseur, le KP-1 de chez PFX, deux pédales de modul
 
 Cela donne le chaînage suivant :
 
-![Chemin du signal de la section pre amplification.](ressources/pre_amp_chain.svg)
+![Chemin du signal de la section pre amplification.](resources/pre_amp_chain.svg)
 
 On notera la présence d'un switcher, le BOSS ES-8, permettant de garantir un signal plus propre ainsi que la commutation des effets via le protocol MIDI.
 
