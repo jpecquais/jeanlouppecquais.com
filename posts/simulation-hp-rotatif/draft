@@ -1,0 +1,1043 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--- BROUILLON ECRIT ---
+
+Je suis, depuis très longtemps, faciné par le son des cabines leslie et machines équivalente. Le principe de ces appareils et de mettre en rotation un pavillon ou une membrane afin de créer un effet de modulation très complexe. Celui-ci est particulièrement associé aux orgues électro-mécaniques (comme le fameux Hammond B3), mais depuis les Beatles, tout et n'importe quoi a pu passer dedans.
+
+Etant quelqu'un de (presque) raisonnable, ma fascination ne m'a jamais poussé jusqu'à l'achat d'une telle cabinet. Pourquoi ? Elles sont souvent très chère, très lourde et sonnent très fort. Elles sont donc, dans mon cas, parfaitement impraticable. Heureusement, nous vivons dans la joyeuse époque du tout numérique, il doit bien alors exister une simulation convainte de ces appareils ?
+
+Effectivement, le marché des plug-ins ou des pédales d'effet est plutôt bien alimenté par ce genre de simulation. Et pourtant, je me suis toujours trouvé insatisfais par celles-ci. Premièrement, la plus part simulent des cabines Leslies, là où je suis beaucoup plus intéressé par des machines comme la série Yamaha RA. Deuxièment, ces simulations produisent souvent une forte altération du timbre. L'idée est soit de simuler tout la réponse en fréquence du système ou la couleur pincé du pavillon de la cabine Leslie. Dans les deux cas, cela se révèle être un problème pour mon utilisation. Enfin, je trouve aussi qu'un certain nombre d'algorithmes ne sont pas très convainquant d'un point de vue sonore. Sans doute cela relève-t-il d'une question de goût, mais cela m'a suffisamment motivé à investigué sur le sujet.
+
+Voilà bien plus d'un an que je tourne autour de cette question, et je crois avoir aujourd'hui suffisemment d'élément de réponse pour écrire un article relativement complet sur la simulation de ces fameuses cabines à haut-parleurs rotatifs.
+
+## Historique
+
+Références :
+http://www.nmia.com/~vrbass/vibratone/
+http://theatreorgans.com/hammond/faq/mystery/mystery.html
+
+Cabine leslie
+
+![La légendaire cabine leslie ](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fanasounds.com%2Fwp-content%2Fuploads%2F2020%2F02%2FLeslie-speaker-cabinet.gif&f=1&nofb=1&ipt=39d83cba535128c1c80145e49c4e684bdf3309c4eb924988492ef6ab064421e9)
+
+![Maestro Rover RD-1](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2F736x%2Fd5%2F1f%2Fca%2Fd51fca957003ccccb6b32aea7c44b903.jpg&f=1&nofb=1&ipt=4164ada3bd59480234a706b73c2a0c30bf3cb34c7c767a6dea5b7183f4adf757)
+
+![Mesa Boogie Revolver](https://rvb-img.reverb.com/image/upload/s--r5psBetn--/t_card-square/v1682957962/krrxwlo1nntoae82tv6d.jpg)
+
+## Cahier des charges
+
+Voici le cahier des charges que je me suis fixé pour écrire mon algorithme.
+
+1. Les différentes oscillateurs basse fréquences (LFO) doivent être réalistes par rapport à la géométrie et à la physique du phénomène étudié
+2. La perception du niveau sonore et du timbre de la source doivent être préservés
+3. Le modèle s'intéresse à des haut-parleur et pas à des pavillons.
+4. Etre suffisemment économe en ressource pour tourner sur une carte embarqué
+
+L'interface de contrôles imaginée est la suivante :
+
++ Rotation par secondes : nombre de fois que le haut-parleur tourne sur lui-même par seconde.
++ Inertie : règle l'accélération des haut-parleurs rotatifs
++ Mix : ratio entre son direct et effet
++ Marche/Stop: Stop la rotation des haut-parleurs
+
+Une fois tous ces paramètres clairs, passons à la description du modèle physique
+
+## Description du modèle
+
+![](ressources/original_speaker_animation.gif)
+
+Nous allons maintenant étudier la physique d'un haut-parleur rotatif. Alors, parlons tout de suite d'approximation. L'objectif de ce travail est d'obtenir un effet suffisamment réaliste à l'oreille et économe en ressource pour qu'il devienne un outil musical pertinent et pas de proposer une étude physique jusqu'au-boutiste.
+
+Posons alors notre modèle géométrique :
+
++ $P$ est le point d'écoute.
++ Le haut-parleur est modélisé par une membrane plane, de longueur $S_1S_2$ et de centre $S$.
++ $O$ le centre de rotation du haut-parleur. Le rayon du cercle est donné par la distance $r = OS$.
++ $\theta$ est l'angle $\widehat{POS}$
+
+Si on essaye de décomposer le phénème sonore produit par un haut-parleur rotatif, on se rend compte qu'il y a trois constituants principaux :
+
++ L'effet doppler produit par la variation de distance entre le haut-parleur et le point d'écoute
++ L'inversion de phase, selon si la membrane pointe vers l'auditeur où du côté opposé.
++ Le filtrage induit par la directivité du haut-parleur
+
+Chacun de ces phénomènes possède une relation avec l'angle de rotation du haut-parleur et différentes dimensions du modèle (taille de la membrane et/ou longueur de l'axe de rotation).
+
+### Effet doppler
+
+Il s'agit sans doute de la composante la plus triviale à expliquer. L'effet doppler est un effet caractéristique impliquant une perception de variation de la hauteur d'un son lorsque que sa distance à l'auditeur varie.
+
+On concidère alors que le signal du haut-parleur est émis au point S et que ce signal est entendu au point P. On cherche donc à connaitre l'évolution de la distance $PS$ en fonction de l'angle de rotation du haut-parleur $\theta$. Dans un premier temps, on considère que P est placé sur le cercle décrit par la rotation du haut-parleur.
+
+Les coordonnées cartésiennes de $P$ et $S$ sont $P=(r,0)$ et $S=(r \cos\theta, r \sin\theta)$. On peut donc calculer $PS$ tel que $PS = \sqrt{ (x_S - x_P)^2 + (y_S - y_P)^2 }$. Il en découle alors :
+$$
+PS = 2r \sin(\theta/2)
+$$
+
+Ce qui nous intéresse alors est de trouver la relation entre $PS$ et le temps de parcours de l'onde acoustique, soit :
+
+$$
+t_{parcours} = \frac{PS}{C_{son}} = \frac{2r \sin(\theta/2)}{C_{son}}
+$$
+
+Où $C_{son}$ est la vitesse du son dans l'air, $\approx 340 m.^{-1}$.
+
+C'est cette variation de temps qui nous permettra de reproduire l'effet de variation de la hauteur du son. Maintenant, si on place $P$ hors du cercle de rotation, on ne fera qu'introduire une distance supplémentaire constant égale à $PS-r$, qui, dans notre modèle numérique ne fera que rajouter une latence indésirable. On se contentera alors de la relation précédente, afin de préviligier une opération avec un minimum de latence.
+
+### Inversion de phase
+
+Comme un haut-parleur n'est rien d'autre qu'une membrane, lorsque celle-ci, pointant vers l'auditeur, emet une surpression, une dépression est créée à l'arrière de celle-ci.
+
+Un modèle très simple consisterait à considérer que la directivité du haut-parleur vaut $cos(\theta)$, ainsi lorsque le haut-parleur fait face à l'auditeur $cos(\theta)>0$ et quand le haut-parleur emet dans la direction opposée, $cos(\theta)<0$. Le problème de ce modèle est que l'on doit pass par un gain linéaire nul pour l'ensemble des fréquence. Ainsi, à $pm \frac{\pi}{2}$, nous n'avons plus de son ! Cela ne correspond pas à la perception du phénomène réel.
+
+Nous allons donc devoir concevoir un filtre qui permettra de changer arbitrairement la phase d'un signal, sans introduire de variation l'amplitude notable. Cependant, nous ne pourrons pas passer d'un état de phase à un autre de façon abrupte sans risque de créer des artefacts sonore désagréable. Nous allons donc définir une courbe d'évolution de la phase du signal en fonction de l'angle de rotation du haut-parleur. La fonction choisie est :
+
+$$
+\Phi(\theta) = \theta - \frac{sin(2\theta)}{2}
+$$
+
+### Directivité du haut-parleur
+
+Pour correctement simuler la variation timbrale introduite par la rotation du haut-parleur, nous allons décomposer celle-ci en trois partie.
+
+Lorsque le haut-parleur tourne, le signal émis est atténué mais pas de façon linéaire. En effet, les fréquences aigues sont beaucoup plus affectées que les fréquences graves, qui elles, sont laissées intactes. Le modèle physique utilisé ici est celui du piston dans un baffle infini. Quand l'angle d'incidence varie de 0 à $\frac{\pi}{2}$ radian, on observe une atténuation des fréquences dans le haut du spectre, se rapprochant d'un filtre passe-bas du premier ordre. Pour détermine la fréquence de coupure du filtre, on part de l'approximation suivante:
+
+$$
+f = |S_1S_2| sin(\theta)
+$$
+
+La directivité du piston devient signicative lorsque la longueur d'onde d'une fréquence émise est proche du double de la largeur du piston. On peut alors écrire :
+
+$$
+\lambda = 2 |S_1S_2| sin(\theta)
+$$
+
+et comme $\lambda = \frac{c_{son}}{f}$, ou $c_{son}$ est la célérité du son dans l'air, on trouve alors la fonction de la fréquence suivante :
+
+$$
+f(\theta) = \frac{c}{2 |S_1S_2| sin(\theta)}
+$$
+
+Pour un haut-parleur de 5 pouces, soit 0.127 mètres, et un angle d'incidence de $\frac{\pi}{2}$, on trouve :
+
+$$
+f(\theta) = \frac{340}{2 \times 0.127 \times sin(\frac{\pi}{2})} \approx 1,3 kHz
+$$
+
+Lorsque l'angle d'incidence est nul, on trouve que :
+
+$$
+\lim_{\theta \to 0} f(\theta) = +\infty
+$$
+
+Le filtre n'agit pas dans ce cas de figure.
+
+On trouve donc que notre filtre varie de $]+\infty; 1,3] kHz$ pour un angle d'incidence variant de $[0; \frac{\pi}{2}]$. Comme $sin(\frac{\pi}{2}) = - sin(\frac{\pi}{2})$, on calculera alors la valeur absolue du sinus afin de n'obtenir que des fréquences positive. Au final notre fonction liant la fréquence de coupure de notre filtre, la directivité et le diamètre de la membrane est :
+
+$$
+f(\theta) = \frac{c}{2.|S_1S_2|.|sin(\theta)|}
+$$
+
+Le problème du modèle "piston dans une enceinte infinie" est qu'il ne défini pas les angles d'incidences compris entre $-\frac{\pi}{2}$ et $\frac{\pi}{2}$ et passant par $-\pi$ radian, hors nous avons besoin de pouvoir tourner tout autour du haut-parleur. La solution retenu est très simple : on reproduit le même modèle en symétrique. Afin de tenir compte de l'atténuation des fréquences aigues produits par toute la mécanique arrière du haut-parleur, on utilisera un deuxième filtre donc la fréquence de coupure sera un multiple de celle du premier.
+
+Enfin, il faut tenir compte de la taille de la membrane. En effet, plus celle-ci est grande, plus on verra apparaitre un phénomène de diffraction de l'onde acoustique, produisant alors un filte en peigne lorsque le point d'écoute est hors axe de la membrane. La fréquence du premier creu du filtre en peigne et directement fonction de la largeur de la membrane pour un angle d'incidence de $\frac{\pi}{2}$. Pour reproduire ce filtre en peigne, il suffit donc de retarder le signal d'un temps correspondant à la différence de marche entre les deux bords de la membrane par rapport au point d'écoute et de le combiner avec le signal non retarder. On exprime alors un retard $\tau$ tel que :
+
+$$
+\tau = \frac{\Delta d}{c}
+$$
+
+Où $\Delta d$ est la différence de marche entre les deux extrêmes de la membrane. Les courageux dérouleront le calcul pour trouver qu'à partir du moment ou la distante $OP$ est suffisamment grande devant $|S_1S_2|$ on peut alors approximer ce retard par:
+
+$$
+\tau = \frac{|S_1S_2|.|sin(\theta)|}{c}
+$$
+
+On rend ainsi tout à fait compte d'une situation d'écoute réaliste (un mètre et plus du haut-parleur).
+
+## Implémentation
+
+Il nous faut maintenant basculer dans la partie implémentation concrête. Celle-ci sera faite en FAUST, langage de programmation dédié au traitement du signal audio. Nous allons donc reprendre le modèle point par point et en expliquer les choix d'implémentation.
+
+L'**effet doppler** est particulièrement trivial à reproduire. On utilise une simple ligne a retard fractionnaire avec interpolation linéaire. On reprendra alors la relation trouvée précédemment que l'on convertira, bien-sûr, en échantillons.
+
+Pour la rotation de phase, le sujet est ici plus délicat. Afin de garantir une latence minimal, un réseau de filtres passe-tout produisant en sortie deux signaux en quadrature de phase (parfois appelée transformée de Hilbert) semble tout indiqué. Une fois ces deux signaux obtenue, il suffit de réalisé un sommation des deux avec un facteur $cos(\theta)$ pour le signal dit en phase et par un facteur $sin(\theta)$ pour le signal dit en quadrature de phase. Alors, on obtien un signal déphase de $\theta$ sur l'ensemble du spectre. L'implémentation de la transformée de Hilbert est ici directement piquée à l'object ```hilbert~``` dans PureData.
+
+Jusque ici, notre système est un système passe-tout, en ce sens qu'il n'attère pas la reponse en fréquence du signal mais seulement sa réponse en phase. Nous savons donc que le gain de sortie de notre effet ne dépendra pas de ces deux blocs de traitement du signal.
+
+Nous allons donc maintenant détaillé l'implémentation du filtre de directivité.
+
+![](ressources/frequency_response_animation.gif)
+
+Celui-ci est une cascade de trois filtres différents : deux filtres à plateau du premier ordre et un filtre en peigne.
+
+La fonction de transfert analogique du filtre à plateau utilisée et tel que:
+
+$$
+H(s) = \frac{A \frac{s}{\omega_c} + 1}{\frac{s}{\omega_c} + 1}
+$$
+
+Où $A$ est le gain linéaire, et $\omega_c$ la pulsation de coupure ($\omega_c = 2 \pi f_c$)
+
+On peut ainsi choisir le gain de la bande de signal rejetée par le filtre, cela se révèlera utile pour la phase d'ajustement "à l'oreille" de l'algorithme.
+
+Le premier filtre à plateau est théoriquement modulé selon $f(\theta)$, mais nous avons un problème de domaine de définition, car nous ne pouvons pas avoir un filtre ouvert à l'infini en numérique. Dès lors, on préfèrera la relation suivante:
+$$
+f_1(\theta) = f_{1,max} - (f_{1,max}-f_{1,min}).|sin(\theta)|
+$$
+
+Voici un petit graphique superposant les deux courbes:
+
+```{python}
+import numpy as np
+from matplotlib import pyplot as plt
+import matplotlib.ticker as mticker
+
+# --- Define constants ---
+c_sound = 340  # Speed of sound (m/s)
+speaker_width = 4 * 0.0254  # Speaker width in meters (4 inches)
+f_max = 20000  # Maximum frequency (Hz)
+f_min = c_sound / (2 * speaker_width)
+
+# --- Generate theta values ---
+theta = np.linspace(0, 2 * np.pi, 1000)
+sin_theta_abs = np.abs(np.sin(theta))
+
+# --- Calculate frequency models ---
+f_1_approx = f_max - (f_max - f_min) * sin_theta_abs
+f_1_approx2 = f_max * np.power(f_min / f_max, sin_theta_abs)
+epsilon = 1e-18
+f_1_phys = np.minimum(c_sound / (2 * speaker_width * sin_theta_abs + epsilon), f_max)
+
+# --- Create the plot ---
+fig, ax = plt.subplots(figsize=(12, 7))
+
+ax.plot(theta, f_1_phys, label=r'$f_{phys} = \min\left(\frac{c}{2W|\sin\theta|+\epsilon}, f_{max}\right)$', color='blue', linewidth=2.5, zorder=3)
+ax.plot(theta, f_1_approx, label=r'$f_{approx,1} = f_{max} - (f_{max}-f_{min})|\sin\theta|$', color='green', linestyle='--', linewidth=1.5, zorder=2)
+ax.plot(theta, f_1_approx2, label=r'$f_{approx,2} = f_{max} \left(\frac{f_{min}}{f_{max}}\right)^{|\sin\theta|}$', color='red', linestyle=':', linewidth=1.5, zorder=2)
+
+ax.axhline(f_max, color='dimgray', linestyle='-.', linewidth=1, label=f'$f_{{max}} = {f_max:,}$ Hz', alpha=0.9)
+ax.axhline(f_min, color='dimgray', linestyle='-.', linewidth=1, label=f'$f_{{min}} = {f_min:,.2f}$ Hz', alpha=0.9)
+
+ax.set_yscale('log')
+
+# --- Customize the plot ---
+ax.set_xlabel(r"Angle $\theta$ (radians)", fontsize=14)
+ax.set_ylabel("Frequency (Hz)", fontsize=14)
+ax.set_title("Comparison of Frequency Cutoff Models vs. Angle", fontsize=16, pad=20)
+
+ax.set_xticks(np.array([0, np.pi/2, np.pi, 3*np.pi/2, 2*np.pi]))
+ax.set_xticklabels([r'$0$', r'$\pi/2$', r'$\pi$', r'$3\pi/2$', r'$2\pi$'], fontsize=12)
+
+ax.grid(True, which="both", linestyle='--', alpha=0.6)
+
+plot_min_val = min(f_min, np.min(f_1_approx2[f_1_approx2 > 0]))
+ax.set_ylim(bottom=plot_min_val * 0.8, top=f_max * 1.2)
+
+# --- Legend and Layout Adjustments ---
+# Adjust bbox_to_anchor to push legend slightly further down from x-axis
+# The y-value (-0.35) is relative to the axes height, placing the legend's bottom below the axes.
+legend = ax.legend(fontsize=10, loc='lower center', bbox_to_anchor=(0.5, -0.35), ncol=3, frameon=True)
+# Increased ncol to 3 for f_max/f_min to potentially shorten legend height slightly if needed,
+# or keep at 2 if preferred. Let's try ncol=3 for all 5 items. Or better, keep legend to 3 main lines + 2 hlines
+# For 5 legend items, ncol=3 or ncol=2 could work. Let's stick to ncol=2 for a 2-row legend or ncol=3 for potentially 2 rows.
+# ncol=3 will likely make it 2 rows: first row 3 items, second row 2 items.
+# ncol=2 will likely make it 3 rows: first row 2, second 2, third 1. Let's test with ncol=3 as it might be more compact vertically.
+# Actually, 5 items, ncol=3 means 2 rows. (3 then 2). ncol=2 means 3 rows (2, then 2, then 1). So ncol=3 is better.
+
+# Adjust rect in tight_layout:
+# rect=[left, bottom, right, top] in normalized figure coordinates.
+# Increase 'bottom' from 0.1 to ~0.22 to make more space for the x-axis label and the legend below it.
+# This means 22% of the figure height is reserved at the bottom.
+# The 'top' (0.95) means 5% is reserved at the top for the title.
+plt.tight_layout(rect=[0, 0.22, 1, 0.95])
+
+plt.show()
+```
+
+
+pour le second on pose la relation suivante:
+$$
+f_2(\theta) = f_{2,max} - (f_{2,max}-f_{2,min}).\frac{1}{2}.(1-cos(\theta))
+$$
+
+Le filtre de directivité principal est obtenue par un filtre passe-bas du premier ordre donc la fréquence de coupure est modulée en fonction de $\theta$, tel que décrit dans la partie précédente. La fréquence de coupure minimal du filtre dépend de la taille de la membrane. On a vu que lorsque le haut-parleur est dans l'axe d'écoute, on obtient une fréquence de coupure infinie. Ici, on choisira de limiter la valeur à $20 kHz$ et d'appliquer un filtre de lissage pour éviter toute discontinuité trop abrupte.
+
+L'influence de la mécanique arrière du haut-parleur sur le signal est rendu par un filtre en plateau dans l'aigu. La conception de ce filtre est arbitraire. Sa fréquence de coupure est le double de celle du filtre passe-bas, son gain compris entre 0 et -12 dB et son facteur de qualité est de $\frac{\sqrt(2)}{2}$.
+
+Enfin, un filtre en peigne est ajouté à l'ensemble, dont le retard est tel qu'expliqué dans la section précédente.
+
+## Correction manuel
+
+Et voilà notre modèle de haut-parleur rotatif terminé ! Enfin presque. Dans le cahier des charges, je voulais conserver la sensation de niveau sonore et de timbre. Vu notre filtre de directivité, on peut être sûr que, tel quel, ce n'est pas le cas. En effet, notre système passe beaucoup de temps, au cours d'une période de rotation, dans un état filtré. Nous allons donc concevoir un filtre de compensation afin de préserver ces deux critères.
+
+Le filtre en plateau est assez simple à compenser. On connait son atténuation maximal et on connait son évolution dans le temps. On va donc considérée cette évolution comme un signal basse fréquence dont on cherche la moyenne quadratique (RMS). Les matheux poserons les calculs, numpy nous dit que pour une atténuation de -12, on doit ajouter un gain d'environ 7 dB pour obtenir une sentation de timbre constante. Notre filtre en plateau module alors entre -5 et 7 dB.
+
+Le filtre en peigne n'est pas vraiment compensable mais ne joue pas non plus un rôle significatif dans la constance de niveau sonore et de balance tonal.
+
+Et nous voilà enfin à compenser notre filtre passe-bas. De façon très empirique, mon choix c'est porté sur un filtre nommé "spectral_tilt" dans la librairie FAUST. Sa fréquence de mise en action est fixé à deux fois la fréquence minimale du passe-bas et son gain a été fixé à l'oreille. Déformation professionnelle.
+
+Cela dit, cela fonctionne plutôt bien ! Pour s'en convaincre, on peut utiliser un bruit rose et un analyseur de spectre. Pour une fréquence de rotation rapide et un temps de lissage temporel sufissement long de l'analyseur, on devrait obtenir deux courbes proches.
+
+Mais nous avons ici un problème supplémentaire. Notre filtre de compensation, bien qu'efficace, génère un gain très important dans le haut du spectre. Vous me direz que c'était le but, mais si une transitoire apparait au moment ou le haut-parleur est dans l'axe, on se retrouve alors avec un boost d'énergie très important et très anti-naturel.
+
+Que faire dans ce cas ? Ma solution fût de passer le signal en sortie du filtre de compensation dans une fonction tangeante hyperbolique. En pratique, si le signal post-filtrage à un gain supérieur à 0 dB, alors celui ci est écrété. Cela peut sembler radical, mais cela fonctionne plutôt bien en pratique. Comme tout fonction de "waveshaping", la tangeante hyperbolique risque de ramener du repliement spectral, particulièrement dans ce cas de figure ou celle-ci fait suite à un important filtre amplifiant le haut du spectre. On utilise alors des techniques dites de "Anti Derivative Anti Aliasing" pour palier à ce problème. Les plus curieux feront leur recherche !
+
+Enfin, à ce stage nous avons un modèle pertinent et une compensation de niveau et de balance timbrale efficace. Mais comment fait-on tourner notre haut-parleur ?
+
+## Modèlisation du moteur
+
+Dans les cabines leslie et équivalent, la rotation des haut-parleur est entrainée par un moteur. Un modèle très satisfaisant consiste à produire un signal ayant un forme de rampe, parcourant des valeurs allant de 0 à $2\pi$. On décrit ainsi la révolution complète du haut-parleur.
+
+### Accélération
+
+Un caractéristique des haut-parleurs rotatifs réels est leur inertie à passer d'une vitesse de rotation à une autre. Pour reproduire cette caractéristique, applique un filtre de moyennage sur le signal de commande correspondant à la fréquence de rotation. On rappèle que :
+
+$$
+\tau = \frac{1}{2\pi f}
+$$
+
+Donc, si on souhaite une intertie de une seconde, on obtient une fréquence de coupure valant $\frac{1}{2\pi} \approx 0,16 Hz$
+
+### Mise en arrêt de la rotation
+
+Les haut-parleurs rotatif permettent généralement de couper la rotation du haut-parleur afin de couper l'effet associer à sa rotation. Cependant la problématique est souvent l'angle du haut-parleur lorsque le moteur se coupe définitivement. Idéalement on souhaiterait que le haut-parleur termine sa rotation parfaitement en face de l'auditeur.
+
+On peut alors définir la procédure suivante:
++ Quand on demande l'arrêt du moteur, on passe la fréquence de rotation à $0 Hz$. Par inertie on obtient l'arrêt progressif de l'effet.
++ Lorsque la fréquence devient suffisemment faible, on engage un fondu enchainé entre la valeur actuelle de la rampe et la position dans l'axe du haut-parleur (ici, on cohisit $2\pi$ car la rampe est montante).
++ Lorsque le fondu enchainé est terminé, on réinitialise et maintient la phase de la rampe à zéro jusqu'à redémarrage du moteur.
+
+### Variance
+
+<!-- 
+L'équation reliant la directivité d'un haut-parleur à la taille de sa membrane repose sur des concepts d'acoustique et de diffraction. Une approximation courante utilise la notion de nombre de Rayleigh :
+
+D(θ) ≈ (2 * J₁(ka * sinθ)) / (ka * sinθ)
+
+Où :
+D(θ) est la directivité en fonction de l'angle θ,
+J₁ est la fonction de Bessel d'ordre 1,
+k = 2π/λ est le nombre d'onde (λ étant la longueur d'onde du son),
+a est le rayon de la membrane du haut-parleur,
+θ est l'angle par rapport à l'axe de la membrane.
+
+Pour des calculs plus simples, lorsque ka ≫ 1, la directivité augmente, rendant le haut-parleur plus directionnel. Inversement, pour ka ≪ 1, le rayonnement est quasi omnidirectionnel. -->
+
+
+--- TRANSCRIPTION ---
+
+Alors aujourd'hui nous allons parler d'une simulation de haut-parleurs rotatifs et plus particulièrement la description du modèle physique. Comment est-ce que l'on va représenter tout le problème ? Et puis surtout comment est-ce qu'on va l'implémenter d'un point de vue traitement du signal.
+
+Les cabines à haut-parleurs rotatif sont associées à tout un tas d'instruments, particulièrement dans les années 70, où, à peu près tout et n'importe quoi, a pu alimenter ce type d'outils. Bon historiquement l'appareil le plus connu, c'est la cabine Leslie. La cabine Leslie, elle possède donc un haut-parleur pour l'aigu qui est en fait un pavillon, et puis, pour le bas du spectre, on a un haut-parleur avec un évent rotatif attaché dessus. 
+
+Les deux dispositifs tournent à des vitesses légèrement différentes, ce qui rend cet effet encore plus accru. Cet effet, essayons de le décrire un petit peu d'un point de vue perceptif. Il y a 2 dimensions principales. La modulation d'amplitude, puisque quand le pavillon ou l'évent tournent, il y a une position où l'énergie est maximale ça c'est quand le dispositif acoustique fait face au point d'écoute.  Et puis lorsqu'il tourne forcément, il y a une déperdition d'énergie par rapport au point d'écoute et donc on remarque une modulation de l'amplitude.
+
+Pour la partie modulation de fréquence, c'est tout simplement un effet d'autant plus évident pour dans le cas de la cabine. Le pavillon, lorsqu'il tourne, il a un certain entrax donc son déplacement implique une variation de distance par rapport au point d'écoute. Et donc qui dit variation de distance, dit variation de temps et donc on retrouve l'effet doppler caractéristique qui amène cette variation de la hauteur du son.
+
+La cabine Leslie est la première invention de ce type, mais il y en a eu tout un tas d'autres particulièrement les trois dispositifs qui m'ont beaucoup intéressé, c'est le Yamaha RA200, qui a de particulier que c'est une baffle complet donc avec la partie basse fréquence statique, sans aucun évent rotatif, et trois haut-parleurs pour l'aigu qui tournent sur un entrax très très court.
+
+L'autre appareil qui m'a assez intéressé, c'est le Gibon maestro R D.1, c'est le Rover R D.1. Et sa version, comment dire, haute puissance qui est le Doppolas. Ce sont des équipements utilisés par le guitariste David Gilmour, qui a une caractéristique sonore d'avoir souvent un peu de modulation, mais qui est toujours assez subtile, et qui en fait amène un sens de mouvement au son sans pour autant devenir un effet prédominant. C'est donc vraiment cette caractéristique qui moi m'intéressait à reproduire.
+
+Alors pour reproduire tout ça, j'ai donc décidé de concevoir un modèle une modélisation physique du phénomène de la rotation d'un haut-parleur. Donc le but de ce développement, c'était d'avoir un certain nombre de blocs de traitement du signal qui me permettrait de concevoir des modèles d'enceinte avec des haut-parleurs rotatifs à l'intérieur.
+
+Donc dans le cahier des charges, je mettais noté les choses suivantes: on doit trouver effectivement un rapport réaliste à l'évolution des différentes grandeurs. Donc ça il faut-il faut donc résoudre et poser et résoudre tout le problème géométrique d'un haut-parleur qui tourne. Et donc il va falloir trouver les bons coefficients de modulation pour la partie modulation d'amplitude et la partie modulation de fréquence, on verra qu'en fait il y a une composante en plus. Le but aussi de ce modèle qui est peut-être un peu moins commun, c'est d'avoir une forme de préservation du niveau sonore et du timbre lorsqu'on passe à travers l'algorithme. Pourquoi ? parce que le but de cet algo, ça n'est pas de reproduire la couleur timbrale d'un haut-parleur.
+
+L'idée ça serait de, en tant que guitariste, pouvoir avoir par exemple un ampli de guitare classique branché après cette simulation de haut-parleur rotatif. Et de conserver en fait le timbre du haut-parleur et de ne pas avoir quelque part une double couleur de haut-parleur sur le signal qui serait quand même globalement indésirable. Dans mon cas d'usage, je simule déjà la réponse acoustique d'un haut-parleur avec une réponse impulsionnelle et un algorithme de convolution, donc ça c'est déjà géré ailleurs, et je ne souhaite que rajouter la composante mouvement et modulation.
+
+De plus, mon modèle ne s'intéresse pas tellement à des pavillons, comme la cabine Leslie, mais plutôt à des membranes classiques, la particularité de ces membranes là, c'est donc qu' on a une émission plutôt bidirectionnelle. Si elles ne sont pas dans une enceinte close. 
+
+Et enfin la dernière contrainte importante, c'est une certaine économie en ressource. Puisque je souhaite faire tourner cet algorithme là sur des cartes embarquées, donc il faut que ça ne prenne pas trop trop de ressources. 
+
+Comment est-ce qu'on a implémenté les choses alors ? La partie simulation du haut-parleur elle est décomposée en trois parties, il y a une partie filtrage lié à la directivité du haut-parleur, ça quelque part c'est notre modulation d'amplitude, mais qu'on va tout de suite relier à certaines fréquences du spectres puisque selon les fréquences on va avoir un effet plus ou moins marqué de cette variation d'amplitude. On aura également l'effet doppler à reproduire et enfin important, mais peut-être plus exotique on va également vouloir reproduire la variation de phase lorsque le haut- pointe vers l'auditeur ou à l'inverse, lorsque le dos du haut-parleur pointe à l'auditeur.
+
+Puisque c'est une membrane lorsque le haut-parleur créer une surpression a l'avant, à son arrière on se retrouve inévitablement avec une dépression. Donc inversion de phase et donc ça on va aussi chercher à reproduire ce phénomène alors. commençons par dans l'ordre de traitement du signal, notre modèle DSP de haut-parleur a la particularité de prendre en entrée un signal analytique donc un signal analytique, c'est un signal qui est représenté à la fois par une partie réelle. Et par une partie imaginaire Et ça ça va nous permettre de pouvoir créer une rotation de phase arbitraire avec un algorithme.
+
+Comment est-ce qu'on obtient ce signal analytique à partir de notre signal d'entrée qui est lui réel ? On utilise tout simplement la transformée de hilbert alors ça c'est pour l'aspect théorique en pratique nous qu'est-ce qu'on fait en fait c'est d'utiliser un réseau de filtre, on va en fait prendre notre signal d'entrée et générer deux signaux de sortie en quadrature de phase. En fait le premier signal va correspondre à la partie réelle et le deuxième signal va correspondre à la partie imaginaire de nos signaux d'entrée de notre modèle de haut-parleur.
+
+Une fois qu'on a ces deux signaux en quadrature de phase, on peut très facilement faire une rotation de phase arbitraire sur l'ensemble du spectre, là, ce qui va nous intéresser, c'est effectivement d'être en phase lorsque le haut-parleur est face au point d'écoute et d'être en opposition de phase quand le haut-parleur Et dos au point d'écoute donc elle est très simple à écrire on module Le coefficient, le signal réel par un coefficient cossinus, d'un angle. 
+
+Et puis pour la partie imaginaire, on est donc en facteur d'un sinus du même angle, que le cos sinus précédemment évoqué. Alors quel angle est-ce qu'on donne à ces deux fonctions cocinus sinus a priori Cet angle va dépendre de l'angle de rotation du haut-parleur autour de son axe J'ai fait le choix de distordre un petit peu le rapport, c'est-à-dire que plutôt que d'avoir. Tout simplement l'angle du du du haut-parleur qui vient servir au calcul de cette fonction cosinus, et de cette fonction sinus, on va plutôt avoir une approche, on va faire l'angle du haut-parleur qu'on va appeler têta. -1/2 de sinus de têta Donc je répète têta, -1/2 sinus de deux têta, ça ça permet en fin de compte d'avoir une forme. 
+
+Le haut-parleur en fin de compte reste dans ce modèle là, plus longtemps en face, et plus longtemps dos au point d'écoute. Puisque ce n'est pas vraiment une variation de phase douce quelque part qui apparaît Il y a il y a quand même un aspect transition entre quand on passe sur la face avant à la face arrière. Donc voilà cette fonction têta -1/2 sinus deux têta Perm permet de reproduire cette cet aspect-là assez assez justement une fois qu'on a reproduit cette inversion de ph On passe dans le modèle de direct qui est sans doute la partie la plus complexe de ce travail. 
+
+Comment comment est-ce que reproduise cette le filtrage de directivité elle est elle-même découpée en deux parties. Donc on va avoir une première étape de filtrage que l'on détaillera après qui va nous permettre d'atténuer les hautes fréquences. Et on a une partie ensuite de filtrage en peigne qui va correspondre à la disaction générée par Le haut-parleur à cause de sa taille propre, c'est-à-dire qu'un haut-parleur a un certain diamètre et en fonction de ce diamètre, là. 
+
+À partir de certaines fréquences, on ne peut plus considérer comme un seul point d'émission donc on a plusieurs points d'émission par fréquence, et donc on crée nécessairement un filtre en peigne en fonction de l'angle de ce haut-parleur La partie filtrage aiguë est en fait modélisée par deux filtres en plateau du premier ordre Donc ces filtres à plateau du premier ordre, l'intérêt, c'est qu'on peut quand même der la quantité de réjection en fait plutôt que d'avoir un simple base bas. Qui va toujours faire son mois 6DB par octave, dans sa formulation un peu classique. Là on va pouvoir mettre une valeur limite au bout d'un moment, on va arrêter d'atténuer le signal. 
+
+Alors pourquoi deux filtres il y a un filtre qui va suivre la directivité plutôt bidirection de la membrane. Donc quelque part on va avoir une deux ouvertures et deux fermetures du filtre Par rotation, donc c'est-à-dire que le filtre va être ouvert quand le haut-parleur fait face à l'auditeur et le filtre va être ouvert également quand le haut-parleur est dos à l'auditeur. Ou au point d'écoute, et il sera dans sa position la plus fermée lorsque le haut-parleur sera à plus ou moins sur deux du point d'écoute. 
+
+Le deuxième filtre passe bas pardon filtre plateau, lui il suit toujours une direct plutôt cardioïde.ivité cardioïde, donc il est complètement ouvert quand le haut-parleur fait face à l'auditeur et il est complètement fermé quand le pardon il est complètement ouvert quand le haut-parleur fait face à l'auditeur et il est complètement fermé quand le haut-parleur est dos à l'auditeur. Alors pourquoi avoir ajouté ce deuxième filtrage parce que tout simplement même si y a un haut-parleur peut-être considéré comme une membrane en pratique. Il y a toujours une une certaine densité d'objet de matière au dos du haut-parleur. 
+
+Le Spider, laaccroche, la suspension, enfin il y a tout un tas de choses, l'aimant qui forcément génèrent une certaine atténuation dans le haut du spectre, donc on se rend compte là tout de suite que la modulation d'amplitude dans le haut du spectre est assez complexe et qu'il y a une double modulation. Il y en a une liée au fait que le haut-parleur est une membrane et une deuxième liée en plus au fait que le haut-parleur est cardioïde. Enfin, une partie de sa composante pour relève plutôt la directivité cardio, donc on a deux filtres comme ça dans la fréquence et modulée en fonction de l'angle d'incidence du haut-parleur par rapport au point d'écoute Alors, on l'a vu dans la section qui la partie Géométrique du modèle, la formule est donc la célérité du son divisé par 2 fois le diamètre du haut-parleur. fois la valeur absolue deux sinus de têta, quand même une fonction assez assez dense. 
+
+Et surtout assez a priori un peu Je reformule donc la relation entre l'angle d'incidence du haut-parleur et la fréquence de coupure des filtres, elle est donnée par la relation suivante où on a la célébrité du son. Enfin le point de fréquence de coupure, c'est la vitesse du son divisé par deux fois le diamètre du haut-parleur, fois toujours divisé en pardon Alors je vais y arriver la relation entre la fréquence de coupures du filtre et l'angle d'incidence du haut-parleur, elle est donnée par La vitesse du son divisée par tout ce qui suit, c'est-à-dire deux fois le diamètre du haut-parleur, fois la valeur absolue de sinus, têtaa est toujours l'angle d'incidence du haut-parleur. Cette relation, elle a un premier problème, c'est que lorsque sinus de envers zéro, on tend vers plus l'infini. 
+
+Ce qui est problématique, puisque plus l'infini en informatique, c'est toujours difficilement représentable. Donc ça c'est déjà un premier problème de simplement d'ensemble de définitions. Le deuxième, c'est que c'est pas forcément très très très optimisé à calculer puisqu'il y a une division, une valeur absolue. 
+
+Et un sinus. Bon la forme finale qu'on utilisera est pas forcément beaucoup plus économe en calcul, mais par contre elle palliera à ce problème d'ensemble de définition. Donc plutôt que d'utiliser cette relation directe Moi j'ai préféré définir en fin de compte une fréquence maximale d'ouverture du filtre. 
+
+Donc là notre FA c'est enfin kHz. Et puis à travers la relation que l'on a vu précédemment, on définit le point de fréquence de coupure minimal du haut-parleur. Donc ça c'est quand son angle d'incidence vautie sur deux, ça nous donne la fréquence de coupure minimale du filtre. 
+Et à partir de ça, l'idée c'est de faire une interpellation entre ces deux valeurs en fonction de l'angle d'incidence. Quand l'angle zéro ou le filtre est complètement ouvert ou quand l'angle vaut moins sur deux ou plus pied sur deux le filtre est complètement fermé. Bon voilà donc en fonction de notre même direct activité quelque part de notre Fonction de directivité, on va pouvoir choisir si le haut-parleur est plutôt ouvert ou si le filtre est plutôt ouvert ou plutôt fermé.
+
+Alors il y a deux approches là-dessus au début, j'étais plutôt parti sur un modèle. liant directement la fréquence et notre fonction de directivité, donc tout simplement je faisais la fréquence max moins. Entre parenthèses la fréquence max moins la fréquence mine facteur de notre coefficient d'activité. Dans dans le cas présent, là. 
+
+V valeur absolue de sinus deétat le problème de cette approche, c'est qu'en fait-on parcourt les fréquences de façon linéaire en fait et on tient pas compte du rapport logithmique que l'on a d'un point de vue perceptif entre l'évolution des fréquences et la notre perception tout simplement. Alors plutôt que d'avoir cette interp j'ai plutôt choisi de faire une. De passer par un modèle logarithmique. 
+
+Alors on part tout simplement de l'idée que. Au lieu de faire FA moins fX moins fine fois coefficient. On va faire de FAX moins l'O de fAX moins l'2 de Fine donc les deux derniers termes entre parenthèses fois le coefficient direct qui dépend de têta et une fois qu'on a cette expression, on fait deux puissances, l'ensemble de cette expression et là on trouve une relation qui s'exprime enfin qui nous donne des fréquences. 
+
+Et dont l'évolution est perceptctivement plus cohérente, alors pour simplifier les calculs, on peut dériver cette relation. Et on se retrouve avec une relation plus simple qui est tout simplement que la fréquence de coupure de notre filtre. Vaudra la fréquence max fois la fréquence minimale sur la fréquence max et toute cette fraction est à la puissance notre coefficient de directités qui est toujours en fonction de Ça nous donne une correspondance parfaite avec la relation initiale, mais on est quand même beaucoup plus proche. 
+
+Que du modèle bêtement linéaire. Et surtout on a plus de problèmes d'ense de définition, en tout cas pas sur les plages de valeurs qu'on utilise ici donc donc pas de problème et puis même je réfléchis à la volée dans la fonction exponentielle, elle est dé définition grand R donc pas de problème d'ensemble de définition. Donc là on a un petit compromis, une petite torsion par rapport au modèle physique, mais qui au final va quand même nous nous épargner d'une certaine forme d'arfact Par rapport à si on avait bêtement utilisé le modèle physique qui lui tend vers l'infini et ça c'est pas représentable par nos filtres. 
+
+Alors filtre lui il est modlé exactement de la même manière avec la même relation. Mais avec donc un coefficient direct activité différent, puisqu'on l'a rappelé le deuxième filtre il est plutôt cardioïde est le premier, il est plutôt bidirectionnel donc on a deux fonctions de modulation. Pour donner un peu plus d'information là-dessus, d'autres coefficients de directivité, coefficients, multiplicatifs. 
+
+Dans le cas du mode birectionnel, on prend la valeur absolue de sinusta et dans le cas du cardioïde, en tout cas de la deuxième de ce deuxième filtre, on prend prend vraiment la formulation d'une direct activité cardioïde à savoir. Un demi plus un demi costa, même ici exactement par un demi -1/2 costa. Pour avoir la phase qui va ben c'est c'est-à-dire quand état égale zéro. 
+
+On n'a pas de filtrage qui apparaît Donc voilà ça c'est pour toute la partie activité. En tout cas pardon modulation d'amplitude dans le haut du spectre, ce qui arrive maintenant c'est la partie d'effraction, on a dit ce sera simplement un filtre en peigne. D le délai est tout simplement fonction de la taille du diamètre du haut-parleur. 
+
+Et il est lui aussi mod par un coefficient directif Un coefficient de directivité bidirectionnel donc notre valeur absolue de sinus, étape de là, une fois qu'on a modélisé donc notre variation de phase et notre variation de directivité, on arrive sur l'effet deleur, l'effet de c'est pour le coup très trivial, on va simplement mettre une ligne en retard cette ligne en retard, on va la moduler en fonction de la distance entre le point d'écoute et le haut-parleur. Alors cette relation elle peut-être elle est en fait mathématiquement assez complexe Si on se base sur la première partie qui dérive le modèle géométrique. Mais en fait comme on l'a vu d'ailleurs sur la partie précédente, si on dérive La relation pour une distance suffisamment grande en fait par exemple, pour un axe de rotation qui fait 10 cm de rayon. 
+
+Bah déjà si on met le point d'écoute à 1 m On peut largement simplifier la relation par une relation cardio. Là. Pour le coup où on serait comme tout à l'heure à un demi mois un demia. 
+
+Et ça ça nous sert de coefficient multiplicateur de La la taille du diabète de notre cercle qui est décrit par la rotation du haut-parleur. indispensable simuler, c'était donc la partie moteur donc le moteur c'est en fin de compte ici ce qui va nous générer l'oscillateur basse fréquence qui va nous créer la rotation. Du haut-parleur. Donc ici c'est assez simple en fait on va tout simplement fournir une fréquence de rotation au moteur. 
+Et en fait-on va surtout créer ici un modèle d'inertie, c'est-à-dire un temps de passage quand on quand on change la fréquence de rotation, ce qui est un élément assez classique de toutes ces cabines, les équivalents. Quand on change la vitesse de rotation, ben le moteur, il met un certain temps à passer à la nouvelle vitesse, ce n'est pas instantané. Alors c'est la façon la plus simple du monde fréquence de rotation. 
+
+Et tout simplement ensuite filtré par un filtre passe bas du premier ordre, qui là nous sert de filtre de moyen A Et donc on lui passe à ce filtre une valeur évidemment, une fréquence qui correspond un temps d'inertie. Donc en fin de compte la relation là c'est que notre temps d'inertie est égal à un/2P F. Et donc en faisant le produit en croix, on trouve que f c'est 1/2 p fois la valeur de la R Donc là on arrive à retomber sur nos pattes et à et donc avoir une forme d'interpolation pour le coup exponentielle entre-deux points. 
+
+Deux vitesses de rotation. Par ailleurs, le moteur peut être stoppé donc quand il est stoppé, c'est c'est un mode particulier qui passe la fréquence à zéro et donc le moteur s'arrête et il s'arrête d'ailleurs à n'importe quelle position et pour faire en sorte de ne pas trop déimbrer. Le rendu quand on est en mode stop, je pars du principe que le plus malin c'est également d'asservir la question du dry. 
+Donc la quantité de signal original et du signal affecté par la modélisation De haut-parleur rotifs également en fonction du est-ce que le haut-parleur tourne ou est-ce que ils ne tournent pas ? Donc en fait notre hautparleurotatif lors c'est l'association d'un moteur et d'un haut-parleur. C'est aussi simple que ça. 
+
+Pour continuer dans le modèle il est également assez intéressant modéliser ce que j'ai appelé ici une fonction cabinet donc vraiment une enceinte en fait pour nos haut-parleurs C'est comme une sorte de petite réverbération, on va générer des réflexions additionnelles pour densifier le résultat. Alors ça c'est justifié par plusieurs aspects, ben déjà certains haut-parleurs rotatifs. En tout cas cabine de haut-parleurs rotatifs sont dans des enceintes, donc il y a des réflexions qui sont liées auxtes à la cabine. 
+Et à l'enceinte elle-même Et même s'ils n'ont pas de cabine, certains même s'ils ne sont pas dans des enceintes, comme par exemple, les haut-parleurs. D'Oolace, qu'utilisent Gilmour En fait, ce sont des haut-s d'Opace, il y aH haut-parleur rotatif en fait. Donc ça génère aussi une certaine forme de distraction. 
+
+En fait il y a deux délais, il y a y a en tout cas, il y a deux points d'émission qu'on peut donc approximer par Par ce petit diffuseur là ça peut-être considéré comme relativement relativement similaire. Donc cette simulation de réflexion dans l'enceinte, c'est très simple. On passe dans une dans une structure où il y a quatre Lignées délais en parallèle et d'ailleurs notre fonction de réflexion d'enceinte, elle a quatre sorties donc c'est quatre quatre lignes à délire avec des valeurs de délai différentes qui sont des nombres premiers. 
+Enfin voilà relativement des valeurs relativement courtes. En centaines d'échantillons Et ensuite pour potentiellement créer plus de densité, si on en a besoin là, c'est vraiment si on veut modéliser une enceinte close. On a également une enceinte, on a un chemin de feedback qui ces quatre lignes à retard. 
+
+Et qui la réinject à l'entrée du circuit, et sur ce chemin de feed-back, on va avoir deux éléments évidemment un coefficient de feedback. On va pouvoir doser la quantité de la réinjection, et en plus on va avoir un passe- tout du premier ordre avec un délai interne, enfin du premier un passe- tout avec un délai relativement long En tout cas avec une structure de gain similaire, un du premier ordre, mais donc avec avec un délai interne qui peut être beaucoup plus long. Ici il est réglé à 701. 701 échantillons et donc ça ça va nous permettre de rajouter un peu de décorerlation et de densité au fur et à mesure que on augmente le nombre d'échcoupes. 
+
+Donc ça nous fait un petit de réflexions de l'enceinte du haut-parleur rotatif. sur la partie DSP, on peut terminer par un dernier. Point qui est en fait la compensation timbrale Alors après beaucoup de tests et beaucoup de réflexion, il en découle quand même au final que. Il est bon de faire une correction manuelle en fonction de l'association, du nombre d' haut-parleur rotatifs, et puis potentiellement aussi d'un d'un d'une différenciation trop grave et aiguë pour que ça fonctionne ben c'est. 
+
+C'est-à-dire essayer de faire une approche automatique qui en fonction De la dimension du haut-parleur arrive à calculer une correction de gain alors ça marche dans certains cas, puis assez rapidement. Ça peut aussi ne plus marcher du tout. Donc il est à mon avis plus judicieux de définir son arrangement d'enceinte que l'ancêtre souhaite reproduire d'assembler le tout, et ensuite d'appliquer un filtrage supplémentaire pour récupérer en fait de l'aigu de façon statique, puisque là on a vu que nos filtres en fait ne font que enlever de l'aigu. 
+
+Dans les les modèles de directités des haut-parleurs Et donc il est-il va être un peu nécessaire de compenser cet effet pour pouvoir préserver une sensation de timbre relativement constante. Le que je choisis dans les deux modèles que l'on détailler après. C'est un c'est un filtre en plateau du deuxième ordre, mais que j'ai reformulé de telle manière à ce que ils prennent Une fréquence de début de transition et une fréquence de fin de transition vers le vers la zone en plateau. 
+
+Donc ce qui permet vraiment de ben c'est définir quelles sont les fréquences qu'on corrige et quelles sont les fréquences que l'on laisse en tout cas qu'on ne va pas chercher à effectivement à plus plus relever. Et donc de toutes ces petites fonctions là j'en ai dégagé deux modèles deux petites simulations. On la première que j'ai appelé le d qui est donc inspiré des cabinets Dace de Guimour. 
+
+Là le système est assez simple, on a deux haut-parleurs à droite avec un diamètre de rotation de 40 cm. Un diamètre de haut-parleur de 10 pouces et ben après j'ai également mis un crossover à 200 Hz, mais là c'est vraiment un peu. On enlève ça, j'ai pas mis de crossover à 200 Hz et le filtre correctif de ces deux haut-parleurs, c'est tout simplement un passe Réglé quand même très très très haut dans le spectre qui est réglé à 6 kHz. 
+Et du coup nécessairement avec un grand gain de correction en entrée du filtre pour pouvoir avoir un niveau relativement équivalent, et donc le cumul des deux nous donne un résultat timbral relativement cohérent. Et en plus de ça, j'utilise quand même notre petite fonction de simulation, de réflexion de cabinet, alors encore une fois comme j'expliquais plus haut, il y a pas vraiment de cabinette pour les deux. Mais il y a deux speakers par ensemble de rotation, donc le fait d'avoir les quatre réflexions rajoutées sont quand même assez intéressant et au niveau du chemin du signal, cette simulation d'enceintes, elle est alimentée par l'assommation des deux enceintes rotatives. 
+
+Comme ça ça permet d'optimiser un petit peu aussi le DSP au passage plutôt que d'avoir Des réflexions séparées par par cabinette, par enceinte et le deuxième modèle que j'ai fait est un peu plus complexe, lui il essaie d'émuler le yama R a 100 Donc là on a un crossover qui vient séparer leaphe des aigus donc tout ce qui est en dessous de 900 Hz n'est pas affecté par les haut-parleur rotatifs, en tout cas n'est pas affecté. Ce n'est qu'un filtre du deuxième ordre sur le crossover donc on a une part de 12és par octave, il y a quand même une certaine zone de De. Confusion entre grave et aigu, mais en tout cas voilà sur le principe, ce qui est en-dessous de 900 Hz n'est pas affecté par la simulation de haut-parleurs. 
+Rotatifs et au-dessus de 900 Hz. On a donc trois haut-parleurs de 4 pouces de diamètre et sur un anthrax de 3 cm, donc qui décrivent un cercle de rotation de 6 cm. Ces trois haut-parleurs alimentent aussi une là une simulation de d'autres simulations de réflexion. d'enceinte pardon. 
+Oui d'ence simulation de d' et là, par contre on utilise le feed-back, ce qui n'était pas le cas dans la simulation deace. Pour vraiment avoir une densité plus importante, parce que ces trois haut-parleurs rotatifs sont quand même dans une enceinte close, et donc ça génère une certaine certaine quantité de réflexion. Toutes ces réflexions là sont Donc ce que je n'ai pas abordé sur les deux modèles de simulation de haut-parleur rotatifs d'ence avec des haut-parleurs rotatives. 
+
+C'est l'aspecting, c'est très simple, j'ai fait une petite fonction qui permet de paner à la fois en delta et delta T. Dans les positions extrêmes du panne, on est en pure delta, puisque on a en fait un routage au trou à trous si on met tout à gauche, on sort que dans l'enceinte de gauche. En tout cas que dans le canal de gauche, et si on met tout à droite, on sort que dans le canal de droite, et par contre pour les positions de panne d'intermédiaire, on a une, on a une une certaine quantité de différence de temps rajoutée. 
+
+Ce qui fait que nos différentes réflexions en plus d'avoir le délai de la réflexion en elle-même. Il y a aussi un petit delt qui va être rajouté au moment de l'espatialiser dans notre espace. Espace sonique. 
+
+Espace stéréophonique qui conclut la présentation de tout ce travail de recherche autour des haut-parleurs rotatifs Et je laisse écouter les démo correspondant, puis éventuellement aussi repotasser la partie modèle physique et vous trouverez en téléchargement sur la page des jSFX, donc ce sont des plugins pour logiciel re qui permettent de tester ces deux algorithmes qui simulent l'opolace ou le Yama et r de sang
+
+
+
+--- CODE FAUST ---
+
+declare name "Whirl";
+declare author "Jean-Loup Pecquais";
+declare version "1.00";
+
+import("../../lib/filters.lib");
+import("../../lib/structure.lib");
+import("stdfaust.lib");
+
+// ████████╗ ██████╗ ██████╗  ██████╗ 
+// ╚══██╔══╝██╔═══██╗██╔══██╗██╔═══██╗
+//    ██║   ██║   ██║██║  ██║██║   ██║
+//    ██║   ██║   ██║██║  ██║██║   ██║
+//    ██║   ╚██████╔╝██████╔╝╚██████╔╝
+//    ╚═╝    ╚═════╝ ╚═════╝  ╚═════╝ 
+                                   
+/*
+2025-05-18
+- [X] - Revaluate frequency modulation instead of gain modulation in directivity model
+- [X] - Compensation Filter Remake
+    - [!] - Maybe compensation of the frequency response is a bad idea
+    - [X] - Implement compensation filter that take a linearized angle (instead of always compensing for worst case)
+    - [X] - Use spectral tilt as compensation filter with the limit freq user definable.
+    - [X] - spectral_tilt is good but expansive CPU wise ! -> Use a shelf filter with start freq and end freq.
+
+- [X] - Panner / Mixer
+    - [!] - Implement a listener concept : DBAP + minimum latency delay
+    - [X] simpler delta i delta model.
+- [!] - Stereo width could be try with a phase offset between engines
+- [!] - Do we want a MIX or a DEPTH control ? Blending with dry signal is difficult. -> Mix is fine
+
+2025-05-19
+- [X] - Revise logic on filter compensation computation.
+        We want to -> Define a limit correction freq
+                    -> Find the gain attenuation at that limit freq for a given orientation
+                    -> apply a shelffilter from directivity lp min_freq to limit_freq with the gain found as above.
+
+2025-05-20
+- [!] - Make an embeded version to fit Bela cpu ressources..
+- [X] - ..Or use pattern matching to optimize the code!.
+2025-05-22
+- [X] - improve Doppler_whirl compensation filter
+*/
+
+// ██████╗ ██╗   ██╗ ██████╗ ███████╗
+// ██╔══██╗██║   ██║██╔════╝ ██╔════╝
+// ██████╔╝██║   ██║██║  ███╗███████╗
+// ██╔══██╗██║   ██║██║   ██║╚════██║
+// ██████╔╝╚██████╔╝╚██████╔╝███████║
+// ╚═════╝  ╚═════╝  ╚═════╝ ╚══════╝
+                                  
+/*
+Bugs -
+[X] - when stop is engaged, discontinuity happend during the reset phase
+[X] - when the rotary is stop, a clear filtering is happening, which depend on stereo width... God knows why !
+[X] - Bypass tanh clipper when stop, with smooth on/off interpolation using intertia
+[X] - Click happen when leaving the off mode
+[X] - Improve level matching
+[X] - Rework the directivity filter stage
+2025-05-18
+*/
+
+//  ██████╗ ██████╗ ███╗   ██╗███████╗████████╗ █████╗ ███╗   ██╗████████╗                
+// ██╔════╝██╔═══██╗████╗  ██║██╔════╝╚══██╔══╝██╔══██╗████╗  ██║╚══██╔══╝                
+// ██║     ██║   ██║██╔██╗ ██║███████╗   ██║   ███████║██╔██╗ ██║   ██║                   
+// ██║     ██║   ██║██║╚██╗██║╚════██║   ██║   ██╔══██║██║╚██╗██║   ██║                   
+// ╚██████╗╚██████╔╝██║ ╚████║███████║   ██║   ██║  ██║██║ ╚████║   ██║                   
+//  ╚═════╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝   ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═══╝   ╚═╝                   
+                                                                                       
+// ██████╗ ███████╗ ██████╗██╗      █████╗ ██████╗  █████╗ ████████╗██╗ ██████╗ ███╗   ██╗
+// ██╔══██╗██╔════╝██╔════╝██║     ██╔══██╗██╔══██╗██╔══██╗╚══██╔══╝██║██╔═══██╗████╗  ██║
+// ██║  ██║█████╗  ██║     ██║     ███████║██████╔╝███████║   ██║   ██║██║   ██║██╔██╗ ██║
+// ██║  ██║██╔══╝  ██║     ██║     ██╔══██║██╔══██╗██╔══██║   ██║   ██║██║   ██║██║╚██╗██║
+// ██████╔╝███████╗╚██████╗███████╗██║  ██║██║  ██║██║  ██║   ██║   ██║╚██████╔╝██║ ╚████║
+// ╚═════╝ ╚══════╝ ╚═════╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝   ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═══╝
+                                                                                       
+
+C_SOUND = 340;
+INV_C_SOUND = 0.0029411764705882353;
+MAX_DELAY_LEN = 1024; //smpls
+TWO_PI = 2*ma.PI;
+FOUR_PI = 4*ma.PI;
+PI_OVER_FOUR = ma.PI*0.25;
+T_S = 1/ma.SR;
+
+
+//  ██████╗ ██████╗ ███╗   ██╗██╗   ██╗███████╗██████╗ ███████╗██╗ ██████╗ ███╗   ██╗
+// ██╔════╝██╔═══██╗████╗  ██║██║   ██║██╔════╝██╔══██╗██╔════╝██║██╔═══██╗████╗  ██║
+// ██║     ██║   ██║██╔██╗ ██║██║   ██║█████╗  ██████╔╝███████╗██║██║   ██║██╔██╗ ██║
+// ██║     ██║   ██║██║╚██╗██║╚██╗ ██╔╝██╔══╝  ██╔══██╗╚════██║██║██║   ██║██║╚██╗██║
+// ╚██████╗╚██████╔╝██║ ╚████║ ╚████╔╝ ███████╗██║  ██║███████║██║╚██████╔╝██║ ╚████║
+//  ╚═════╝ ╚═════╝ ╚═╝  ╚═══╝  ╚═══╝  ╚══════╝╚═╝  ╚═╝╚══════╝╚═╝ ╚═════╝ ╚═╝  ╚═══╝
+                                                                                  
+// ███████╗██╗   ██╗███╗   ██╗ ██████╗████████╗██╗ ██████╗ ███╗   ██╗███████╗        
+// ██╔════╝██║   ██║████╗  ██║██╔════╝╚══██╔══╝██║██╔═══██╗████╗  ██║██╔════╝        
+// █████╗  ██║   ██║██╔██╗ ██║██║        ██║   ██║██║   ██║██╔██╗ ██║███████╗        
+// ██╔══╝  ██║   ██║██║╚██╗██║██║        ██║   ██║██║   ██║██║╚██╗██║╚════██║        
+// ██║     ╚██████╔╝██║ ╚████║╚██████╗   ██║   ██║╚██████╔╝██║ ╚████║███████║        
+// ╚═╝      ╚═════╝ ╚═╝  ╚═══╝ ╚═════╝   ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝        
+                                                                                  
+
+cm_to_samples(cm) = cm*0.01 : meter_to_samples : int;
+meter_to_samples(m) = m : *(INV_C_SOUND*ma.SR) : int;
+inch_to_meter(inch) = inch : *(0.0254);
+inch_to_samples(inch) = inch : inch_to_meter : meter_to_samples : int;
+speaker_cutoff(theta,diameter) = cutoff(theta,diameter) with {
+    cutoff(ma.PI/4,diameter) = C_SOUND/(2*inch_to_meter(diameter)*0.707+ma.EPSILON);
+    cutoff(ma.PI/2,diameter) = C_SOUND/(2*inch_to_meter(diameter)+ma.EPSILON);
+    cutoff(theta,diameter)   = C_SOUND/(2*inch_to_meter(diameter)*abs_(sin_(theta))+ma.EPSILON);
+};
+
+speaker_minimum_cutoff(diameter) = speaker_cutoff(ma.PI/2,diameter);
+
+// ██████╗ ███████╗██████╗     ███████╗██╗   ██╗███╗   ██╗ ██████╗████████╗██╗ ██████╗ ███╗   ██╗███████╗
+// ██╔══██╗██╔════╝██╔══██╗    ██╔════╝██║   ██║████╗  ██║██╔════╝╚══██╔══╝██║██╔═══██╗████╗  ██║██╔════╝
+// ██║  ██║███████╗██████╔╝    █████╗  ██║   ██║██╔██╗ ██║██║        ██║   ██║██║   ██║██╔██╗ ██║███████╗
+// ██║  ██║╚════██║██╔═══╝     ██╔══╝  ██║   ██║██║╚██╗██║██║        ██║   ██║██║   ██║██║╚██╗██║╚════██║
+// ██████╔╝███████║██║         ██║     ╚██████╔╝██║ ╚████║╚██████╗   ██║   ██║╚██████╔╝██║ ╚████║███████║
+// ╚═════╝ ╚══════╝╚═╝         ╚═╝      ╚═════╝ ╚═╝  ╚═══╝ ╚═════╝   ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝
+                                                                                                      
+
+highshelf1(fc,gain_linear) = fi.tf1(b_0,b_1,a_1) with {
+    K = 2 * tan(ma.PI * fc * T_S);
+    a_0 = 2 + K;
+    b_0 = (2*gain_linear+K) / a_0;
+    b_1 = (K - 2*gain_linear) / a_0;
+    a_1 = (K - 2) / a_0;
+};
+
+highshelf2(start_freq,end_freq,gain) = filter(f,q,gain) with {
+        f = sqrt(start_freq*end_freq);
+        q = f/(end_freq-start_freq);
+        // svf hs with db to linear conversion removed.
+        filter(F,Q,A) = tick ~ (_,_) : !,!,si.dot(3, mix)
+        with {
+            tick(ic1eq, ic2eq, v0) =
+                2*v1 - ic1eq,
+                2*v2 - ic2eq,
+                v0, v1, v2
+            with {
+                v1 = ic1eq + g *(v0-ic2eq) : /(1 + g*(g+k));
+                v2 = ic2eq + g * v1;
+            };
+        g = tan(F * ma.PI/ma.SR) : *(sqrt(A));
+        k = 1/Q;
+        mix = A*A, k*(1-A)*A, 1-A*A;
+    };
+};
+
+dual_hs_filter(fc_hs_1,fc_hs_2,lin_gain) = highshelf1(fc_hs_1,lin_gain) : highshelf1(fc_hs_2,lin_gain);
+
+gain_estimator(filter_process, test_freq) = gain_signal with {
+        input_sine   = os.osc(test_freq);
+        input_cosine = os.osccos(test_freq);
+        filtered_out = input_sine : filter_process;
+        filtered_out_imag = input_cosine : filter_process;
+        gain_signal  = sqrt(pow(filtered_out,2)+pow(filtered_out_imag,2));
+};
+
+lut_cos(x) = ba.tabulate(C, FX, S, r0, r1, x).lin with {
+    // C: whether to dynamically force the x value to the range [r0, r1]: 1 forces the check, 0 deactivates it (constant numerical expression)
+    C = 0;
+    // FX: unary function Y=F(X) with one output (scalar function of one variable)
+    FX = cos;
+    // S: size of the table in samples (constant numerical expression)
+    S = 1024;
+    // r0: minimum value of argument x
+    r0 = 0;
+    // r1: maximum value of argument x
+    r1 = FOUR_PI;
+};
+
+lut_sin(x) = ba.tabulate(C, FX, S, r0, r1, x).lin with {
+    C = 0;
+    FX = sin;
+    S = 1024;
+    r0 = 0;
+    r1 = FOUR_PI;
+};
+
+// In JSFX export, LUT are more expensive that math calls ??
+// Improve CPU load on Bela.
+cos_ = lut_cos;
+sin_ = lut_sin;
+abs_ = abs;
+
+
+// ██████╗ ███████╗██████╗     ██████╗ ██╗      ██████╗  ██████╗██╗  ██╗███████╗
+// ██╔══██╗██╔════╝██╔══██╗    ██╔══██╗██║     ██╔═══██╗██╔════╝██║ ██╔╝██╔════╝
+// ██║  ██║███████╗██████╔╝    ██████╔╝██║     ██║   ██║██║     █████╔╝ ███████╗
+// ██║  ██║╚════██║██╔═══╝     ██╔══██╗██║     ██║   ██║██║     ██╔═██╗ ╚════██║
+// ██████╔╝███████║██║         ██████╔╝███████╗╚██████╔╝╚██████╗██║  ██╗███████║
+// ╚═════╝ ╚══════╝╚═╝         ╚═════╝ ╚══════╝ ╚═════╝  ╚═════╝╚═╝  ╚═╝╚══════╝
+
+/*
+Engine to drives a speaker in rotation. Support inertia in frequency changes.
+*/
+engine(freq,is_stop,inertia) = angular_position with {
+    is_turning = 1-is_stop;
+    internal_freq = freq*(is_turning) : fi.avg_tau(inertia);
+    angular_position = os.lf_sawpos(internal_freq) : *(TWO_PI);
+};
+
+directivity_modulation_pattern = case { 
+    (0,theta) => abs_(sin_(theta)); // Bipolar type
+    (1,theta) => abs_(sin_(0.5 * theta)); // Cardioid type
+    (directivity_val,theta) => abs_(sin_(theta));
+};
+
+/*
+Speaker simulation.
+Theta is angle at which the loudspeaker radiate.
+Directivity is either 0 or 1. 0 is bidirictionnal mode,
+                              1 is cardioid mode.
+Diameter is the diameter of the speaker in inch. Affect the directivity dependent filtering.
+Shaft Length is the length of shaft that make the speaker rotate. Affect the doppler effect.
+Takes an analytic signal as input.
+*/
+speaker(theta,directivity,diameter,shaft_len,sig_real,sig_imag) = phase_model : directivity_model : doppler_effect with {
+
+
+    directivity_model = high_attenuation(diameter,directivity) : diffraction with {
+
+        high_attenuation(diameter,directivity) = dual_hs_filter(fc_hs_1,fc_hs_2,0.2) with {
+            f_max = 20000;
+            
+            min_fc_hs_1 = speaker_minimum_cutoff(diameter);
+            lfo_hs_1 = directivity_modulation_pattern(directivity,theta);
+            fc_hs_1 = f_max * pow(min_fc_hs_1 / f_max, lfo_hs_1);
+
+            min_fc_hs_2 = 3*min_fc_hs_1;
+            lfo_hs_2 = 0.5-0.5*cos_(theta);
+            fc_hs_2 = f_max * pow(min_fc_hs_2 / f_max, lfo_hs_2);
+        };
+
+        comb_b0 = 0.5;
+        comb_bM = 0.5;
+        dist_smpls = inch_to_samples(diameter)*abs_(sin_(theta));
+        diffraction = fi.ff_fcomb(MAX_DELAY_LEN,dist_smpls,comb_b0,comb_bM);
+
+    };
+
+    doppler_effect = de.fdelay1(MAX_DELAY_LEN,delay) with {
+        delay = cm_to_samples(2*shaft_len)*(0.5-0.5*cos_(theta));
+    };
+
+    phase_model = real_path, imag_path : + with {
+        phase_theta(x) = x-0.5*sin_(2*x);
+        phase = phase_theta(theta);
+        real_path = *(sig_real,cos_(phase));
+        imag_path = *(sig_imag,sin_(phase));
+    };
+};
+
+correction_filter(diameter,directivity) = filter(diameter,directivity) with {
+
+    //Specialization for embedded applications.
+    filter(4,0) = tick ~ (_,_) : !,!,si.dot(3, mix) with {
+        tick(ic1eq, ic2eq, v0) =
+                2*v1 - ic1eq,
+                2*v2 - ic2eq,
+                v0, v1, v2
+            with {
+                v1 = (ic1eq + g *(v0-ic2eq)) * 0.6494681400;
+                v2 = ic2eq + g * v1;
+            };
+
+        g = 0.3570773880;
+        k = 1.1546760354;
+        mix = 1.999396, -0.6758700264, -0.999396;
+    };
+
+    filter(diameter,directivity) = highshelf2(correction_start_freq,correction_end_freq,(correction_target_gain)) with {
+        min_fc_hs_1 = speaker_cutoff(ma.PI/4,diameter);
+        min_fc_hs_2 = 3*min_fc_hs_1;
+
+        correction_start_freq = min_fc_hs_1;
+        correction_end_freq = min_fc_hs_2;
+
+        target_filter(0) = dual_hs_filter(min_fc_hs_1,min_fc_hs_2,0.2);
+        target_filter(1) = dual_hs_filter(min_fc_hs_1,min_fc_hs_1,0.2);
+        target_filter(directivity) = dual_hs_filter(min_fc_hs_1,min_fc_hs_2,0.2);
+
+        target_frequency = 2*correction_start_freq;
+        correction_target_gain = gain_estimator(target_filter(directivity),target_frequency) : sqrt;
+    };
+};
+
+/*
+Association of a speaker and an engine
+*/
+rotative_speaker(freq,is_stop,inertia,directivity,diameter,shaft_len,sig_real,sig_imag) = speaker(theta,directivity,diameter,shaft_len,sig_real,sig_imag) with {
+    theta = engine(freq,is_stop,inertia);
+};
+
+/*
+Simple pan using both Δi and Δt auditory cues.
+*/
+di_dt_panner(NUM_SOURCES,(sources_pan)) = panners : mixer with {
+    panners = par(i,NUM_SOURCES,panner(ba.selector(i,NUM_SOURCES,sources_pan)));
+    panner(pan) = _ <: (*(pan_l) : @(int(del*pan_l))),
+                       (*(pan_r) : @(int(del*pan_r))) with {
+        del = cm_to_samples(17);
+        pan_l = sqrt(1-pan);
+        pan_r = sqrt(pan);
+    };
+    mixer = si.bus(2*NUM_SOURCES) <: ((par(i,NUM_SOURCES,(_,!)):>si.bus(1)) ,(par(i,NUM_SOURCES,(!,_)):>si.bus(1)));
+};
+
+/*
+Simple cabinet reflections using four parallel delay lines summed in feedback path.
+The feedback path also include an allpass diffusor to add density.
+*/
+cabinet(feedback) = fi.highpass(1,400) : diffusor with {
+    diffusor = si.bus(1) : *(0.707) : delay_lines~loop : si.bus(4) with {
+        delay_lines = + : fi.lowpass(1,3000) <: @(179),
+                                                @(257),
+                                                @(373),
+                                                @(547);
+        loop = si.bus(4) :> *(feedback*0.25) : fi.allpass_comb(1024,701,0.5);
+    };
+};
+
+
+// ████████╗███████╗███████╗████████╗██╗███╗   ██╗ ██████╗                   
+// ╚══██╔══╝██╔════╝██╔════╝╚══██╔══╝██║████╗  ██║██╔════╝                   
+//    ██║   █████╗  ███████╗   ██║   ██║██╔██╗ ██║██║  ███╗                  
+//    ██║   ██╔══╝  ╚════██║   ██║   ██║██║╚██╗██║██║   ██║                  
+//    ██║   ███████╗███████║   ██║   ██║██║ ╚████║╚██████╔╝                  
+//    ╚═╝   ╚══════╝╚══════╝   ╚═╝   ╚═╝╚═╝  ╚═══╝ ╚═════╝                   
+                                                                          
+// ███████╗██╗   ██╗███╗   ██╗ ██████╗████████╗██╗ ██████╗ ███╗   ██╗███████╗
+// ██╔════╝██║   ██║████╗  ██║██╔════╝╚══██╔══╝██║██╔═══██╗████╗  ██║██╔════╝
+// █████╗  ██║   ██║██╔██╗ ██║██║        ██║   ██║██║   ██║██╔██╗ ██║███████╗
+// ██╔══╝  ██║   ██║██║╚██╗██║██║        ██║   ██║██║   ██║██║╚██╗██║╚════██║
+// ██║     ╚██████╔╝██║ ╚████║╚██████╗   ██║   ██║╚██████╔╝██║ ╚████║███████║
+// ╚═╝      ╚═════╝ ╚═╝  ╚═══╝ ╚═════╝   ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝
+                                                                          
+
+test_highshelf1 = highshelf1(fc,gain_linear) with {
+    fc = hslider("freq",1000,100,20000,0.1);
+    gain_linear = hslider("gain",0,-20,20,0.1) : ba.db2linear;
+};
+
+test_highshelf2 = highshelf2(start_freq,end_freq,gain) with {
+    start_freq = hslider("start_freq",1000,20,10000,0.01);
+    end_freq   = hslider("end_freq"  ,5000,20,10000,0.01);
+    gain       = hslider("gain"      ,0,-10,10,0.01);
+};
+
+test_cabinet = cabinet(feedback) with {
+    feedback      = hslider("feedback",0,0,1,0.01);
+};
+
+test_panner = di_dt_panner(6,(par(i,6,pan))) with {
+    pan = hslider("pan",0.5,0,1,0.01);
+};
+
+test_bipolar_speaker = hilbert : speaker(theta,0,max_lin_freq,diameter,shaft_len) with {
+    theta         = hslider("angle",0,0,2,0.01) : *(ma.PI);
+    diameter      = hslider("spkr_diameter",6,0.1,50,0.1);
+    shaft_len     = hslider("shaft_len",10,0.1,100,0.1);
+    max_lin_freq  = hslider("max freq",6000,3000,10000,0.1);
+};
+
+test_cardioid_speaker = hilbert : speaker(theta,1,max_lin_freq,diameter,shaft_len) with {
+    theta         = hslider("angle",0,0,2,0.01) : *(ma.PI);
+    diameter      = hslider("spkr_diameter",6,0.1,50,0.1);
+    shaft_len     = hslider("shaft_len",10,0.1,100,0.1);
+    max_lin_freq  = hslider("max freq",6000,3000,10000,0.1);
+};
+
+test_rotative_speaker = hilbert : rotative_speaker(freq,0,is_stop,inertia,max_lin_freq,diameter,shaft_len) : si.bus(2) with {
+    freq          = hslider("freq",1,0.5,10,0.1);
+    is_stop       = hslider("stop",0,0,1,1);
+    inertia       = hslider("inertia_time",1,0,10,0.1);
+    diameter      = hslider("spkr_diameter",6,0.1,50,0.1);
+    shaft_len     = hslider("shaft_len",10,0.1,100,0.1);
+    max_lin_freq  = hslider("max freq",6000,3000,10000,0.1);
+};
+
+// ███╗   ███╗ █████╗ ██╗███╗   ██╗    ███████╗██╗  ██╗
+// ████╗ ████║██╔══██╗██║████╗  ██║    ██╔════╝╚██╗██╔╝
+// ██╔████╔██║███████║██║██╔██╗ ██║    █████╗   ╚███╔╝ 
+// ██║╚██╔╝██║██╔══██║██║██║╚██╗██║    ██╔══╝   ██╔██╗ 
+// ██║ ╚═╝ ██║██║  ██║██║██║ ╚████║    ██║     ██╔╝ ██╗
+// ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝╚═╝  ╚═══╝    ╚═╝     ╚═╝  ╚═╝
+
+// Inspired by Doppolas cabinet.
+doppler_whirl = crossover : ((si.bus(1) <: si.bus(2)) , (_ <: effect_path,dry_path) ) : ((ro.cross2 : +,+),si.bus(2)) : ro.cross2 : +,+ with {
+    freq                = hslider("rate",                       1,0.5,10,0.1);
+    is_stop             = hslider("stop",                       0,0,1,1);
+    mix                 = hslider("effect_mix",                 100,0.,100,0.1)*0.01 : si.smoo;
+    freq_tone           = hslider("tone",                       5000,1000,20000,100);
+    inertia             = 1.5;//s
+    shaft_len           = 20; //cm
+    reflections_mix     = 0.5;
+    reflections_fdbck   = 0;
+    diameter            = 10; // inch
+    crossover_fc        = 200; //Hz
+    directivity         = 0; // Bipolar speaker
+    
+    fade_time = (log(freq)-log(0.1))*inertia;
+    fade = en.asr(fade_time,1,fade_time,is_stop) : sqrt;
+    effect_mix = sqrt(mix)*(1-fade);
+    dry_mix = sqrt(1-mix)*(1-fade)+fade;
+
+    crossover = si.bus(1) <: fi.lowpass(1,crossover_fc), fi.highpass(1,crossover_fc);
+    splitted_signal = x : crossover;
+
+    low_end  = splitted_signal : _,!;
+    high_end = splitted_signal : !,_;
+    compensation_filter = correction_filter(diameter,directivity);
+
+    tone_filter = fi.lowpass(1,freq_tone);
+    dry_path = si.bus(1)*(dry_mix) <: si.bus(2);
+    effect_path = *(effect_mix*7) : fi.highpass(1,6000) : tone_filter : hilbert <: si.bus(4) : (rotary_1,rotary_2) <: (si.bus(2),
+                                                                                            ( si.bus(2):>si.bus(1) : *(sqrt(reflections_mix)) : cabinet(reflections_fdbck)))
+                                                                                          :  di_dt_panner(6,(0,1,0.20,0.40,0.60,0.80)); 
+
+    analytic_signal = high_end : hilbert;
+    rotary_1 = rotative_speaker(freq,is_stop,inertia,directivity,diameter,shaft_len) : compensation_filter;
+    rotary_2 = rotative_speaker(freq+0.17,is_stop,inertia,directivity,diameter,shaft_len) : compensation_filter;
+};
+
+// Inspired by Yamaha RA-200 cabinet
+japan_whirl = crossover : ((si.bus(1) <: si.bus(2)) , (_ <: effect_path,dry_path) ) : ((ro.cross2 : +,+),si.bus(2)) : ro.cross2 : +,+ with {
+    freq                = hslider("rate",                       1,0.5,10,0.1);
+    is_stop             = hslider("stop",                       0,0,1,1);
+    mix                 = hslider("effect_mix",                 100,0.,100,0.1)*0.01 : si.smoo;
+    freq_tone           = hslider("tone",                       5000,1000,20000,100);
+    inertia             = 2;//s
+    shaft_len           = 3; //cm
+    reflections_mix     = 0.25;
+    reflections_fdbck   = 0.3;
+    diameter            = 4; // inch
+    crossover_fc        = 900; //Hz
+    directivity         = 0; // Bipolar speaker
+    
+    fade_time = (log(freq)-log(0.1))*inertia;
+    fade = en.asr(fade_time,1,fade_time,is_stop) : sqrt;
+    effect_mix = sqrt(mix)*(1-fade);
+    dry_mix = sqrt(1-mix)*(1-fade)+fade;
+
+    crossover = si.bus(1) <: (fi.lowpass(1,crossover_fc) : fi.lowpass(1,crossover_fc)), (fi.highpass(1,crossover_fc) : fi.highpass(1,crossover_fc) : *(-1));
+    splitted_signal = x : crossover;
+
+    low_end  = splitted_signal : _,!;
+    high_end = splitted_signal : !,_;
+    compensation_filter = correction_filter(diameter,directivity);
+
+    tone_filter = fi.lowpass(1,freq_tone);
+    dry_path = si.bus(1)*(dry_mix) <: si.bus(2);
+    effect_path =  *(effect_mix*1.414) : tone_filter : compensation_filter :  hilbert <: si.bus(6) :
+                    (rotary_1,rotary_2,rotary_3) <: (si.bus(3),
+                                                    (si.bus(3):>si.bus(1) : *(sqrt(reflections_mix)) : cabinet(reflections_fdbck))) :
+                    di_dt_panner(7,(0,0.5,1,0.20,0.40,0.60,0.80)); 
+
+    analytic_signal = high_end : hilbert;
+    rotary_1 = rotative_speaker(freq,is_stop,inertia,directivity,diameter,shaft_len);
+    rotary_2 = rotative_speaker(freq+0.17,is_stop,inertia,directivity,diameter,shaft_len);
+    rotary_3 = rotative_speaker(freq-0.11,is_stop,inertia,directivity,diameter,shaft_len);
+};
+
+
+// ██████╗ ██████╗  ██████╗  ██████╗███████╗███████╗███████╗         
+// ██╔══██╗██╔══██╗██╔═══██╗██╔════╝██╔════╝██╔════╝██╔════╝         
+// ██████╔╝██████╔╝██║   ██║██║     █████╗  ███████╗███████╗         
+// ██╔═══╝ ██╔══██╗██║   ██║██║     ██╔══╝  ╚════██║╚════██║         
+// ██║     ██║  ██║╚██████╔╝╚██████╗███████╗███████║███████║         
+// ╚═╝     ╚═╝  ╚═╝ ╚═════╝  ╚═════╝╚══════╝╚══════╝╚══════╝         
+                                                                  
+// ███████╗██╗   ██╗███╗   ██╗ ██████╗████████╗██╗ ██████╗ ███╗   ██╗
+// ██╔════╝██║   ██║████╗  ██║██╔════╝╚══██╔══╝██║██╔═══██╗████╗  ██║
+// █████╗  ██║   ██║██╔██╗ ██║██║        ██║   ██║██║   ██║██╔██╗ ██║
+// ██╔══╝  ██║   ██║██║╚██╗██║██║        ██║   ██║██║   ██║██║╚██╗██║
+// ██║     ╚██████╔╝██║ ╚████║╚██████╗   ██║   ██║╚██████╔╝██║ ╚████║
+// ╚═╝      ╚═════╝ ╚═╝  ╚═══╝ ╚═════╝   ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═══╝
+                                                                  
+mode = 1;
+whirl = case {
+    (0) => doppler_whirl;
+    (1) => japan_whirl;
+    (N) => _;
+};
+
+process = whirl(mode);
+
+
+
+
+-----------
+
+You're right to seek a strong citation for this specific relationship, as it's a key heuristic in understanding when a sound source transitions from omnidirectional to directional behavior. While the exact formulation $\lambda = 2 |S_1S_2| |\sin(\alpha)|$ might be a specific interpretation or a rule of thumb derived for your model, the underlying principle is well-established in acoustics.
+
+The core idea is that a source becomes directional when its dimensions are comparable to or larger than the wavelength of the sound it emits. The factor of "2" and the $|\sin(\alpha)|$ term relate to specific criteria for "significant" directivity or a particular feature of the directivity pattern (like the first null or a certain beamwidth).
+
+Here are a few ways to approach citing this, along with potential references and how they relate:
+
+**1. Citing the General Principle (Source Size vs. Wavelength):**
+
+This is the most fundamental and easily citable aspect.
+*   **Key Concept:** A sound source tends to radiate omnidirectionally when its characteristic dimension $D$ (e.g., diameter $|S_1S_2|$) is much smaller than the wavelength $\lambda$ (i.e., $D \ll \lambda$, or $kD \ll 1$ where $k=2\pi/\lambda$ is the wavenumber). It becomes directional when $D \approx \lambda$ or $D \gg \lambda$ (i.e., $kD \approx 1$ or $kD \gg 1$).
+
+*   **Potential Citations:**
+    *   `[@kinsler2000, Chapter 5 or similar on Radiation and Reception of Acoustic Waves]`
+        *   **Justification:** Kinsler et al. in "Fundamentals of Acoustics" thoroughly discuss radiation from simple sources like pulsating spheres and pistons. They introduce the concept of $ka$ (where $a$ is the radius) as the critical parameter determining directivity. The transition to directional behavior occurs as $ka$ approaches and exceeds 1. Your $|S_1S_2|$ is $2a$.
+    *   `[@beranek1996, Chapter on Radiators]`
+        *   **Justification:** Beranek's "Acoustics" provides detailed analysis of piston radiation, showing directivity patterns as a function of $ka$. The point where the pattern significantly narrows and side lobes appear is related to $ka \approx \pi$ or specific values for the first null.
+    *   `[@rossing2007, Chapter on Sound Radiation]`
+        *   **Justification:** Rossing, Moore, and Wheeler's "The Science of Sound" explains these concepts in a very accessible way, often using the heuristic that directivity starts when the source size is about half a wavelength or a full wavelength.
+
+*   **How to phrase it in your text:**
+    "The directivity of a piston-like source becomes significant when its characteristic dimension, $|S_1S_2|$, is comparable to the wavelength, $\lambda$, of the emitted sound `[@kinsler2000; @beranek1996]`. A common rule of thumb is that significant beaming occurs when the wavelength is on the order of the source diameter."
+
+**2. Citing the "First Null" or "Beamwidth" Condition (More Specific):**
+
+If your formula $\lambda = 2 |S_1S_2| |\sin(\alpha)|$ is intended to relate to a specific feature like the angle of the first null in the directivity pattern of a piston, then the citation needs to point to derivations of that.
+
+*   **Key Concept for a Circular Piston in a Baffle:** The first null in the far-field radiation pattern occurs at an angle $\alpha_0$ (from the axis) such that:
+    $k a \sin(\alpha_0) \approx 3.83$ (where $J_1(x)$ has its first zero at $x \approx 3.83$, and $a = |S_1S_2|/2$ is the radius).
+    So, $\frac{2\pi}{\lambda} \frac{|S_1S_2|}{2} \sin(\alpha_0) \approx 3.83$, which simplifies to $\frac{\pi |S_1S_2|}{\lambda} \sin(\alpha_0) \approx 3.83$.
+    This means $\lambda \approx \frac{\pi |S_1S_2| \sin(\alpha_0)}{3.83} \approx 0.82 |S_1S_2| \sin(\alpha_0)$.
+
+    Your formula $\lambda = 2 |S_1S_2| |\sin(\alpha)|$ has a different constant (2 instead of ~0.82). This suggests your criterion for "significant" directivity might be different or a broader approximation.
+
+*   **If your "2" is an approximation or a different criterion:**
+    You could state that the transition to directional behavior is often simplified. For instance, a source is "large" if its diameter is greater than the wavelength.
+    The term $|\sin(\alpha)|$ in your formula seems to imply you're looking at the *projected width* of the speaker perpendicular to the listening direction when it's at an angle $\alpha$ relative to its own axis. If the speaker itself is at an angle $\alpha$ to the listener, then the effective radiating dimension *towards the listener* doesn't typically have a $\sin(\alpha)$ unless $\alpha$ is an angle *within* the speaker mechanism itself (e.g. if it's a rectangular piston and $\alpha$ is the angle to one of its sides).
+
+    If $\alpha$ in your formula is the angle between the piston's axis and the listener (so $\alpha=0$ is on-axis, $\alpha=\pi/2$ is 90 degrees off-axis), then the statement "la largeur du piston *projetée perpendiculairement à la direction d’écoute*" needs clarification. The directivity itself is a function of $\sin(\alpha_{listener})$, where $\alpha_{listener}$ is the angle from the piston's main axis.
+
+**Re-evaluating your statement and formula:**
+
+"la directivité du piston devient significative lorsque la longueur d’onde d’une fréquence émise est proche du **double de la largeur du piston projetée perpendiculairement à la direction d’écoute.** On peut alors écrire : $\lambda = 2 |S_1S_2| |\sin(\alpha)|$"
+
+Let's break this down:
+*   $|S_1S_2|$ is the diameter of the piston.
+*   If $\alpha$ is the angle between the piston's axis and the direction of listening:
+    *   When $\alpha = 0$ (on-axis), $|\sin(\alpha)| = 0$. Your formula implies $\lambda = 0$, which doesn't make sense. The source is *most* effective on-axis for high frequencies.
+    *   When $\alpha = \pi/2$ (90 degrees off-axis), $|\sin(\alpha)| = 1$. Your formula becomes $\lambda = 2 |S_1S_2|$. This means directivity is significant when the wavelength is twice the diameter. This is a *very lenient* criterion for directivity; usually, it's significant when $\lambda \approx |S_1S_2|$ or even $\lambda \approx 0.5 |S_1S_2|$.
+
+**Possible Interpretation / Correction for Stronger Citing:**
+
+Perhaps the statement intended something more like: "The main lobe of the radiation pattern starts to narrow significantly, or the first side lobe appears, when the wavelength $\lambda$ is on the order of the piston diameter $|S_1S_2|$ (for on-axis considerations, $\alpha=0$), or when considering off-axis nulls, specific relations involving $\sin(\alpha_{null})$ apply."
+
+**If you want to stick to your formula $\lambda = 2 |S_1S_2| |\sin(\alpha)|$ and the preceding text, here's how you might justify it (though it's less standard):**
+
+The statement implies a condition where "significance" is defined by $\lambda$ being twice a certain projected dimension.
+The term "$|S_1S_2| |\sin(\alpha)|$" is the projected length of the diameter onto a line *perpendicular* to the piston's axis, at an angle $\alpha$ *from the normal* (axis). This is a bit unusual.
+
+**A More Standard Approach for your $f_c(\alpha)$ Derivation:**
+
+The derivation of $f_c(\alpha) = \frac{C_{son}}{2 |S_1S_2| |\sin(\alpha)|}$ which follows your statement about $\lambda$ is actually a fairly standard way to define a cutoff frequency based on the angle at which the path difference from the edges of the source to the listener becomes half a wavelength (leading to cancellation or significant phase difference).
+
+Let's consider the path difference $\Delta x$ between waves arriving from the two edges of the piston (diameter $D = |S_1S_2|$) to a far-field point at an angle $\alpha$ off the central axis of the piston. This path difference is $\Delta x = D \sin \alpha$.
+Destructive interference (a null) occurs when this path difference is an integer multiple of wavelengths for a simple line source, or more complex for a piston.
+However, a common criterion for the "edge" of the main lobe or where directivity becomes strong is when $\Delta x = \lambda/2$ or $\Delta x = \lambda$.
+
+If we say directivity is significant when the path difference from edges creates a $\lambda/2$ phase issue off-axis:
+$\Delta x = D \sin \alpha = \lambda/2$
+$\lambda = 2 D \sin \alpha = 2 |S_1S_2| \sin \alpha$.
+This **matches your formula exactly** if $|\sin(\alpha)|$ is used!
+And from this, $f_c = C_{son} / \lambda = C_{son} / (2 |S_1S_2| \sin \alpha)$.
+
+**So, the citation should support the idea that directivity becomes important when the path difference from the edges of the source (diameter $D$) at an angle $\alpha$ off-axis, which is $D \sin \alpha$, is on the order of $\lambda/2$.**
+
+*   **Stronger Citation Choice for this specific derivation:**
+    *   `[@kinsler2000, Chapter 5, Section on Radiation from a Circular Piston]` or `[@beranek1996, Chapter 4, Piston Radiation]`
+        *   **Justification:** These texts derive the far-field pressure for a baffled circular piston, which is given by $p(r, \theta) \propto \frac{2 J_1(ka \sin \theta)}{ka \sin \theta}$. The term $ka \sin \theta$ is crucial. The first null occurs when $ka \sin \theta \approx 3.83$. The "main lobe" is often considered to extend to where this term is somewhat smaller, e.g., where $ka \sin \theta = \pi$.
+        Your condition $\lambda = 2 D \sin \alpha$ (where $D=2a$) translates to $\frac{C_{son}}{f} = 4a \sin \alpha$, so $\frac{C_{son}}{4a \sin \alpha} = f$.
+        In terms of $ka$: $k = 2\pi f / C_{son}$. So $ka \sin \alpha = (2\pi f / C_{son}) a \sin \alpha$.
+        If $f = C_{son} / (4a \sin \alpha)$, then $ka \sin \alpha = (2\pi / C_{son}) (C_{son} / (4a \sin \alpha)) a \sin \alpha = 2\pi/4 = \pi/2 \approx 1.57$.
+        This value $ka \sin \alpha \approx \pi/2$ is indeed a point where the directivity factor $\frac{2 J_1(x)}{x}$ (with $x=ka \sin \alpha$) has dropped significantly from its on-axis value of 1 (it's approx $\frac{2 J_1(1.57)}{1.57} \approx 0.67$). So, it's a reasonable point to say directivity is "significant."
+
+**Therefore, you can confidently state:**
+
+"Le modèle physique utilisé ici est celui du piston dans un baffle infini `[@beranek1996; @kinsler2000]`. La directivité d'un tel piston devient significative lorsque la différence de marche entre les ondes émises par les bords opposés de la membrane, pour un point d'écoute situé à un angle $\alpha$ par rapport à l'axe du piston, devient comparable à une demi-longueur d'onde. Cette différence de marche est donnée par $|S_1S_2| |\sin(\alpha)|$. En posant que la directivité est notable lorsque cette différence de marche est égale à $\lambda/2$, on obtient la relation $\lambda/2 = |S_1S_2| |\sin(\alpha)|$, soit :
+$$
+\lambda = 2 |S_1S_2| |\sin(\alpha)|
+$$
+et comme $\lambda = \frac{C_{son}}{f_c}$, où $C_{son}$ est la célérité du son dans l'air, on trouve alors la fonction de la fréquence de coupure suivante, au-delà de laquelle le rayonnement devient de plus en plus directif `[@kinsler2000, Chap. 5; @rossing2007, Chap. 4]` :
+$$
+f_c(\alpha) = \frac{C_{son}}{2 |S_1S_2| |\sin(\alpha)|}
+$$"
+
+This provides a solid physical basis for your formula, linking it to path differences and criteria for significant changes in the radiation pattern, supported by standard acoustics textbooks. The term $|\sin(\alpha)|$ implies you are always considering the magnitude of this effect symmetrically around the axis.

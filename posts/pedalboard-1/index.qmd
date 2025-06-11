@@ -1,9 +1,9 @@
 ---
-title: "Conception d’un pedalboard"
-subtitle: "Pt.I - Chemin du signal"
+title: "20 Ans de Pedalboard"
+# subtitle: "Pt.I - Chemin du signal"
 author: "Jean-Loup Pecquais"
 date: "2024-12-04"
-categories: [guitar]
+categories: [guitare]
 image: "resources/header.png"
 draft: true
 website:
@@ -15,208 +15,208 @@ website:
 
 ![*image générée par IA*](resources/header.png)
 
-## Introduction
+### Introduction
 
-## Généralités
+Je me dois de commencer cet article par un avertissement. Nous allons aborder ici de vrais sujets de de gens bizarres : des sujets de guitaristes. Depuis mes toutes premières années de guitariste, autour de 2006-2007, je me souviens être attiré par ces petits objets qu'on appelle pédales. Si vous n'êtes pas familier du monde des guitaristes, une pédale est un effet audio intégrer dans un boitier actionnable à travers une pédale, d'où le nom. Ces petits objets permettent donc d'enrichir la palette sonore du musicien avec de multiples effets : saturation, chorus, flanger, phaser, délai, tremolo, reverb, etc. Pour couronner le tout, ces pédales peuvent être combinées et recombinées à l'infinie. On trouve alors un terrain de jeu illimité, tout à fait comparable au monde du synthétiseur modulaire.
 
-La guitare électrique est un instrument assez particulier dans le sens ou celui-ci prend une forme modulaire. En effet, la guitare électrique elle-même n’est qu’un tier du dispositif sonore, les deux autres étant l’amplificateur et le pédalier (ou pedalboard en anglais).
+![L'engin, vu de dessus](resources/IMG_20250504_175434.jpg)
 
-Le pédalier est en soi une entité également polymorphe. Il peut aller d’une absence totale de la chaîne sonore du guitariste à une place cruciale (tant dans son rôle que dans l’occupation de l’espace scénique).
+Cela fait longtemps que je souhaite partager les détails de la conception de mon pedalboard de guitare. Il s'agit, je crois, d'un assemblage assez unique, qui marie une approche classique du son, très inspirée des années 70 et 80 – pensez amplis à lampes, cumul des étages de gain, saturation analogique – avec une dimension résolument moderne. Malgré sa taille et ses possibilités étendues, il reste relativement compact. Surtout, il intègre des outils numériques de pointe, qu'il s'agisse d'effets du commerce, comme ceux d'Eventide, ou de créations sur mesure que j'ai développées spécifiquement. Ce pedalboard me permet ainsi d'obtenir des sons "vintage" authentiques tout en ouvrant la porte à des explorations sonores contemporaines.
 
-L’effet le plus commun du guitariste est la distortion harmonique du signal. Elle prend différent nom en fonction de son intensité : boost, overdrive, crunch, distortion, fuzz, etc. On observe en général deux stratégies principales sur la réalisation de cet effet. Soit on compte sur son amplificateur et ses différents canaux, soit on compte sur différentes pédales. Dans ce dernier cas, l’amplificateur est en général réglé pour ne pas rajouter trop de distortion harmonique.
+:::{layout-ncol="2"}
 
-Il s’en suit la question de comment cette distortion harmonique est générée. On rencontre en général deux oppositions fréquentes : transistor VS tubes et analogique VS numérique. Historiquement, l’amplification du signal était faites par des tubes à vide. Volumineux, coûteux et fragiles, ils ont été ensuite remplacés par des transistors, apportant une solution à ces trois problèmes. Cependant, la plupart des constructeurs historiques d’amplificateurs (Fender, Marshall, Vox, etc.) ont commencé leurs productions à une époque ou les tubes à vide étaient encore rois.
+![L'engin, premier niveau relevé](resources/IMG_20250504_175323.jpg)
 
-On trouve ainsi une idée fréquente qu’un bon amplificateur guitare est toujours un amplificateur à tube, voir, une « belle » saturation est toujours une saturation à tube. En l’absence d’une vrai évaluation objective, je me contenterai ici d’une forme de retour d’expérience. Bien que n’ayant jamais été séduit par des amplificateurs à transistor, la plus part des pédales de saturation que j’ai pût employer n’utilisent pas de tubes pour produire leur effet (Proco Rat, EHX Big Muff, Ibanez Tube Screamer, etc.). Faute de mieux, on admettra alors qu'il est en général préférable de mélanger les approches pour obtenir des résultats satisfaisant.
+![L'engin, sous le switcher](resources/IMG_20250504_175259.jpg)
 
-Prenons tout de même le temps de préciser que toute cette question du timbre est évidemment étroitement lié au genre et à l'esthétique musicale recherchée et qu'il existe autant d'exemples que de contre-exemples. Ici, seul l'oreille et son appréciation sont juges.
+:::
 
-En ce qui concerne le dilème entre analogique et numérique, le sujet est plus épineux. Commençons par dire que, depuis mes débuts de guitaristes (2005-2006), les simulateurs numériques ont bien progressés, si bien qu'ils ont complètement pénétré le marché des musiciens professionnels. Tous ces systèmes (Kemper, Axe FX, Neural DSP, Line 6, Boss, etc.) sont légés, complets et simples à utiliser. Il reste cependant un éléphant dans le couloir. Du moins, de ma propre expérience, aucun simulation d'ampli ou de pédales numérique n'a réussi à me convaincre de rester définitivement dans le monde numérique. Difficile de définir précisément le problème, mais l'interaction entre l'instrument et la chaîne d'effet devient très différente, souvent, à mon goût, un peu inerte. Aussi, l'ajout d'une simulation d'une pédale entre le guitare et l'ampli se comporte assez différement du monde analogique.
+L'idée maîtresse derrière ce projet est de combiner le meilleur des deux mondes : la chaleur, la dynamique et la sensation de jeu de l'analogique et la flexibilité, la puissance et les possibilités créatives du numérique. L'objectif était de parvenir à un système complet, capable de remplacer un amplificateur traditionnel si besoin, tout en offrant une palette sonore extrêmement large. Je voulais pouvoir passer d'un crunch léger à des textures ambiantes complexes, le tout dans un format transportable et ergonomique.
 
-Cela signifie t-il que tout est à jetter dans les effets guitares numériques ? Certainement pas ! Premièrement, je suis assez certain d'avoir déjà adoré, sur disque, des sons de guitare provenant de ce genre de système sans le savoir. Je crois aussi être parfaitement incapable de distinguer un son de guitare produit numérique d'un son produit analogiquement, car dans mon experience, la différence est plus dans la sensation de jeu que dans l'écoute elle-même. Insistons maintenant sur le fait que ces outils numériques ont le vent en poupe car ils permettre de complètement retirer l'amplificateur à lampe du système. Cela vient avec un certain nombre d'avantages :
+### Les influences
 
-+ Encombrement sur scène réduit.
-+ Elimination d'un élément lourd à transporter.
-+ Réduction considérable du volume sonore sur scène.
+Gamin, j'ai pu passer des heures à chercher le matériel utiliser par mes héros. C'est une obsession assez bizare mais qui peut parfois se révéler assez productive si on arrive à l'aborder avec un peu de distance. Je m'explique.
 
-## Cas pratique
+Simplement chercher à retrouver exactement le même matériel est bien souvent impraticable et trop cher. Parcontre, derrière tout ces arrangements d'amplis, de guitares et de pédales, il y a une certaine logique qui peut être bonne à étudier et à répliquer.
 
-### Problématique
+:::{layout-ncol="4"}
 
-Mon projet musical principal, à l'heure ou j'écris cet article, est un groupe de reprise des Pink Floyd, en quatuor, et jouant sur un système octophonique [^1]. Un tel système de diffusion permet donc de placer des sources tout autour de la zone d'audience. Dans de telle condictions, il est primordiale de supprimer un maximum de son de plateau afin de ne pas brouiller la scénographie sonore reproduite par le système de diffusion. La suppression des amplis est donc impérative.
+![](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2Fde%2F61%2F4c%2Fde614cddafb95c7b52c169a12e945812.jpg&f=1&nofb=1&ipt=8dc8843134670b4a163a1a138993325e6ef5ffdc9d071ae475441391b6d57bee)
 
-Dans un tout autre context, il est bien difficile de jouer de la guitare sur un ampli de guitare en appartement sans provoquer les protestations de tout le voisinage.
+![](https://www.gilmourish.com/wp-content/uploads/2023/01/pulse_pedals_left.jpg)
 
-Enonçons la problématique de la façon suivante : comment peut-on reproduire un son de guitare, reproduisant le plus fidèlement possible la sensation de jeu, et le timbre, d'un vrai ampli de guitare tout en s'en dispansant.
+![](https://www.gilmourish.com/wp-content/uploads/2023/01/pulse_pedals_right.jpg)
 
-### Décomposition d'un amplificateur de guitare et proposition de solution
+![](https://www.gilmourish.com/wp-content/uploads/2023/01/pulse_toprack.jpg)
 
-Un ampli peut généralement être décomposé en trois sections :
+:::
 
-+ Le préamplificateur
-+ L'amplificateur de puissance
-+ Le haut-parleur
+Ma plus grande influence guitaristique est celle de David Gilmour. Si, aujourd'hui, j'apprécie l'ensemble de sa carrière avec des éléments d'intérés différent, mon premier point d'accroche reste indubitablement le double album live PULSE. Fût un temps où j'avais relevé chaques solos des différentes versions publics (et oui, le CD et le DVD n'ont pas les même interprétation !). J'ai également collectionné un certain nombre de bootleg de la tournée mondiale de 1994 des Pink Floyd.
 
-Dans les cas d'un amplificateur de guitare, chacun des ces étages sont autement non-linéaires et donc sources de distortions.
+D'un point de vue "stratégie sonore", j'ai lui ai emprunté beaucoup de choses :
 
-La stratégie alors adoptée est de conserver l'étage de préamplificateur analogique, de simuler l'amplificateur de puissance et les non-linéarité du haut-parleur grâce à un réseau de neuronnes artificiels, et enfin, de reproduire la réponse en fréquence du haut-parleur avec une réponse impulsionnelle.
++ Le boost des mediums SPC de EMG, qui équipe toutes mes guitares
++ Les micros "noiseless"
++ Un ampli assez clean, prêt pour acceuillir un certain nombre de pédales de drive différente
++ Le son des haut-parleur rotatif.
 
-La mise en oeuvre pratique est alors celle-ci :
+On verra un peu plus loin qu'au moins trois des pédales présentes sur mon pedalboard sont des références quasiment direct à Gilmour.
 
-J'utilise deux préamplificateurs à lampes, au format pédales, le Kingley Constable et le Effectrode Blackbird, connectés en parallèles. Ces deux préamplis sont ensuite connectés à une carte Bela, assurant leur sommation ainsi que la simulation de l'ampli de puissance et du haut-parleur[^2].
+:::{layout-ncol="3"}
 
-Coquetterie supplémentaire, la Bela disposant de suffisament de ressources, je peux également y calculer une simulation de haut-parleur rotatif[^3].
+![](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%2Fid%2FOIP.QR5CTUQ0Gpk5vaJQfXYy1gAAAA%3Fcb%3Diwc1%26pid%3DApi&f=1&ipt=1615d9c49a5b3702ba53a8518c4158ef7c0b74a8e96c565b3d7c0b0165302f49)
 
-![Implémentation d'un amplificateur "virtuel", avec une entrée mono, et une sortie stéréo, induite par la simulation de haut-parleur rotatif.](resources/amp_section.svg)
+![](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.guitariste.com%2Fshare%2Farticles%2F2017%2F10%2Fsteven-wilson-5.jpg&f=1&nofb=1&ipt=3548eea6c2b46172cca074e307cdcd9a745f95461f66b51d837f6941ba3e0fed)
 
-## Le pedalboard
+![](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.equipboard.com%2Fuploads%2Fsource%2Fimage%2F61262%2Fphotos.euro03.bad-cat-11.jpg&f=1&nofb=1&ipt=2b777ecd3aa0280ecaa23ae38b56b94b7bb436f7a044f669f9d9d3cbddf87121)
 
-J'ai fais le choix de construire l'ensemble de mon système de création sonore sur un pedalboard. Sa taille est assez importante, mais compte tenu des possibilités qu'il offre et du fait qu'il se passe d'un ampli, il devient alors relativement raisonnable.
+:::
 
-Ce pedalboard se décompose en N sections:
+Bien que déclinante depuis ces dernières années, Steven Wilson a laissé une marque importante sur mon rapport à l'instrument. Peut être plus sur des idées de jeu que sur les sonorités à proprement parlé, mais Porcupine Tree à tout de même été une de mes portes d'entré vers le metal. Je lui ai donc piqué :
 
-+ Une chaîne de traitement avant l'étape de simulation d'amplication
-+ Une chaîne de traitement post étape de simulation d'amplification
-+ La dite simulation d'amplification
-+ Une chaîne de traitement auxiliaire
++ Son système de vibrato. Si si, c'est grâce à ses PRS que j'ai eu l'idée d'installé un chevalet MannMade sur ma Stratocaster.
++ Des effets plus "modernes" (moderne des années 90) : pitch shifter, vibrato, etc.
++ Les rythmiques clairement inspiré de l'univers metal.
 
-![Chemin du signal global](resources/global_chain.svg)
+:::{layout-ncol="3"}
 
-### Etage de pré et post amplification
+![](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F4.bp.blogspot.com%2F-kHEvtj0ZoDE%2FVznVqQtQJSI%2FAAAAAAACU2o%2FaC6fw5TZc8MDsQduT8hbfHzc-7BjTw_-QCLcB%2Fs1600%2Frobert%2Bfripp04.jpg&f=1&nofb=1&ipt=c9d357ccfcc58b0ac1aa1104789e0825327be70b2ba0207aa983269081579288)
 
-Le chemin du signal avant d'attaque la simulation d'amplification est assez classique et principalement analogique. On y trouve quatres circuits de saturation :
+![](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2Fa8%2Fe8%2F90%2Fa8e89006aaf9493c905599983231d9a9.jpg&f=1&nofb=1&ipt=1e0ad7b5ee1b77713d9aa491ac41d37e68406fc7e7504dcca03a18567e01d2ad)
 
-+ DOD Looking glass
-+ ALH Guitar Division drive
-+ BYOC Big Muff (Ram's Head)
-+ Aeon FX Nucleus (Colordrive)
+![](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F1.bp.blogspot.com%2F_9SBRas9XXZE%2FTTMMxURgyoI%2FAAAAAAAABKk%2FZQ4pl0HwOZw%2Fs1600%2Fset%2Brobert%2Bfripp%2B1.jpg&f=1&nofb=1&ipt=28e59a07a0fcbb53bfff2aa358c25ab488238f380552c473b6694bbe4cb33752)
 
-La DOD joue le rôle de très légère saturation, la ALH est un clone d'une tube driver et joue le rôle saturation modérée, la Big Muff joue le rôle de fuzz/distortion. Aucune de ces trois pédales n'est jamais associée à une autre. Cela génère trop de bruits parasites, et un son souvent peu désirable. Enfin, la Nucleus, clone d'une Colordrive, joue le rôle de boost pour les solo. Elle rajoute à la fois du volume et de la compression/saturation sur le signal.
+:::
 
-En plus, on retrouve un compresseur, le KP-1 de chez PFX, deux pédales de modulations, la Ripply Fall de JAM et la Camoflange de ThorpyFX et une Eventide H90. La H90 possède deux canaux de traitement dissociés, et seulement un des deux est connecté.
+Une dernière influence, plus récente, mais qui devient de plus en plus importante est Robert Fripp. Tant pour son travail avec King Crimson (particulièrement le quatuor des années quatre-vingt), que solo, avec Brian Eno, Andy Summers, Peter Gabriel, David Bowier, etc. J'en retiens directement :
 
-Cela donne le chaînage suivant :
++ La synthèse sonore à partir du son de la guitare
++ Le travail autour des textures ambiant (Frippertronic)
++ Le sustainer (Ebow dans mon cas)
++ Le rapport experimental à l'instrument
 
-![Chemin du signal de la section pre amplification.](resources/pre_amp_chain.svg)
+### Conception Matériel
 
-On notera la présence d'un switcher, le BOSS ES-8, permettant de garantir un signal plus propre ainsi que la commutation des effets via le protocol MIDI.
+:::{layout-ncol="3"}
 
-L'étage de post amplification est sans doute le plus simple. Il n'est constitué que d'une seule pédale, la Strymon Volante, suffisamment polyvalente pour se suffir à mes besoins.
+![](resources/sketchup1.png)
 
-## Amplification
+![](resources/sketchup2.png)
 
-## Etage de traitement auxiliaire
+![](resources/sketchup3.png)
 
-Mon pedalboard possède deux chemins du signal distincts. L'un assure la partie "classique", l'autre permet de effets plus créatifs, comme le transformation du son de guitare en synthétiseur soustractif, où encore l'emploi de synthèse granulaire. On a donc une sortie principale et une sortie auxiliaire, toutes deux monophoniques.
+:::
 
+Avant de plonger dans le chemin du signal, un mot sur la structure physique qui accueille tous ces éléments. Après avoir réalisé les plans, mon père s'est chargé de la fabrication. Il en résulte une structure en aluminium sur mesure, organisée astucieusement sur trois niveaux pour optimiser l'espace et l'ergonomie. Un niveau inférieur, "au sol", loge une partie des pédales et les alimentations. Au-dessus, un premier étage surélevé à l'avant accueille les contrôleurs principaux – switchers et contrôleurs MIDI – pour un accès facile au pied. Enfin, un deuxième étage, situé derrière les contrôleurs, héberge une autre rangée de pédales d'effets. Cette conception permet de gérer le nombre conséquent d'éléments de manière ordonnée.
 
-En fonction du type de son à réaliser avec cette sortie auxiliaire, il est possible de prélever le signal à deux points différents dans le chemin du signal, soit directement à l'entré, soit au niveau de l'amplificateur. En pratique, il est nécessaire d'avoir un signal très propre (sans saturation ni modulation) pour pouvoir correctement le transformer en son synthétique. A l'inverse, pour certains effets de granulaire, ou d'ambiant, il est plus intéressant d'avoir accès à son plus proche d'un son de guitare électrique usuel.
+### Le Chemin du Signal
 
+![](resources/global_chain.svg)
 
+Pour appréhender son fonctionnement global, le parcours du signal peut être vu comme une architecture en trois étapes majeures qui interagissent. Nous avons d'abord les **effets pré-amplificateur**, majoritairement analogiques, qui façonnent le son brut de la guitare. Ensuite vient le cœur du système, la **simulation d'amplificateur**, une solution hybride qui comprend les étages de préamplification, de puissance et le haut-parleur d'un ampli traditionnel. Enfin, une chaîne parallèle dédiée aux **effets et au sound design** offre une sortie auxiliaire pour la création sonore plus expérimentale, les textures et le looping.
 
-[^1]: L'octophonie est un cercle de huit haut-parleurs régulièrement espacés sur un cercle.
-[^2]: Voir [ces articles](../reseau-neuronne-deconvolution-pt1/index.qmd)
-[^3]: Simulation qui aura sans doute son propre article.
+#### Simulation d'Amplificateur Principale
 
----
+![](resources/amp_section.svg)
 
-Mistral feedback :
+Une des particularités majeures de ce pedalboard réside dans son intégration d'une simulation complète d'amplificateur, le rendant autonome. Il faut se rappeler qu'un ampli guitare traditionnel ne fait pas qu'amplifier ; il colore, sature et filtre le son à travers ses différents étages (préampli, ampli de puissance, haut-parleur). Reproduire ces caractéristiques complexes est essentiel pour un son authentique.
 
-Introduction
+:::{layout-ncol="2"}
 
-La guitare électrique est un instrument assez particulier dans le sens où celui-ci prend une forme modulaire. En effet, la guitare électrique elle-même n’est qu’un tiers du dispositif sonore, les deux autres étant l’amplificateur et le pédalier (ou pedalboard en anglais). Cet article explore les différents composants qui contribuent à son son, notamment l'amplificateur et le pédalier, ainsi que les débats autour des technologies analogiques et numériques. Nous nous concentrerons sur un pedalboard innovant qui intègre une simulation d'ampli à base de réseau de neurones virtuels avec une latence minimale, tout en conservant une importante partie analogique en amont.
-Le Pedalboard : Une Synthèse entre Analogique et Numérique
-Présentation du Pedalboard
+![](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.effectrode.com%2Fwp-content%2Fuploads%2F2016%2F10%2Fblackbird-top-image.jpg&f=1&nofb=1&ipt=d20e7a3923fe8c93f36ce3f7061da34d44f295cbae602f7f5c8f0d4e4a9dd12c)
 
-Le pedalboard est en soi une entité également polymorphe. Il peut aller d’une absence totale de la chaîne sonore du guitariste à une place cruciale (tant dans son rôle que dans l’occupation de l’espace scénique). Mon pedalboard est conçu pour offrir une solution unique qui combine le meilleur des mondes analogique et numérique.
-La Distorsion Harmonique
+![](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2Fef%2Fe2%2Fc9%2Fefe2c932245ff9b392a8729d188567cb.jpg&f=1&nofb=1&ipt=86a8877d7fad03dd8af6d1a74f66cfb7ac57ec45150f0b6863b093db674fc755){width="50%"}
 
-L’effet le plus commun du guitariste est la distorsion harmonique du signal. Elle prend différents noms en fonction de son intensité : boost, overdrive, crunch, distorsion, fuzz, etc. On observe en général deux stratégies principales sur la réalisation de cet effet. Soit on compte sur son amplificateur et ses différents canaux, soit on compte sur différentes pédales. Dans ce dernier cas, l’amplificateur est en général réglé pour ne pas rajouter trop de distorsion harmonique.
-Tubes vs Transistors
+:::
 
-Historiquement, l’amplification du signal était faite par des tubes à vide. Volumineux, coûteux et fragiles, ils ont été ensuite remplacés par des transistors, apportant une solution à ces trois problèmes. Cependant, la plupart des constructeurs historiques d’amplificateurs (Fender, Marshall, Vox, etc.) ont commencé leurs productions à une époque où les tubes à vide étaient encore rois.
+En premier lieu, plutôt qu'un seul préampli, j'en utilise deux fonctionnant en parallèle. D'un côté, le canal clair de l'**Effectrode Blackbird**, inspiré des sons clairs Fender, très dynamique ; de l'autre, une **Kingsley Constable**, inspirée des Marshall Plexi, plus crunchy et compressée. Chacun est connecté à une entrée distincte d'une carte audio. Le mélange de ces deux caractères offre une richesse harmonique intéressant et une bonne dynamique.
 
-On trouve ainsi une idée fréquente qu’un bon amplificateur guitare est toujours un amplificateur à tube, voire, une « belle » saturation est toujours une saturation à tube. En l’absence d’une vraie évaluation objective, je me contenterai ici d’une forme de retour d’expérience. Bien que n’ayant jamais été séduit par des amplificateurs à transistor, la plupart des pédales de saturation que j’ai pu employer n’utilisent pas de tubes pour produire leur effet (Proco Rat, EHX Big Muff, Ibanez Tube Screamer, etc.). Faute de mieux, on admettra alors qu'il est en général préférable de mélanger les approches pour obtenir des résultats satisfaisants.
+Un défi inhérent à cette approche parallèle est la gestion de la phase entre les deux signaux. À la mesure, on observe une inversion de phase globale, simple à corriger numériquement. Cependant, un déphasage résiduel dans le bas du spectre subsiste, qui impose une correction plus fine employant des filtres passe-tout.
 
-Prenons tout de même le temps de préciser que toute cette question du timbre est évidemment étroitement liée au genre et à l'esthétique musicale recherchée et qu'il existe autant d'exemples que de contre-exemples. Ici, seul l'oreille et son appréciation sont juges.
-Analogique vs Numérique
+:::{layout="[30, 70]"}
 
-En ce qui concerne le dilemme entre analogique et numérique, le sujet est plus épineux. Commençons par dire que, depuis mes débuts de guitariste (2005-2006), les simulateurs numériques ont bien progressé, si bien qu'ils ont complètement pénétré le marché des musiciens professionnels. Tous ces systèmes (Kemper, Axe FX, Neural DSP, Line 6, Boss, etc.) sont légers, complets et simples à utiliser. Il reste cependant un éléphant dans le couloir. Du moins, de ma propre expérience, aucune simulation d'ampli ou de pédales numérique n'a réussi à me convaincre de rester définitivement dans le monde numérique. Difficile de définir précisément le problème, mais l'interaction entre l'instrument et la chaîne d'effet devient très différente, souvent, à mon goût, un peu inerte. Aussi, l'ajout d'une simulation d'une pédale entre le guitare et l'ampli se comporte assez différemment du monde analogique.
+![](https://bela.io/assets/images/products/bela-systems/blocks/bela.png)
 
-Cela signifie-t-il que tout est à jeter dans les effets guitares numériques ? Certainement pas ! Premièrement, je suis assez certain d'avoir déjà adoré, sur disque, des sons de guitare provenant de ce genre de système sans le savoir. Je crois aussi être parfaitement incapable de distinguer un son de guitare produit numériquement d'un son produit analogiquement, car dans mon expérience, la différence est plus dans la sensation de jeu que dans l'écoute elle-même. Insistons maintenant sur le fait que ces outils numériques ont le vent en poupe car ils permettent de complètement retirer l'amplificateur à lampe du système. Cela vient avec un certain nombre d'avantages :
+Cette correction de phase, ainsi que la simulation des étages suivants de l'amplification sont confiées à un cerveau numérique dédié. Il s'agit d'un mini-ordinateur **BeagleBone Black**, similaire à un Raspberry Pi, équipé d'une interface audio très basse latence **Bela**, le tout tournant sous un système Linux temps réel. Sur cette plateforme, plusieurs processus logiciels sur mesure opèrent : la correction de phase pour aligner les préamplis, la **simulation d'ampli de puissance** réalisée via un réseau de neurones (utilisant la librairie RT Neural) entraîné sur mon propre ampli Laney Lionheart, et la **simulation de haut-parleur**, actuellement effectuée par convolution d'une réponse impulsionnelle (IR).
 
-    Encombrement sur scène réduit.
+:::
 
-    Élimination d'un élément lourd à transporter.
+J'y ai également ajouté une **simulation de haut-parleur rotatif**, écrite par mes soins en langage FAUST. (Pour les curieux, un article détaillé sur le développement de ce module "Bela.PAM" est disponible [lien à insérer ici si disponible]).
 
-    Réduction considérable du volume sonore sur scène.
+:::{layout="[70, 30]"}
 
-Les systèmes analogiques sont généralement plus convaincants d'un point de vue sonore, offrant une réponse dynamique et une chaleur que beaucoup de guitaristes apprécient. Cependant, les systèmes numériques sont souvent plus polyvalents et pratiques, étant plus légers, moins encombrants et offrant une grande variété de sons et d'effets.
-Cas Pratique
-Problématique
+Après ce traitement numérique complet simulant l'ampli, le signal principal traverse un dernier effet : une **Strymon Volante**. C'est une excellente simulation d'écho multitêtes, très polyvalente, capable de fournir des délais classiques, saturés, ou même des textures proches de la réverbération. Vous remarquerez d'ailleurs l'absence de réverbération dédiée sur cette sortie principale. C'est un choix délibéré : je préfère laisser la gestion de la réverbération globale à l'ingénieur du son, car elle dépend fortement du lieu du concert et du contexte du mix.
 
-Mon projet musical principal, à l'heure où j'écris cet article, est un groupe de reprise des Pink Floyd, en quatuor, et jouant sur un système octophonique. Un tel système de diffusion permet donc de placer des sources tout autour de la zone d'audience. Dans de telles conditions, il est primordial de supprimer un maximum de son de plateau afin de ne pas brouiller la scénographie sonore reproduite par le système de diffusion. La suppression des amplis est donc impérative.
+![](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fleadmusic.com%2Fwp-content%2Fuploads%2F2019%2F03%2Fstrymon-volante.jpg&f=1&nofb=1&ipt=f3158d69a95f3ea6703126241571aaf07bcd1bff67c7b9bc5919f18f47e10edc)
 
-Dans un tout autre contexte, il est bien difficile de jouer de la guitare sur un ampli de guitare en appartement sans provoquer les protestations de tout le voisinage.
+:::
 
-Énonçons la problématique de la façon suivante : comment peut-on reproduire un son de guitare, reproduisant le plus fidèlement possible la sensation de jeu, et le timbre, d'un vrai ampli de guitare tout en s'en dispensant.
-Décomposition d'un Amplificateur de Guitare et Proposition de Solution
 
-Un ampli peut généralement être décomposé en trois sections :
+#### Les Effets Pré-amplificateur
 
-    Le préamplificateur
+![](resources/pre_amp_chain.svg)
 
-    L'amplificateur de puissance
+Revenons au début de la chaîne. Cette première section, qui précède la simulation d'ampli, est volontairement constituée majoritairement d'effets analogiques, surtout pour les saturations. Ce choix est motivé par plusieurs raisons. D'abord, la **qualité sonore** : je cherche à éviter les artefacts numériques comme l'aliasing, qui peuvent apparaître avec les fortes saturations. Ensuite, la **sensation de jeu** : je n'ai personnellement jamais retrouvé en numérique l'équivalent de la réactivité et de la dynamique des pédales de saturation analogiques. Enfin, la **latence** : chaque système numérique ajoute un faible retard, qui, cumulé sur plusieurs pédales, peut devenir perceptibles (au-delà de 5-10 ms). Cela peut être gênant pour le confort de jeu, surtout en live où s'ajoute la latence inhérente au système de diffusion (console de mixage, réseau informatique pour le transport des signaux audio, processeurs de diffusion, etc.). Viser moins de 5 ms de latence totale pour le pedalboard me semble être une bonne cible.
 
-    Le haut-parleur
+:::{layout-ncol="4"}
 
-Dans les cas d'un amplificateur de guitare, chacun de ces étages sont autant non-linéaires et donc sources de distorsions.
+![](https://i0.wp.com/pfxcircuits.com/wp-content/uploads/2022/10/KP1-1.png?fit=1000%2C1000&ssl=1)
 
-La stratégie alors adoptée est de conserver l'étage de préamplificateur analogique, de simuler l'amplificateur de puissance et les non-linéarités du haut-parleur grâce à un réseau de neurones artificiels, et enfin, de reproduire la réponse en fréquence du haut-parleur avec une réponse impulsionnelle.
-Mise en Œuvre Pratique
+![](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.eventideaudio.com%2Fuploads%2F2022%2F10%2FH90-Front-Logo-Screen-Cut-Out.jpg&f=1&nofb=1&ipt=df776aab967cb2040d70aa355e3b89185276b4396e551e7cd33ad9eeb8c92b7d)
 
-J'utilise deux préamplificateurs à lampes, au format pédales, le Kingley Constable et le Effectrode Blackbird, connectés en parallèle. Ces deux préamplis sont ensuite connectés à une carte Bela, assurant leur sommation ainsi que la simulation de l'ampli de puissance et du haut-parleur. La Bela disposant de suffisamment de ressources, je peux également y calculer une simulation de haut-parleur rotatif.
+![](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.bhphotovideo.com%2Fimages%2Fimages2500x2500%2Fdod_dod_lookingglass_looking_glass_overdrive_pedal_1225704.jpg&f=1&nofb=1&ipt=12a63f4f833b6b3bedec8ae4c5ea839a8079121846506282c79b655e0f8e1bcb)
 
-Implémentation d'un amplificateur "virtuel", avec une entrée mono, et une sortie stéréo, induite par la simulation de haut-parleur rotatif.
-Le Pedalboard
+![](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.chicagomusicexchange.com%2Fcdn%2Fshop%2Ffiles%2Fmedia_36398373-9775-404e-83ae-96cba47724b3.jpg%3Fv%3D1721419101%26width%3D1646&f=1&nofb=1&ipt=56c444ee98fcd59ed63262acd8ae831ec152f610cadd9c13f2bd4af0e066469d)
 
-J'ai fait le choix de construire l'ensemble de mon système de création sonore sur un pedalboard. Sa taille est assez importante, mais compte tenu des possibilités qu'il offre et du fait qu'il se passe d'un ampli, il devient alors relativement raisonnable.
-Étage de Pré et Post Amplification
+:::
 
-Le chemin du signal avant d'attaquer la simulation d'amplification est assez classique et principalement analogique. On y trouve quatre circuits de saturation :
+Le signal de la guitare rencontre donc d'abord un compresseur **PFX KP1**, utile pour homogénéiser la dynamique en son clair. Il traverse ensuite le premier bloc d'effets d'une **Eventide H90**, utilisé ici principalement pour les traitements placés en tout début de chaîne comme le pitch shifting, la whammy, la wah, divers filtres, le freeze, ou des effets ponctuels comme le trémolo. Suit une création personnelle, **"Wobbles"**, une sorte d'hybride entre phaser et vibrato, actuellement implémenté en numérique (codé par mes soins), mais que j'espère un jour pouvoir réaliser en analogique.
 
-    DOD Looking glass
+On entre alors dans les étages de gain successifs. Le premier est un overdrive très léger, la **DigiTech / DOD Looking Glass**, qui simule la saturation naturelle d'un ampli poussé légèrement, de manière assez transparente et sans trop compresser. Vient ensuite l'overdrive principal, une **ALH Division Drive**, pédale à lampe d'une marque française (ALH Effects), inspirée de la BK Butler Tube Driver chère à l'un de mes guitaristes de référence, offrant deux niveaux de gain commutables. Pour les sons encore plus saturés, j'utilise un clone d'une **Big Muff Ram's Head** que j'ai assemblé (kit BYOC) et qui inclu un contrôle des médiums, très utile pour sculpter le son, même si je privilégie souvent la position la plus creusée.
 
-    ALH Guitar Division drive
+Après les saturations, le signal rencontre une modulation **ThorpyFX CamoFlange**. C'est une excellente alternative à l'Electro-Harmonix Electric Mistress, offrant ce son de flanger un peu "chorusy" caractéristique, mais avec un meilleur rapport signal/bruit et sans la perte de volume parfois associée à l'originale.
 
-    BYOC Big Muff (Ram's Head)
+Enfin, le dernier maillon de cette chaîne analogique est un **clone de Power Boost** (autre kit DIY et autre référence à mon guitariste fétiche), qui remplace mon ancienne Boss GE-7. Il fournit un boost de volume significatif avec une accentuation marquée des médiums, idéal pour percer dans le mix lors des solos.
 
-    Aeon FX Nucleus (Colordrive)
+#### Effets, Sound Design et Sortie Auxiliaire : L'Atelier Sonore
 
-La DOD joue le rôle de très légère saturation, la ALH est un clone d'une tube driver et joue le rôle saturation modérée, la Big Muff joue le rôle de fuzz/distorsion. Aucune de ces trois pédales n'est jamais associée à une autre. Cela génère trop de bruits parasites, et un son souvent peu désirable. Enfin, la Nucleus, clone d'une Colordrive, joue le rôle de boost pour les solo. Elle rajoute à la fois du volume et de la compression/saturation sur le signal.
+Parallèlement à cette chaîne principale que nous venons de décrire, une seconde voie s'ouvre, dédiée à des applications plus créatives et à l'expérimentation sonore. Un commutateur (JHS Switchback) permet d'alimenter cette chaîne auxiliaire de deux manières : soit avec le signal brut de la guitare, prélevé *avant* toute la chaîne de traitement analogique, soit avec le signal sortant du préampli **Effectrode Blackbird** (via sa sortie "Direct Out"). Ce signal non affecté ("dry") est souvent indispensable pour certaines techniques, notamment la synthèse sonore à partir du son de la guitare.
 
-En plus, on retrouve un compresseur, le KP-1 de chez PFX, deux pédales de modulations, la Ripply Fall de JAM et la Camoflange de ThorpyFX et une Eventide H90. La H90 possède deux canaux de traitement dissociés, et seulement un des deux est connecté.
+Lorsque le signal clair de la Blackbird est sélectionné, il transite d'abord par une autre simulation d'ampli maison, plus simple, que j'appelle la **"mini.PAM"**. Celle-ci est développée sur une carte **Daisy Seed** (Electrosmith) et utilise des algorithmes DSP classiques pour simuler l'ampli de puissance  (Waveshapers), une simulation de HP simplifiée (filtres IIR/FIR) incluant les non-linéarités du haut-parleur, et un étage de décorrélation pour créer des effets de doublage lorsqu'associée avec la sortie principale du pedalboard.
 
-Chemin du signal de la section pré amplification.
+:::{layout-ncol="2"}
 
-On notera la présence d'un switcher, le BOSS ES-8, permettant de garantir un signal plus propre ainsi que la commutation des effets via le protocole MIDI.
+![](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi0.wp.com%2Fpallavaggarwal.in%2Fwp-content%2Fuploads%2F2020%2F04%2FES_Daisy_Seed_Blurred_Codec.jpg&f=1&nofb=1&ipt=26b5700c846322acc9fb2a2cf0328d135869f1cc5c7ccc21c4c4597a9615eaaf){width="50%"}
 
-L'étage de post amplification est sans doute le plus simple. Il n'est constitué que d'une seule pédale, la Strymon Volante, suffisamment polyvalente pour se suffire à mes besoins.
-Étage de Traitement Auxiliaire
+![](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fd1aeri3ty3izns.cloudfront.net%2Fmedia%2F63%2F638388%2F1200%2Fpreview.jpg&f=1&nofb=1&ipt=ca51f90d59ad7b6462853f6c87db34a7b3ef4d9c7dd037772be13ab8441d5f31){width="50%"}
 
-Mon pedalboard possède deux chemins du signal distincts. L'un assure la partie "classique", l'autre permet des effets plus créatifs, comme la transformation du son de guitare en synthétiseur soustractif, ou encore l'emploi de synthèse granulaire. On a donc une sortie principale et une sortie auxiliaire, toutes deux monophoniques.
+:::
 
-En fonction du type de son à réaliser avec cette sortie auxiliaire, il est possible de prélever le signal à deux points différents dans le chemin du signal, soit directement à l'entrée, soit au niveau de l'amplificateur. En pratique, il est nécessaire d'avoir un signal très propre (sans saturation ni modulation) pour pouvoir correctement le transformer en son synthétique. À l'inverse, pour certains effets granulaires ou ambiants, il est plus intéressant d'avoir accès à un son plus proche d'un son de guitare électrique usuel.
+Le signal issu du commutateur (et potentiellement traité par la mini.PAM) atteint ensuite les effets de cette chaîne auxiliaire : le **second bloc d'effets de l'Eventide H90** et, surtout, une **Empress ZOIA**. Cette dernière est un outil extrêmement puissant, sorte de synthétiseur modulaire au format pédale, permettant de créer des effets très complexes.
 
+Cette chaîne parallèle devient alors un véritable atelier sonore. Elle me permet de générer des sons de synthétiseur pilotés par la guitare (d'où l'intérêt du signal clair), de créer des nappes ambiantes denses grâce à la synthèse granulaire ou de longs délais/reverbs via la H90 et la Zoya, de fonctionner comme un looper avancé, ou simplement de doubler le son principal avec des effets très différents. C'est une véritable extension créative aux sons de guitare plus classiques.
 
----
+### Contrôle et Ergonomie
 
-Try 2:
 
-Quand on est guitariste électrique en 2024, son coeur balance en général entre deux mondes. Le premier, celui des ampli et des effets analogiques auxquels on rattache très souvent l'esthétique sonore de la guitare electrique. Le second, celui des solutions numérique, légères, fiables, puissant et plus pratiques.
+Piloter cet ensemble complexe requiert évidemment un système de contrôle bien pensé pour rester gérable en situation de jeu. Le chef d'orchestre principal est un switcher **BOSS ES-8**. Il gère la commutation et les combinaisons des 8 pédales de la section pré-amplificateur analogique, permettant de créer des presets rappelant différentes configurations. Il envoie également des messages MIDI pour changer les presets des appareils numériques compatibles (bela.PAM, Volante, H90, Zoya).
 
-Ma vie de musicien a été faites de nombreux aller-retour entre ces deux univers, oscillant entre amplificateurs à lampe plus pédales analogiques et pédaliers numériques tout embarqué type Helix et autre. Dans le premier cas, le transport de matériel est infernal, dans le second, le rendu sonore est souvent en-deça.
+Pour une finesse accrue et un contrôle plus direct, un contrôleur MIDI auxiliaire **Morningstar MC6** vient compléter l'ES-8. Il me permet d'envoyer d'autres messages MIDI pour modifier des paramètres spécifiques sur les pédales MIDI sans changer de preset global (par exemple, ajuster un temps de delay, la vitesse du Leslie simulé, etc.). Je peux aussi l'utiliser pour charger manuellement des patchs spécifiques sur l'Eventide ou l'Empress.
 
-Un bon nombre de guitariste opte pour un petit pedalboard et compte sur l'ampli guitare qu'ils trouveront en salles de concerts. Il y a un problème de taille ici. Si vous avez choisis vos différentes pédales d'effets pour qu'elles fonctionnent bien sur un VOX AC-30, vous allez être surpris du rendu de ces mêmes pédales sur le Fender Hot Rod Deluxe qui vous sera mis à disposition pour votre concert. Si on ne vit pas en ville et qu'on a une voiture, l'affaire est réglée, on charge son ampli VOX dans le coffre et le tour est joué. Quand on vit en ville et que l'on dépend des transports en commun, ce n'est pas la même histoire.
+:::{layout=[75,25]}
 
-La situation décrites ci-dessus explique à elle seule l'essort des pédaliers numériques. Vous pouvez vous rendre à votre concert en TGV, train, métro, etc. vous êtes garanti de fournir le main son à la table de mixage. Tous les Helix, Kemper, Axe-FX et autre sont des machines redoutablement efficace et performante. Si vous considérez également qu'elles remplacent tout votre chaîne d'effet (ampli et pédales) elles ne sont pas si onéreuses que ça. Cependant, je n'ai jamais été convaincu du rendu sonore des ces outils. Plus précisément, la sensation de jeu est très différentes de ce à quoi je suis habitué.
+![](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.roland.com%2Fassets%2Fimages%2Fproducts%2Fgallery%2Fes-8_top_gal.jpg&f=1&nofb=1&ipt=e5c2b33b9e6efe03d6dff31a3d9970446fc1aaa29b3df05b7ce5098c1749f0cd)
+
+![](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.webshopapp.com%2Fshops%2F257683%2Ffiles%2F315861237%2F900x900x2%2Fmorningstar-engineering-morningstar-engineering-mc.jpg&f=1&nofb=1&ipt=4043f9f4097928cb03a56433f9b2ffb65cbd04edd9b5a67f1a056ce01b145f26)
+
+:::
+
+Pour le live, la MC6 me permet d'ordonner les presets du BOSS ES-8. J'ai donc un bouton "Next" qui me permet d'avancer dans tous les presets du concert. Ce même message "Next" est également envoyé via MIDI à une application iPad de **prompteur** pour afficher les bonnes paroles ou accords au bon moment.
+
+Enfin, pour rendre cette fonction "Next" immédiatement accessible, un simple **footswitch externe** (type BOSS FS) est connecté à la MC6 et dédié uniquement à cette commande. Placé à un endroit pratique, il me permet de changer de son ou de section de morceau très rapidement, sans avoir à quitter ma position ou à réfléchir à quel bouton presser sur les contrôleurs principaux.
+
+### Conclusion
+
+Ce pedalboard est le fruit d'années d'expérimentation et d'une réflexion constante sur la manière de fusionner mes influences classiques avec les possibilités offertes par la technologie actuelle. Il représente un équilibre très personnel entre la chaleur du son analogique, la puissance du numérique, la flexibilité fonctionnelle et le besoin de contrôle ergonomique. Bien que sa conception soit complexe, il offre une palette sonore immense dans un format qui reste relativement intégré et transportable.
+
+J'espère que cette présentation détaillée vous a intéressé. N'hésitez pas à consulter les liens [à insérer] vers les articles ou vidéos dédiés à mes créations maison (Bela.PAM, Mini PAM, Wobbles) si ces sujets techniques vous intriguent. Comme toujours, les exemples sonores [à insérer ou décrire] illustreront mieux que de longs discours les capacités et les nuances de cet assemblage particulier.

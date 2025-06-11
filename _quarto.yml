@@ -5,6 +5,9 @@ project:
     - "*.opus"
     - "*.json"
 
+execute:
+  echo: false
+
 website:
   title: "jeanlouppecquais.com"
   navbar:
